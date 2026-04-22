@@ -1,0 +1,667 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \usepackage{tikz}
+  \usetikzlibrary{positioning, arrows.meta}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{2. Tests and Measurement}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+# Theoretical Framework
+
+## Measurement
+
+_"We may say that measurement, in the broadest sense, is defined as the assignment of numerals to objects or event, according to rules."_
+
+*Stevens (1946)*
+\pause
+\vspace{2em}
+
+This is an extremely popular definition that still dominates neuropsychology
+
+## Measurement scales according to Stevens
+
+:::{.small}
+\scriptsize
+For Stevens, what is important is to define the measurement scale, which relates objects with numbers.
+
+\tiny
+| Scale        | Description                                                                 | Example                         | Possible Operations                                   |
+|--------------|------------------------------------------------------------------------------|---------------------------------|--------------------------------------------------------|
+| **Nominal** | Classification into categories with no implicit order                         | Sex (M/F), Colors, Nationality | Counting, mode, verification of equality/difference      |
+| **Ordinal** | Classification with order, but distances between categories have no meaning   | Position in a ranking, Educational level | Ordering, medians, percentiles                     |
+| **Interval** | Measurement with order and equal intervals, but without meaningful absolute zero | Temperature in °C, IQ           | Addition, Subtraction, Mean, Standard Deviation, z-score                |
+| **Ratio** | Measurement with order, equal intervals and meaningful zero          |  Age, Years of education, reaction times | All arithmetic operations (×, ÷, +, −), z-score, ratios|
+
+**Legend**
+- *Scale*: type of measurement according to Stevens' classification.
+- *Description*: main characteristics of the scale.
+- *Example*: real variables that fall into that scale.
+- *Possible Operations*: mathematical and statistical transformations allowed by the data.
+:::
+
+
+## Considerations on Stevens' definition
+
+```{=latex}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{figure}
+    \includegraphics[scale=0.1]{../Figures/MoCA-Test-Italian.png}
+    \end{figure}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \textbf{Let us examine the MoCA:}
+    \pause
+    \vspace{2em}
+
+    What do you notice in the scores of the parts that compose it?
+
+    \vspace{2em}
+    What do you notice in the tasks?
+  \end{column}
+\end{columns}
+```
+
+## Considerations on Stevens' definition 1/2
+
+Suppose we have a square table with a side of 40 cm, while another table has a side of 42 cm.
+Would you conclude that the first table is 2 cm longer than the other? (cm is used here as a unit of measurement)
+\pause
+
+Suppose that on a memory test one person obtains a score of 40, while another obtains 42.
+Would you feel comfortable concluding that that person has two units of measurement (of memory) more than the other?
+\pause
+or simply that they have more memory?
+
+
+## Considerations on Stevens' definition 2/2
+In the example just used, moreover, in the memory test, the variation in points seems to be closely linked to the instrument used to assess memory. Each test has different obtainable scores (e.g., the MoCA from 0 to 30, GEMS, another test for general cognitive functioning from 0 to 100).
+
+\pause
+
+**in these examples "+2" could have very different meanings.**
+
+
+## Measurement and neuropsychology
+Measurement in clinical neuropsychology practically always _assumes_ that there is a measurement on an **interval scale**. But, upon deeper analysis, an **ordinal scale** would often seem more appropriate.
+
+
+## Measurement and neuropsychology
+
+On an ordinal scale it is assumed that it is only possible to order values from highest to lowest but that other operations cannot be performed.
+
+On an interval scale it is assumed that operations such as addition, subtraction are possible and each interval has the same meaning (independent of the starting value or the range of the scale). (An analogy is degrees Celsius).
+
+
+## Measurement and arbitrariness of measurement
+
+The example shown above illustrates how the arbitrary scale in neuropsychological tests seems to be critical.
+Imagine two memory tests: one has a score from 0 to 50. Another from 0 to 10. In both cases the value +2 has a potentially different meaning.
+
+One way to "get around" this problem (of arbitrary scale) is to convert to other comparable scales, such as standard deviation or the percentage of people who obtain that score. These two possibilities will be covered in the lessons on "normative data" and on "comparing scores on different tests".
+
+## Another possible definition of measurement from philosophy and physics
+
+We do not measure objects but \emph{properties} of objects:
+
+"Let $O$ be a certain set of objects characterized by having property P and let $\mathbb{R}$ be the set of Real numbers which can be ordered in accordance with the criterion 'being greater than or equal to', measurement is defined:
+
+Let us call $O_p$ the set of objects such that a 'homomorphism' is created between $(O_p, \succcurlyeq)$ and $(\mathbb{R}, \geq)$.
+
+Where $\succcurlyeq$ indicates \emph{empirical ordering relations} (physical objects) and $\geq$ \emph{numerical ordering relations}"
+
+\begin{flushright}
+\emph{Boniolo and Vidali, Philosophy of science, p. 321}
+\end{flushright}
+
+## Concluding considerations on measurement 1/2
+These considerations show how such a simple and natural act (as obtaining and using a score) hides reflections that deserve deeper analysis and that have an influence on the meaning that these scores will assume.
+
+The definition of measurement we use is somewhat more permissive than more rigid definitions (e.g., the one used in physics reported in the previous slide) and leaves some reflections open.
+
+## Concluding considerations on measurement 2/2
+
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+\textbf{The aspect to remember is that in neuropsychological tests, most of the time implicitly, Stevens' definition of measurement is assumed and that it is possible to assume measurement on an interval scale.}
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+
+
+
+## Objectivity
+
+A concept that often emerges when talking about measurement, tests, and statistics is that of objectivity.
+\pause
+Tests are indeed often considered more "objective". It is therefore worth exploring this concept.
+
+\pause
+\vfill
+
+We define objectivity here as a property that applies to an evaluation, a test, or as *the independence of the examiner from the result*
+
+## Objectivity (from forensic context)
+
+\footnotesize"The forensic neuropsychological examination is often considered an objective examination of cognitive functioning. In an ideal hierarchy of sources of evidence, such an examination would rank much higher than more or less sophisticated clinical evidence (self-reports, informant-based reports, clinical interviews, rating scales, etc.), and should therefore be 'promoted' to a higher rank (at par with biochemical, radiological, etc. examinations). After the clinician has examined the subject and formulated their preliminary hypotheses, they ask instrumental examinations to confirm, refute or correct them through objective data, independent both from the examiner's judgment and their distortions, and from every variable unrelated to the object of investigation, in particular from contaminations due to the examinee's subjectivity."
+
+\begin{flushright}
+\emph{Direct quote from Stracciari, Bianchi, Sartori (2010); Forensic Neuropsychology}
+\end{flushright}
+
+The concept of objectivity will be taken up again later, especially with *inter-rater agreement*
+
+## Definition of test
+
+```{=latex}
+\setlength{\fboxrule}{1.5pt}
+
+"A test is a
+\alt<2->{\fcolorbox{red}{white}{\rule{0pt}{12pt}\hspace{2pt}systematic procedure\hspace{2pt}}}{systematic procedure}
+for\\
+\alt<3->{\fcolorbox{red}{white}{\rule{0pt}{12pt}\hspace{2pt}observing a person's behavior\hspace{2pt}}}{observing a person's behavior}
+and for its
+\alt<4->{\fcolorbox{red}{white}{\rule{0pt}{12pt}\hspace{2pt}description with the aid of a numerical scale\hspace{2pt}}}{description with the aid of a numerical scale}
+or a system of categories.
+
+\begin{flushright}
+  \emph{(Cronbach, 1990, p.32)}
+\end{flushright}
+\pause
+
+\onslide<5->{
+\begin{flushright}
+  \begin{figure}
+    \includegraphics[scale=0.05]{../Figures/triangle.png}
+  \end{figure}
+\end{flushright}
+
+The interest is never in the behavior itself but in the \textbf{construct} measured by that behavior.
+
+\textbf{Construct}: an unobservable psychological concept
+}
+
+```
+
+
+## Unobservable entities in Psychology
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+    % First block (top)
+    \node[draw, rectangle, text width=4cm, align=center] (construct) {\textbf{Construct} \\ (e.g. Anxiety, Memory)};
+
+    % Second block (bottom, 5cm below)
+    \node[draw, rectangle, minimum width=3cm, minimum height=1cm, below=5cm of construct] (measure) {Number};
+
+    \onslide<1-2>{\draw[<->, >=stealth, gray, dashed, thick] (construct) -- (measure);}
+
+\onslide<2>{\node[rectangle, minimum width=3cm, minimum height=1cm, below=2.25cm of construct, xshift=3cm] (Notpossible) {\textbf{Not possible!}};}
+
+
+    \onslide<3->{
+
+    \node[draw, rectangle, text width=4cm, align=center, below=2cm of construct] (behaviour) {\textbf{Behaviour}\\ (e.g., responses to test)};
+
+    % Straight arrows (gray, dashed)
+    \draw[-{Stealth}, gray, solid, thick] (construct) -- (behaviour);
+    \draw[-{Stealth}, gray, solid, thick] (behaviour) -- (measure);
+
+    % Curved arrow on the left from construct to measure
+     \draw[<->, >=stealth, gray, dashed, thick] (measure) to[out=180, in=180] (construct);}
+
+     \onslide<4->{
+
+    \node[draw, rectangle, text width=4cm, align=center, right=0.5cm of construct] (others) {\textbf{Other variables}\\ {\small(e.g., Motivation,Mood, Fatigue, \textit{Other Constructs}})};
+    \draw[-{Stealth}, gray, solid, thick] (others) -- (behaviour);
+
+     }
+
+
+\end{tikzpicture}
+\end{center}
+```
+
+
+## What are tests
+
+The cognitive/neuropsychological tests used in clinical neuropsychology are maximum performance tests (or maximum performance)
+
+They present some characteristics (which we will discuss during the course). They are different from questionnaires or tests of *typical response*.
+\pause
+\vspace{2em}
+
+\begin{center}
+Most tests we will refer to are maximum performance tests because they are the most used in clinical (and forensic) evaluation.
+\end{center}
+
+## What are tests
+
+\begin{center}
+  \textbf{Example:}
+\end{center}
+\vspace{2em}
+
+\emph{Consider the Figurative Language 1 test.}
+
+\emph{The patient a final score of 10.}
+
+\emph{What does this number indicate?}
+\pause
+\vspace{2em}
+
+Behavior is the *indicator of a construct* (by construct I mean generically an unobservable psychological concept)
+
+## What are tests
+```{=latex}
+\begin{figure}
+  \includegraphics[scale=0.3]{../Figures/measurement_diagramma.png}
+\end{figure}
+
+\begin{flushright}
+  (From Mondini, Cappelletti, Arcara, 2022)
+\end{flushright}
+
+\textbf{Construct}: Unobservable psychological concept
+
+```
+
+## What are tests
+
+An example of a test. Let us revisit the Figurative Language 1 example
+
+## Test Theory
+
+\begin{center}
+  \textbf{Classical Test Theory}
+\end{center}
+
+The \textbf{Classical Test Theory (CTT)} is a set of psychometric theory concepts related to the development of psychological tests. It is often based on principles of measurement such as Stevens'
+\pause
+
+Concepts such as Validity and Reliability are part of CTT.
+\pause
+
+Most neuropsychological tests (clinical and forensic), implicitly or explicitly use CTT principles and assumptions.
+
+```{=latex}
+\url{https://en.wikipedia.org/wiki/Classical_test_theory}
+```
+
+## Test Theory
+
+\begin{center}
+  \textbf{Classical Test Theory}
+\end{center}
+
+The cardinal principle of CTT is the following formula:
+\begin{center}
+$X = T + E$
+\end{center}
+\pause
+
+$X$ = observed score
+
+$T$ = true score
+
+$E$ = error
+\pause
+\vspace{1.5em}
+
+The error is independent of the true score.
+
+## Test Theory
+
+\begin{center}
+  \textbf{The Limits of Classical Test Theory}
+\end{center}
+
+Classical Test Theory has some intrinsic problems. We mention some:
+\pause
+
+- Subject ability and test complexity/difficulty are confused
+
+- Error and true score are often not really independent
+
+- Problems in defining parallel forms (we will study this when we see changes over time)
+
+\pause
+*Consider the possible error in a Figurative Language 1 score of 8, 0, or 15. Is the error really independent of the true score?*
+
+
+## Test Theory
+
+\begin{center}
+  \textbf{Item Response Theory}
+\end{center}
+
+Item Response Theory is a family of more advanced methods that seek to independently model task difficulty and subject ability.
+
+Among the most famous (historically) IRT models are Rasch models, which allow modeling tests in which items have dichotomous responses (e.g., yes/no)
+\pause
+
+IRT models have an important assumption that is often critical for neuropsychological tests, namely the unidimensionality of the construct.
+\pause
+
+It is assumed that the construct measured by the test can be represented along a single dimension (is not a combination of multiple constructs).
+
+## Test Theory
+
+\begin{center}
+  \textbf{Item Response Theory}
+\end{center}
+
+Example of Rasch models formula (I cite it for completeness):
+\vspace{2em}
+
+```{=latex}
+\small
+\begin{align}
+  \Pr(X_{ni}=1 \mid \theta_n, \beta_i)
+  &= \frac{\exp(\theta_n - \beta_i)}{1 + \exp(\theta_n - \beta_i)}
+  \label{eq:rasch_prob}
+  \\
+  \Pr(X_{ni}=0 \mid \theta_n, \beta_i) &= \frac{1}{1 + \exp(\theta_n - \beta_i)}
+  \label{eq:rasch_prob0}
+\end{align}
+
+$\theta$ = ability
+$\beta$ = difficulty parameter
+```
+
+\vspace{2em}
+
+[[https://www.publichealth.columbia.edu/research/population-health-methods/item-response-theory]{.underline}](https://www.publichealth.columbia.edu/research/population-health-methods/item-response-theory)
+
+## Test Theory
+
+\begin{center}
+  \textbf{Item Response Theory – Rasch models}
+\end{center}
+
+\begin{figure}
+  \includegraphics[width=0.7\textwidth]{../Figures/Rasch_matrix.png}
+\end{figure}
+
+To build Rasch/IRT models, one often starts from matrices of this type.
+
+## Test Theory
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+\vspace{2em}
+
+Although IRT models are psychometrically more rigorous, in this course I will speak practically always of CTT because almost all. Tests available for clinical neuropsychology are developed according to this principle (and not with IRT).
+
+## Test Theory
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+
+*Why are there no tests developed with IRT, if they are more rigorous?*
+\pause
+
+A mix of theoretical aspects and practicality
+\pause
+
+- Developing tests with IRT is more expensive (and can more easily go wrong)
+- Often neuropsychological constructs violate almost by definition the unidimensionality.
+- Sometimes with a different procedure, both IRT and CTT can lead to very similar results ([Hula et al., 2006](https://doi.org/10.1044/1092-4388(2006/003)))
+
+## Test Theory
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+
+The assumption of unidimensionality assumes that:
+
+\begin{itemize}[<*>]
+\item items can be ordered according to their difficulty and that
+\item the probability of correctly answering an item reflects (more or less) its difficulty: the more difficult an item is, the less likely it is to be answered correctly.
+\end{itemize}
+
+This is easy to think for tests that include items in which it is easy to grade difficulty (e.g., math exercises), but with a neuropsychological test?
+
+## Test Theory
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+\vspace{2em}
+
+```{=latex}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{figure}
+    \includegraphics[scale=0.1]{../Figures/MoCA-Test-Italian.png}
+    \end{figure}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    Is it easy to grade MoCA items by difficulty?
+  \end{column}
+\end{columns}
+```
+
+## Test Theory
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+\vspace{1.5em}
+
+\begin{figure}
+  \includegraphics[scale=0.5]{../Figures/ENB2_cit.png}
+\end{figure}
+
+\footnotesize
+\begin{flushright}
+  \textit{from ENB-2 p. 25, Mondini et al. 2011}
+\end{flushright}
+
+## Constructs
+
+\begin{center}
+  \textbf{The constructs measured through neuropsychological tests}
+\end{center}
+
+\textbf{Construct}: An unobservable psychological concept
+
+*What are the typical constructs measured by neuropsychological tests?*
+
+\begin{figure}
+  \includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+
+Neuropsychological tests measure constructs of different types
+
+## Constructs
+
+\begin{center}
+  \textbf{The constructs measured through neuropsychological tests are at different levels}
+  \vspace{2em}
+
+  Functional abilities
+
+  {\small More generic constructs}
+
+  {\footnotesize Cognitive functions}
+\end{center}
+
+## Constructs
+
+\begin{center}
+  \textbf{1) Neuropsychological tests measure cognitive functions}
+\end{center}
+\vspace{2em}
+
+Examples
+
+The digit span measures (the capacity of) short-term memory.
+
+The memory test with interference (ENB-3) measures (the capacity of) working memory.
+
+The TMT-A measures (the capacity of) visuo-spatial search, selective attention and psychomotor speed.
+
+\begin{flushright}
+  \textit{from ENB-3 (Mondini et al., 2011)}
+\end{flushright}
+
+## Constructs
+
+\begin{center}
+  \textbf{2) Neuropsychological tests measure more generic constructs}
+\end{center}
+\vspace{2em}
+
+Examples
+
+The Fab-it (Appollonio et al., 2005) measures the overall state of executive functions
+
+The SET (Dodich et al., 2015), in the global score measures the ability of theory of mind.
+
+Figurative Language 1 in APACS (Arcara & Bambini, 2016), the score indicates the ability to go beyond the literal meaning and understand figurative language.
+
+## Constructs
+
+\begin{center}
+  \textbf{2) Neuropsychological tests measure more generic constructs}
+\end{center}
+\vspace{2em}
+
+Examples
+
+Driving Scenes Test (Brown et al., 2005)
+
+NADL-F (Arcara et al., 2017) [[https://osf.io/d9jng/]{.underline}](https://osf.io/d9jng/)
+\vspace{2em}
+
+*Ecological tests are very useful for concrete answers on everyday life but can be long or not widely available*
+
+## Constructs at different levels
+
+\begin{center}
+  \textbf{The constructs measured through neuropsychological tests are at different levels}
+  \vspace{2em}
+
+  Functional abilities
+  (e.g. Driving ability)
+
+  {\small More generic constructs
+  (e.g. Efficiency of executive functions)}
+
+  {\footnotesize Cognitive functions
+  (e.g. Working memory)}
+
+\end{center}
+
+## Constructs at different levels
+
+\begin{center}
+  \textbf{The constructs measured through neuropsychological tests are at different levels}
+\end{center}
+\vspace{2em}
+
+The fact that constructs are at different hierarchies implies that the construct measured by one test could be included within the construct measured by another test.
+
+This aspect will be taken up again at the point where we discuss test interpretation.
+
+## Other types of tests
+
+Neuropsychological tests are most often maximum performance tests, that is, tests in which the subject is asked to perform as best as possible.
+
+Sometimes functional scales or questionnaires (not maximum performance) are also used.
+
+The **IADL** (Lawton & Brody, 1970) is a scale of autonomy in everyday life, not a proper test.
+
+The **COAST** (Bambini et al., 2016) is a scale for assessing communication effectiveness from the perspective of the patient or caregiver.
+
+Personality tests, mood tests, etc. **ARE NOT** maximum performance tests
+
+## Reflection on measurement of specific constructs
+
+**Why is it useful to measure a certain construct?**
+\pause
+
+Sometimes the *why* of wanting to measure a certain construct and why it could be useful is forgotten.
+\pause
+
+There is often an underlying assumption: that the assessment of cognitive aspects (even basic ones) can tell us something about how a person functions daily and thus give us information about their behavior in situations outside the assessment
+
+It is assumed that there is **ecological validity**[^1] of a specific test (the fact that they did poorly on this test implies that in everyday life there is an effect)
+
+[^1]: Ecological validity will be covered in slides 4 Validity and Reliability
+
+## Reflection on measurement of specific constructs
+
+Assuming that test results tell us something about everyday life is not wrong in itself, but let us not forget that (unless ecological validity is supported by scientific data) this is an interpretation.
+
+## Constructs specific to certain contexts (e.g., forensic neuropsychology)
+
+Almost always the tests used in forensic neuropsychology are constructs that come from cognitive/clinical neuropsychology and are used to make inferences about forensic constructs.
+
+For example, there is no test to measure **the capacity to understand and want**, but this is inferred from the results of other tests that measure aspects of cognitive functioning (e.g., memory, attention, inhibition, etc.)
+
+## Some tests DO NOT measure constructs
+
+Some neuropsychological tests do not measure (strictly speaking) psychological constructs, but quantify other relevant information, for example the probability of having a certain disease, or the probability of recovery, etc.
+
+In these cases we cannot speak of "construct" in the way of some concepts (e.g., memory, attention, etc.), but most of the considerations made for constructs apply. For example, these tests if based on cognitive aspects can be affected by effects of motivation, anxiety, etc.
+
+
+## Summary
+
+```{=latex}
+\begin{figure}
+  \includegraphics[scale=0.3]{../Figures/measurement_diagramma.png}
+\end{figure}
+
+\begin{flushright}
+  {\scriptsize (From Mondini, Cappelletti, Arcara, 2022)}
+\end{flushright}
+
+\textbf{Construct}: Unobservable psychological concept
+
+```

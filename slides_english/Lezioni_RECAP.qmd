@@ -1,0 +1,138 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex
+incremental: false
+header-includes: |
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+  \usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, backgrounds, calc}
+  \usepackage{booktabs}
+  \usepackage{xcolor}
+  \definecolor{mblue}{RGB}{35,55,100}
+---
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+\title{Clinical Research Methodology\\
+\vspace{0.5em}
+{\normalsize \textbf{Summary}}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+\titlegraphic{
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+## 1) Tests and Psychometrics
+
+For evidence-based psychological/neuropsychological practice, it is essential to have **measurements**.
+
+**Tests** are tools for psychological measurement. Measurement and tests are objects of study of **psychometrics**.
+
+When using tests in clinical practice, we face a particular problem: making inferences at the level of the **single case**, which requires special attention.
+
+## Applied Psychometrics
+
+The knowledge of **applied psychometrics** comes into play essentially in two moments:
+
+- when we select the tests to use
+
+- when we interpret the test results
+
+
+## Psychometric Properties of Tests
+
+Some important considerations are:
+
+```{=latex}
+\begin{itemize}
+\item Consider \textbf{all the psychometric properties of a test}
+
+\begin{itemize}
+  \item validity
+  \item reliability
+  \item normative data
+  \item change over time
+  \item \ldots
+\end{itemize}
+
+\item in the transformation of scores to percentiles (and possible comparison with thresholds) remember that they respond to the question:
+
+\begin{itemize}
+\item How "strange" is it to observe this performance in my sample/normative population?
+\end{itemize}
+
+\end{itemize}
+
+```
+
+## Psychometrics and Scientific Evidence
+
+![](../Figures/triangle){width="10%"}. In general remember that a **test** $\nRightarrow$ **construct**.
+
+**It depends on the validity of the test!** (which could also change e.g. with cognitive damage)
+
+## Scientific Studies
+
+For evidence-based psychological/neuropsychological practice, it is essential to base yourself on the results of scientific studies.
+
+The nature of the evidence can be **correlational** (all observational studies and some interventional ones) or **causal** (randomized clinical trials).
+
+## Experimental Studies and Trials
+
+**Clinical trials**, even though they are the principal method for assessing the efficacy of a treatment, *are not without limitations*.
+
+In clinical psychology and clinical neuropsychology, this is mainly due to:
+
+- bias in selection.
+- difficulty in having an appropriate control group.
+- difficulty in achieving a _double-blind_.
+
+
+## Observational Studies
+
+Observational studies provide important information, but there is always the risk lurking around the corner of making causal interpretations, _especially when these are plausible_.
+
+However, this does not exclude the possibility of alternative explanations.
+
+## Problems in Observational Studies
+
+In observational studies there is often a tendency to think that the ideal thing is to "control" for covariates or insert variables in the model to isolate a predictor. However, this can even create errors if you do not consider certain effects (e.g., **colliders**)
+
+## Evidence Synthesis
+
+Also in evidence synthesis be careful about
+
+"garbage in" $\to$ "garbage out"
+
+## \small How Can Clinical Personnel Contribute to Research? (2/2)
+\small
+- Remembering that to contribute to research **it is not necessary to be a full-time researcher**: even those who work mainly in clinical settings can have a decisive role in improving the quality of available knowledge.
+
+- Actively collaborating with researchers, not just as simple "data providers", but by **contributing to defining and refining the research question** based on real needs observed in clinical practice.
+
+- **Helping to identify which problems are truly relevant for patients and for daily work**, avoiding studies that answer unhelpful questions or are far from clinical reality.
+
+- **Participating in the collection of quality data**, accurate and standardized, a fundamental element for producing reliable results.
+
+## \small How Can Clinical Personnel Contribute to Research? (2/2)
+\small
+- Contributing to the **interpretation of results**, because the clinical perspective is essential to understand whether a statistically significant result also has real practical value.
+
+- Promoting collaboration between departments, centers and different professionals, so as to build larger and more representative datasets.
+
+- **Favoring multicenter projects, large clinical databases** (possibly open and shareable) and well-designed trials, rather than small isolated studies that risk producing fragile or unhelpful results.
+
+- **Promoting a culture of critical evaluation of evidence**, helping colleagues and patients to interpret research results with prudence and **awareness**.
+

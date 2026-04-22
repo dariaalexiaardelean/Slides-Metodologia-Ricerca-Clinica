@@ -1,0 +1,643 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex
+incremental: false
+header-includes: |
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+  \usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, backgrounds, calc}
+  \usepackage{booktabs}
+  \usepackage{xcolor}
+  \definecolor{mblue}{RGB}{35,55,100}
+---
+
+```{=latex}
+\title{Clinical Research Methodology\\
+\vspace{0.5em}
+{\normalsize 12. Correlational studies and causal inference}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+\titlegraphic{
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+
+
+# 3.1 Correlation vs Causality
+
+## The Premise
+
+Fundamentally, in science we are always interested in understanding causal mechanisms.
+
+This allows us to understand how to **intervene** and produce **changes**.
+
+
+## The Fundamental Problem
+
+\small
+
+Observational clinical research produces statistical associations.
+
+But is an association sufficient to justify a therapeutic intervention?
+
+Is an association sufficient to establish a cause-effect relationship?
+
+## Correlation is not causation
+
+![](../Figures/corrCause1.png){width="80%" fig-align="center"}
+
+## The Problem
+
+Often the problem of possible confusion between correlation and cause is trivialized because the examples used to explain it are extreme (it is easy to identify the fallacy)
+
+Many times the fallacy is nonetheless committed in the interpretation of results, _especially if the causal relationship is plausible or related to other evidence_.
+
+
+## Important Examples
+
+**Neuropsychological example**: In many cases the correlation between education and different trajectories of cognitive decline has been interpreted with a "protective" role
+
+![](../Figures/Fjell_2025.png){width="70%" fig-align="center"}
+
+## A contradictory result
+
+![](../Figures/Fjell_results.png){width="80%" fig-align="center"}
+
+## Different relationships, same observed effect
+If we were to analyze the relationship between X and Y, we would find in these three cases a strong correlation (or "prediction" via regression) between X and Y.
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  node/.style={circle,draw,fill=mblue!80,font=\scriptsize,
+               minimum size=0.55cm,inner sep=1pt, text=white},
+  arr/.style={-{Stealth},mblue,thick}
+]
+
+% ── Case 1 ──────────────────────────────────────────────
+\node[font=\tiny\bfseries] at (-5,3.2) {Case 1 - Direct cause};
+\node[node] (X)  at (-5.7,2.3) {X};
+\node[node] (Y)  at (-4.3,2.3) {Y};
+\draw[arr] (X)--(Y);
+
+% ── Case 2 ──────────────────────────────────────────────
+\node[font=\tiny\bfseries] at (-2,3.2) {Case 2 - Confounder};
+\node[node] (Z)  at (-2,2.6)  {Z};
+\node[node] (X2) at (-2.8,1.9) {X};
+\node[node] (Y2) at (-1.2,1.9) {Y};
+\draw[arr] (Z)--(X2); \draw[arr] (Z)--(Y2);
+\node[font=\tiny,align=center] at (-2,0.9) {Z causes both X and Y\\(spurious assoc.\ X--Y)};
+
+% ── Case 3 ──────────────────────────────────────────────
+\node[font=\tiny\bfseries] at (0.8,3.2) {Case 3 - Mediator};
+\node[node] (Z2) at (0.8,2.6)  {Z};
+\node[node] (X3) at (0.0,1.9)  {X};
+\node[node] (Y3) at (1.6,1.9)  {Y};
+\draw[arr] (X3)--(Z2); \draw[arr] (Z2)--(Y3);
+\draw[arr] (X3)--(Y3);
+\node[font=\tiny,align=center] at (0.8,0.9) {X influences Z and Y.\\Z mediates X on Y.};
+
+% ── Case 4 ──────────────────────────────────────────────
+\node[font=\tiny\bfseries] at (-5,0.2) {Case 4 - Reverse cause};
+\node[node] (X4) at (-5.7,-0.6) {X};
+\node[node] (Y4) at (-4.3,-0.6) {Y};
+\draw[arr] (Y4)--(X4);
+\node[font=\tiny,align=center] at (-5,-1.4) {Y causes X, not vice versa)};
+
+\end{tikzpicture}
+\end{center}
+```
+
+## Statistical problems in studying associations between variables.
+
+- **Collinearity**: if I have two variables that are highly correlated, I might not be able to distinguish their effects and including both in a model can create distortions.
+
+- **Selection bias**: who enters my sample might not be representative of the population (e.g. _self-selection_), dropout might be related to a relevant variable, collider bias (see below).
+
+- **Direction of the relationship**: it is rarely easy to determine the direction of the relationship (e.g., do I have high cognitive scores because I studied a lot or did I study a lot because I have high cognitive scores?)
+
+- **Measurement error**: let us always remember that there is measurement error that could also be different among the tests used.
+
+
+
+
+## Toward causality: The Bradford Hill Criteria
+
+**Bradford Hill Criteria** (1965): 9 criteria for assessing evidence of causality in epidemiology (strength, consistency, specificity, temporality, dose-response, biological plausibility, coherence, experiment, analogy).
+
+\vspace{0.2em}
+\tiny Bradford Hill (1965). The environment and disease: association or causation? \emph{Proc R Soc Med} 58:295--300. Open Access: \url{https://doi.org/10.1177/003591576505800503}
+
+## The Fundamental Problem of Causal Inference
+
+\small
+
+The **Fundamental Problem of Causal Inference** (Holland, 1986): we can never observe both **counterfactuals** for the same individual at the same time.
+
+\vspace{0.4em}
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners,fill=mblue!20,text width=3.8cm,
+              align=center,font=\footnotesize,minimum height=1cm},
+  arr/.style={-{Stealth},mblue,thick}
+]
+\node[box] (paz) at (0,2.5) {Patient with MCI};
+\node[box] (t1)  at (-2.8,0.8) {Receives cognitive\\training};
+\node[box] (t0)  at ( 2.8,0.8) {Does not receive\\cognitive training};
+\node[box] (y1)  at (-2.8,-0.6) {Outcome $Y^{(1)}$\\(observed)};
+\node[box] (y0)  at ( 2.8,-0.6) {Outcome $Y^{(0)}$\\(\textbf{counterfactual})};
+\draw[arr] (paz)--(t1); \draw[arr] (paz)--(t0);
+\draw[arr] (t1)--(y1);  \draw[arr] (t0)--(y0);
+\node[font=\tiny,red!70] at (2.8,-1.4) {Not observable!};
+\end{tikzpicture}
+\end{center}
+```
+
+\small The individual causal effect = $Y^{(1)} - Y^{(0)}$. But we observe only one of the two. Randomization solves the problem \emph{on average} between groups.
+
+# 3.2 DAG: Directed Acyclic Graphs
+
+## What is a DAG?
+
+\small
+
+A **DAG** (Directed Acyclic Graph) is a tool for explicitly representing **causal assumptions** about a system. Each arrow represents a hypothesis of direct causal relationship.
+
+\vspace{0.3em}
+
+**Components**:
+\footnotesize
+- **Nodes**: variables (observed or latent)
+- **Arrows**: direct causal relationships
+- **Acyclic**: no cycles (A $\to$ B $\to$ A)
+
+\vspace{0.3em}
+**What it is for**:
+\begin{itemize}\footnotesize
+\item Identify which variables to control for (and which \emph{not} to control for)
+\item Identify confounders, mediators, colliders
+\item Assess whether a causal effect is identifiable from available data
+\end{itemize}
+
+\vspace{0.2em}
+\tiny Textor et al.\ (2016). Robust causal reasoning using DAGs. \emph{Int J Epidemiol}.\\
+Online tool: DAGitty --- Open Access: \url{https://www.dagitty.net}
+
+
+## Fundamental Structures in DAGs
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  node/.style={circle,draw,fill=mblue!20,font=\footnotesize,
+               minimum size=0.65cm,inner sep=1pt},
+  arr/.style={-{Stealth},mblue,thick}
+]
+% Chain (mediator)
+\node[font=\small\bfseries] at (-4,3.5) {Chain (Mediator)};
+\node[node] (A1) at (-5,2.5) {A};
+\node[node] (M)  at (-4,2.5) {M};
+\node[node] (B1) at (-3,2.5) {B};
+\draw[arr] (A1)--(M); \draw[arr] (M)--(B1);
+\node[font=\tiny] at (-4,1.9) {A $\to$ M $\to$ B};
+
+% Fork (confounder)
+\node[font=\small\bfseries] at (0,3.5) {Fork (Confounder)};
+\node[node] (C)  at (0,2.8) {C};
+\node[node] (A2) at (-1,2.0) {A};
+\node[node] (B2) at (1,2.0)  {B};
+\draw[arr] (C)--(A2); \draw[arr] (C)--(B2);
+\node[font=\tiny,align=center] at (0,1) {C causes both A and B\\(spurious association A--B)};
+
+% Collider
+\node[font=\small\bfseries] at (4,3.5) {Collider};
+\node[node] (A3) at (3,2.8) {A};
+\node[node] (B3) at (5,2.8) {B};
+\node[node] (K)  at (4,2.0) {K};
+\draw[arr] (A3)--(K); \draw[arr] (B3)--(K);
+\node[font=\tiny,align=center] at (4,1) {Both A and B cause K\\(independent, but conditioned on K:\\spurious association!)};
+\end{tikzpicture}
+\end{center}
+```
+
+## Confounder: Neuropsychological Example
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  node/.style={circle,draw,fill=mblue!20,font=\footnotesize,
+               minimum size=1.2cm,inner sep=2pt,align=center},
+  obs/.style={circle,draw,fill=mblue!50,text=white,font=\footnotesize,
+              minimum size=1.2cm,inner sep=2pt,align=center},
+  arr/.style={-{Stealth},mblue,thick},
+  spurious/.style={-{Stealth},red!60,dashed,thick}
+]
+\node[obs] (eta)  at (0,3)   {Age};
+\node[obs] (dep)  at (-2.5,1) {Worse Memory};
+\node[obs] (cog)  at ( 2.5,1) {AD Risk};
+\draw[arr]     (eta)--(dep);
+\draw[arr]     (eta)--(cog);
+\draw[spurious](dep)--(cog)
+  node[midway,below,font=\tiny,red!70]{Spurious association?};
+\end{tikzpicture}
+\end{center}
+\vspace{-0.3em}
+```
+
+\small Age causes both depression and cognitive decline. If we do not control for age, we find a depression--cognition association that could be \textbf{entirely} or \textbf{partially} spurious.
+
+\vspace{0.3em}
+\textbf{Solution}: add age as a covariate in regression --- or better, build the DAG \emph{before} analyzing the data.
+
+## Collider: A Subtle Error
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  node/.style={circle,draw,fill=mblue!20,font=\footnotesize,
+               minimum size=1.2cm,inner sep=2pt,align=center},
+  arr/.style={-{Stealth},mblue,thick},
+  spurious/.style={-{Stealth},red!60,dashed,very thick}
+]
+\node[node] (gen) at (-2.5,2) {Genetic\\factors\\(APOE)};
+\node[node] (tbi) at ( 2.5,2) {Age};
+\node[node] (ad)  at (0,0.5)  {AD\\diagnosis};
+\draw[arr] (gen)--(ad);
+\draw[arr] (tbi)--(ad);
+\draw[spurious] (gen) to[bend left=25] node[above,font=\tiny,red!70, align=center]{Negative association\\(collider bias!)} (tbi);
+\end{tikzpicture}
+\end{center}
+\vspace{-0.3em}
+```
+
+\small In a clinical sample (selected for having AD), APOE and Age become **negatively correlated** even though in the general population they are independent. \textbf{Conditioning on a collider opens a spurious path}.
+
+\vspace{0.2em}
+\footnotesize \textbf{Practical implication}: studies conducted only on hospitalized patients or with a specific diagnosis can suffer from collider bias (also known as \emph{Berkson's bias}).
+
+
+## Collider (covariate to not include)
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  node/.style={circle,draw,fill=mblue!20,font=\footnotesize,
+               minimum size=1.2cm,inner sep=2pt,align=center},
+  arr/.style={-{Stealth},mblue,thick},
+  spurious/.style={-{Stealth},red!60,dashed,very thick}
+]
+\node[node, align=center] (gen) at (-2.5,2) {Language\\Abilities};
+\node[node] (tbi) at ( 2.5,2) {Age};
+\node[node] (ad)  at (0,0.5)  {Global Cognitive\\Functioning};
+\draw[arr] (gen)--(ad);
+\draw[arr] (tbi)--(ad);
+\draw[spurious] (gen) to[bend left=25] node[above,font=\tiny,red!70, align=center]{Negative association\\(collider bias!)} (tbi);
+\end{tikzpicture}
+\end{center}
+\vspace{-0.3em}
+```
+
+\small Controlling for a **collider** risks having biased estimates (e.g., including a covariate in a regression model)
+
+
+## Mediator: Not Always to Be Controlled
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  node/.style={circle,draw,fill=mblue!20,font=\footnotesize,
+               minimum size=1.2cm,inner sep=2pt,align=center},
+  arr/.style={-{Stealth},mblue,thick}
+]
+\node[node] (dep)  at (-2.5,1.5) {Depression};
+\node[node] (som)  at (0,1.5)    {Insomnia};
+\node[node] (att)  at (2.5,1.5)  {Attention\\(worsened)};
+\draw[arr] (dep)--(som);
+\draw[arr] (som)--(att);
+\draw[arr] (dep) to[bend right=30] (att);
+\node[font=\tiny,mblue] at (0,0.3) {Direct + indirect (mediated) path};
+\end{tikzpicture}
+\end{center}
+\vspace{-0.3em}
+```
+
+\small If we want to estimate the **total** effect of depression on attention, \textbf{we must not} control for insomnia (which is a mediator). Doing so would block part of the causal effect.
+
+\vspace{0.3em}
+\footnotesize \textbf{Direct vs indirect effect}: mediation analysis (e.g., via SEM or packages such as \texttt{mediation} in R) allows us to decompose the total effect.
+
+
+
+# 3.3 Methods for Causal Inference from Observational Data
+
+## Propensity Score
+
+\small
+
+The **propensity score** (Rosenbaum \& Rubin, 1983) is the probability that a subject receives treatment, conditional on their observed characteristics.
+
+$$PS_i = P(\text{Treatment}_i = 1 \mid X_i)$$
+
+where $X_i$ is the vector of observed covariates.
+
+\vspace{0.4em}
+
+**Intuition**: subjects with the same propensity score are "quasi-randomized" with respect to observed covariates.
+
+\vspace{0.4em}
+
+## How are Propensity Scores Used?
+
+**Methods of use**:
+\begin{itemize}\footnotesize
+\item \textbf{Matching}: match treated and control subjects with similar PS
+\item \textbf{Stratification}: divide into propensity score quintiles
+\item \textbf{Weighting} (IPW): weights inversely proportional to PS
+\item \textbf{Covariate}: include PS as a covariate in regression
+\end{itemize}
+
+
+
+## Propensity Score: Neuropsychological Example
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners,fill=mblue!15,text width=3.5cm,
+              align=center,font=\footnotesize,minimum height=0.9cm},
+  arr/.style={-{Stealth},mblue,thick}
+]
+\node[box] (cov) at (0,4)  {Covariates:\\age, education,\\comorbidities, MMSE};
+\node[box] (ps)  at (0,2.5)  {Estimate PS:\\logistic / random forest};
+\node[box] (mat) at (0,1)  {Matching or\\IPW weighting};
+\node[box] (out) at (0,-0.5) {Estimate causal\\effect of treatment};
+\draw[arr] (cov)--(ps); \draw[arr] (ps)--(mat); \draw[arr] (mat)--(out);
+\node[right,font=\tiny,text width=3.5cm, align=center] at (2.0,3.5) {E.g.\ patients who\\chose training\\vs no treatment};
+\node[right,font=\tiny,text width=3.5cm, align=center] at (2.0,1) {Balances\\pre-treatment\\characteristics};
+\end{tikzpicture}
+\end{center}
+```
+
+\small \textbf{Key assumption (not verifiable!)}: \emph{no unmeasured confounders}: all variables that influence both treatment selection and outcome have been measured and included in the PS.
+
+## Limitations of Propensity Score
+
+\small
+
+**Assumption of positivity**: every subject must have probability $> 0$ of receiving each treatment. If some subjects have PS $= 0$ or $= 1$, comparison is not possible.
+
+\vspace{0.3em}
+
+**No unmeasured confounders**: the PS balances observed covariates, but not latent or unmeasured ones (e.g., patient motivation, undetected family support).
+
+\vspace{0.3em}
+
+**Insufficient overlap**: if treated and control subjects are very different, matching does not find adequate pairs and estimation is unreliable.
+
+\vspace{0.3em}
+
+**Not an RCT**: the PS reduces bias from observed confounding, but does not eliminate it completely. It should always be accompanied by a sensitivity analysis.
+
+\vspace{0.2em}
+\tiny Austin (2011). An introduction to propensity score methods. \emph{Multivariate Behav Res} 46(3). Open Access: \url{https://doi.org/10.1080/00273171.2011.568786}
+
+<!--
+## Other Approaches to Causal Inference
+
+\small
+
+**Instrumental Variables (IV)**
+
+An instrumental variable $Z$ influences treatment but not outcome except through treatment. It allows estimating causal effects even in the presence of unmeasured confounders.
+
+\emph{Example}: geographic variations in access to neurorehabilitation services as an instrument.
+
+\vspace{0.3em}
+
+**Difference-in-Differences (DiD)**
+
+Compares the change over time between an exposed group and a non-exposed group, controlling for pre-existing trends.
+
+\vspace{0.3em}
+
+-->
+
+## Propensity scores and Sensitivity Analysis
+
+To probe the limitations of PS, several additional robustness analyses are often used.
+One is the **Sensitivity Analysis**.
+
+E-value analysis (VanderWeele \& Ding, 2017): quantifies how strong an unmeasured confounder would need to be to explain the observed association.
+
+The higher the E-value, the more robust the propensity score analysis is
+
+\vspace{0.2em}
+\tiny VanderWeele \& Ding (2017). Sensitivity analysis in observational research: introducing the E-value. \emph{Ann Intern Med}. Open Access: \url{https://doi.org/10.7326/M16-2607}
+
+<!--
+# 3.4 Theoretical Frameworks
+
+## Potential Outcomes Framework (Rubin)
+
+\small
+
+The **potential outcomes** framework (Rubin, 1974; Holland, 1986) formalizes causality through counterfactual variables.
+
+\vspace{0.3em}
+
+For each subject $i$ and treatment $t \in \{0,1\}$:
+$$Y_i^{(t)} = \text{outcome that would be observed if the subject received treatment } t$$
+
+**Individual causal effect**: $\tau_i = Y_i^{(1)} - Y_i^{(0)}$
+
+**Average Treatment Effect (ATE)**: $\tau = E[Y^{(1)} - Y^{(0)}]$
+
+**ATE in the treated (ATT)**: $\tau_{ATT} = E[Y^{(1)} - Y^{(0)} \mid T=1]$
+
+\vspace{0.3em}
+\small Randomization ensures that $E[Y^{(0)} \mid T=1] = E[Y^{(0)} \mid T=0]$ (exchangeability), making the counterfactual identifiable.
+
+-->
+## Do-Calculus and Pearl's Framework
+
+\small
+
+Judea Pearl developed a framework based on DAGs and **do-calculus** to answer causal questions.
+
+\vspace{0.3em}
+
+**Fundamental difference**:
+\begin{itemize}\footnotesize
+\item $P(Y \mid X=x)$: observed probability of $Y$ given that we observe $X=x$ (statistical)
+\item $P(Y \mid do(X=x))$: probability of $Y$ if we \emph{intervene} by setting $X=x$ (causal)
+\end{itemize}
+
+\vspace{0.3em}
+
+**Backdoor criterion**: a set of variables $Z$ blocks all "backdoor" paths between treatment and outcome $\Rightarrow$ controlling for $Z$ yields a causal estimate.
+
+\vspace{0.3em}
+
+**Practical tool**: **DAGitty** (\url{www.dagitty.net}) allows drawing DAGs online and automatically identifies the minimal adjustment set.
+
+\vspace{0.2em}
+\tiny Pearl (2009). \emph{Causality}. Cambridge University Press.\\
+Free: Pearl et al.\ (2016). \emph{Causal Inference in Statistics: A Primer}. Wiley. Chapters available Open Access: \url{http://bayes.cs.ucla.edu/PRIMER/}
+
+
+## Backdoor Criterion: Example
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  node/.style={circle,draw,fill=mblue!20,font=\footnotesize,
+               minimum size=1.1cm,inner sep=1pt,align=center},
+  blocked/.style={circle,draw,fill=mblue!50,text=white,font=\footnotesize,
+                  minimum size=1.1cm,inner sep=1pt,align=center},
+  arr/.style={-{Stealth},mblue,thick},
+  back/.style={-{Stealth},red!50,dashed,thick}
+]
+\node[node]    (ansia) at (0,3.5)   {Anxiety};
+\node[node]    (cann) at (-2.5,2)  {Cannabis Use};
+\node[blocked] (cog) at (2.5,2)   {Cognition\\(Outcome)};
+
+\draw[arr] (cann)--(cog) node[midway,above,font=\small]{?};
+\draw[back] (ansia)--(cog);
+\draw[back] (ansia)--(cann);
+\draw[back] (cann) to[bend left=65] node[above,font=\tiny,red!60]{Backdoor path via anxiety} (ansia);
+
+\node[font=\scriptsize,red!70,text width=5cm] at (0,-1.5)
+  {Blocking age closes the backdoor path and allows causal estimation\\ depression $\to$ cognition};
+\end{tikzpicture}
+\end{center}
+```
+
+## Confusion Index: Summary of Structures
+
+```{=latex}
+\begin{center}
+\begin{tabular}{>{\footnotesize}l >{\footnotesize}l >{\footnotesize}p{4cm}}
+\toprule
+\textbf{Structure} & \textbf{Control?} & \textbf{Effect if controlled} \\
+\midrule
+Confounder (fork)  & \textbf{Yes}  & Removes spurious association \\
+Mediator (chain)  & \textbf{No}  & Blocks part of the causal effect \\
+Collider           & \textbf{No}  & Opens a spurious path \\
+\midrule
+\multicolumn{3}{l}{\footnotesize \emph{NB: the choice depends on the causal question, not on statistical significance}} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.5em}
+```
+\small
+![](../Figures/triangle.png){width="10%"} In psychology and neuropsychology, inserting control variables "because they are correlated" without a DAG can produce worse estimates than no control at all.
+
+
+## Summary: From Correlation to Causality
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners,fill=mblue!20,text width=3.4cm,
+              align=center,font=\footnotesize,minimum height=0.85cm},
+  arr/.style={-{Stealth},mblue,thick}
+]
+\node[box] (q)  at (0,4) {Causal question\\(not just associative)};
+\node[box] (dag) at (0,2.5) {DAG: represent\\causal assumptions};
+\node[box] (id) at (0,1)  {Identification:\\backdoor criterion\\adjustment set};
+\node[box] (est) at (0,-0.5) {Estimation:\\PS matching, IPW,\\IV, DiD, RD};
+\node[box] (sen) at (0,-2){Sensitivity analysis:\\E-value, RD bounds};
+\draw[arr] (q)--(dag); \draw[arr] (dag)--(id);
+\draw[arr] (id)--(est); \draw[arr] (est)--(sen);
+\end{tikzpicture}
+\end{center}
+```
+
+## How to solve? With appropriate models.
+
+Among appropriate models, some are **Structural Equation Models** (SEM) which:
+
+- explicitly model causal directions.
+- account for measurement error and can model latent variables (e.g., Constructs) with multiple indicators (e.g., tests)
+
+NOTE: Every SEM is implicitly a DAG
+
+## What SEM Cannot Do
+
+**SEM cannot**:
+
+- **tell us the direction of causality** (we must hypothesize it ourselves; an SEM model with completely wrong direction can yield very strong results)
+
+- **solve sampling problems** they will always influence the results.
+
+-**give generalizable estimates if the sample is small** SEMs risk overfitting if the sample is not of adequate size.
+
+## So then?
+
+Can I conduct a study with simple correlations or multiple regression and at least make some hypotheses?
+
+Yes, it can be useful but...
+\pause
+
+![](../Figures/Lewer_et_al_2025.png){width="80%" fig-align="center"}
+\centering
+\href{https://bmjmedicine.bmj.com/content/4/1/e001375}{\underline{\textbf{Link to OA article}}}
+
+
+## Take-home message
+
+Correlational studies can seem simple, but sometimes lead to misleading conclusions.
+
+Again, remember to interpret results with judgment and be aware of the pitfalls of interpreting cause-effect relationships where they may not exist.
+
+
+<!--
+## Practical Open Access Tools — Section 3
+
+\small
+
+\begin{itemize}\footnotesize
+
+\item \textbf{DAGitty} (online DAG, free):\\
+  \url{https://www.dagitty.net}
+
+\item \textbf{Causal Inference in Statistics: A Primer} (Pearl et al.):
+  Selected chapters Open Access:\\
+  \url{http://bayes.cs.ucla.edu/PRIMER/}
+
+\item \textbf{The Effect: An Introduction to Research Design and Causality}\\
+  (Huntington-Klein, 2022). Entire book Open Access:\\
+  \url{https://theeffectbook.net}
+
+\item \textbf{Causal Inference: The Mixtape} (Cunningham, 2021).\\
+  Open Access: \url{https://mixtape.scunning.com}
+
+\item \textbf{Propensity Score}: Austin (2011). \emph{Multivariate Behav Res}.\\
+  \url{https://doi.org/10.1080/00273171.2011.568786}
+
+\item \textbf{E-value}: VanderWeele \& Ding (2017). \emph{Ann Intern Med}.\\
+  \url{https://doi.org/10.7326/M16-2607}
+
+\item \textbf{Bradford Hill criteria}: Hill (1965). \emph{Proc R Soc Med}.\\
+  \url{https://doi.org/10.1177/003591576505800503}
+
+\item \textbf{R package \texttt{MatchIt}} (PS matching):
+  Ho et al., Open Access:\\
+  \url{https://doi.org/10.18637/jss.v042.i08}
+
+\end{itemize}
+
+-->

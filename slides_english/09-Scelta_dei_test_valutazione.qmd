@@ -1,0 +1,122 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{09 - Test Selection for an Assessment}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+## Test Selection
+
+Two moments of test selection:
+
+1. Selection of tests to include in your own "toolbox"
+
+2. **Selection of tests to use with a specific individual for a specific purpose.**
+
+## Test Selection for a Specific Assessment
+
+For clinical neuropsychology there are three main approaches (called in many ways in the literature)
+
+- Fixed battery
+- Flexible battery
+- Fixed screening battery plus ad hoc tests
+
+## Fixed Battery Approach
+
+The test battery is the same for all evaluated individuals. It is generally quite extensive and tends to cover all cognitive domains.
+
+It is very common especially in clinical settings where evaluation tends to be standardized for all patients and in contexts where the evaluated individuals tend to be quite similar.
+
+## Fixed Battery Approach
+
+**PROS**
+
+- It is an approach that is not influenced by the evaluator's preconceptions.
+- It allows a comprehensive evaluation of the patient.
+
+**CONS**
+
+- It requires a lot of time (often multiple sessions) to complete a single evaluation.
+- It can be very fatiguing for the person administering the tests.
+
+## Flexible Battery Approach
+
+Tests are chosen each time based on diagnostic hypotheses about the examinee. It is accompanied by the so-called hypothesis testing process.
+
+_NOTE: in forensic settings, this is the most common approach, also due to limited evaluation time_
+
+
+## Flexible Battery Approach
+
+In general one starts with a test, selected based on diagnostic questions. Based on the result of the test, the next test is selected and so on.
+
+Often a favored approach is to seek to falsify (that is, refute) one's hypotheses, rather than confirm them, following a deductive approach.
+
+E.g. if I suspect that the patient has a memory deficit and I find that the memory test is within normal range, I have falsified my hypothesis and can proceed with another hypothesis to investigate through another test.
+
+## Flexible Battery Approach
+
+**PROS**
+
+- It is an approach that allows focus on the specific diagnostic requirements.
+- The duration is limited.
+
+**CONS**
+
+- The outcome can be influenced by the neuropsychologist's preconceptions (e.g., confirmation bias).
+- Crucial elements of the patient's cognitive status could be overlooked.
+- An approach strictly based on falsification does not account for possible measurement errors.
+
+## Approach with Fixed Screening Battery Plus Ad Hoc Tests
+
+It is an intermediate approach to the two. One begins with a summary evaluation done with a screening battery, followed by an in-depth evaluation based on the screening results.
+
+**PROS** and **CONS** are intermediate between the two previous approaches.
+
+
+## Other Considerations on Test Selection
+
+An important consideration to make about test selection is that you must remember that (from a statistical point of view), the more tests you administer, the more likely it is that at least one will fall below the cutoff.
+
+One possibility would be to correct the tests with multiple comparison correction methods (e.g., Bonferroni). In the Bonferroni method, to keep the type 1 error at the nominal level (alpha = 0.05, i.e., 5%) for all tests, you adjust the critical value by dividing by the number of tests administered.
+
+Suppose we administered 20 tests, the critical alpha would become 0.05/20 = 0.0025
+
+## Other Considerations on Test Selection
+
+Using corrections like the Bonferroni method has another problem: it assumes that all test results are independent. We know instead that, coming from the same individual, they will likely be related.
+
+There are therefore more correct methods that increase type 2 error less, in fact not completely controlling the 1st type. E.g., Benjamini & Yekutieli 2001, False Discovery Rate.
+
+_The use of test correction methods is anyway very uncommon and could only be used with those methods that return exact probability._
+

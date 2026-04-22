@@ -1,0 +1,687 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{06 - Identifying conditions of interest}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+# 6. Identifying conditions of interest
+
+## Brief recap
+
+In previous slides we saw the methodology used to identify a deficit (or a damage) cognitive.
+
+Given the methodological/epistemological difficulty in defining deficit and damage, we use reverse reasoning, starting from a definition of _absence of deficit_, and using, to define threshold values (**normality cut-off**) only data from people who do not have a deficit.
+
+## Recap on clinical cut-off
+```{=latex}
+\begin{center}
+\textbf{Clinical cut-off}
+\end{center}
+\begin{figure}
+\includegraphics[scale=0.15]{../Figures/Healthy_vs_Pathological.png}
+\end{figure}
+
+\tiny
+\emph{Not knowing where the scores of a pathological population (deficit or damage) are located, our threshold corresponds, arbitrarily, to the score that delimits the lower 5\% (gray area). Assuming that deficit and pathology are associated with worse performance}.
+```
+
+## Recap on percentages and probability 1/2
+
+In the next slides we will often deal with _percentages (based on samples)_ (that is, percentiles) and _probabilities_ (which are not necessarily the same thing).
+
+Let us remember that we often use _percentages obtained from samples_ to **estimate** probabilities, but that probabilities are the expected percentages if we had access to the entire _population_.
+
+
+## Recap on percentages and probability 2/2
+
+Another way to think about this difference is that percentiles (and percentages) are referred to the past,
+while probabilities refer to what we would expect _in the future_.
+
+A further way, more technical, is that probability refers to the expected percentage if we could do infinite repetitions of the sampling.
+
+<!-- For further information on the difference between percentage/probability see [\underline{here}]() -->
+
+
+## The Condition of Interest
+
+However, there are situations where it is possible to identify the *condition of interest* (Condition of Interest, COI), through procedures, perhaps costly or invasive, which however allow us to have a classification that we consider our reference for correctness/error.
+
+The condition of interest is, in clinical context, often the presence of a pathology, or the classification obtained through a costly test. In forensic contexts, the classification as a "potential malingerer" is also a condition of interest.
+
+The test/method/diagnostic procedure used to obtain our reference classification is called **gold-standard**.
+
+## Identifying a condition of interest
+
+In the case where it is possible to distinguish two\footnote{it is also possible to think of cases with three or more categories, but they are often reduced to comparisons between two. In the slides that follow we will focus on the most common discrimination between two groups} categories, the objective of a test becomes to identify a threshold that allows us to correctly discriminate between the two categories, in accordance with the gold-standard.
+
+To distinguish from the _normality cut-off_ we will call this threshold **discrimination cut-off**.
+
+## Note on terminology
+
+Often in the examples that follow we will use "subject/individual with pathology" as an example where the condition of interest is present and for simplicity. All reasonings can be extended to other conditions of interest.
+
+In the next slides we will do some examples of classifications _after the threshold has been obtained_. We will later explain how to obtain this threshold that allows us discrimination.
+
+
+## normality cut-off
+
+![](../Figures/cut-off_normalità.png)
+
+## discrimination cut-off
+
+![](../Figures/cut-off_discriminazione.png)
+
+## Terminology
+\small
+**TP**: _True Positive_ (e.g. subject with pathology, correctly identified as pathological)
+
+**FP**: _False Positive_ (e.g. healthy subject, erroneously identified as pathological)
+
+**FN**: _False Negative_ (e.g. subject with pathology, erroneously identified as healthy)
+
+**TN**: _True Negative_ (e.g. healthy subject, correctly identified as healthy)
+
+## Confusion Matrix
+
+The possible results of a classification are often reported in what is known as the **confusion matrix**
+
+![](../Figures/matrice_confusione.png)
+
+
+## Sensitivity and Specificity
+
+![](../Figures/triangle.png){fig-align="center" width="20%"}
+
+From the results of the confusion matrix we can calculate some important measures.
+
+**Sensitivity (Recall)**: TP / TP + FN
+
+It is the estimate of the probability of correctly identifying a positive case, if the person is positive by the gold standard.
+
+**Specificity**: TN / TN + FP
+
+It is the estimate of the probability of correctly identifying a negative case, if the person is negative by the gold standard.
+
+## Sensitivity and Specificity (A neuropsychological example)
+
+**Sensitivity (Recall)**: TP / TP + FN
+
+It is the estimated probability of correctly identifying a patient with dementia, if the person has dementia according to the gold-standard.
+
+**Specificity**: TN / TN + FP
+
+It is the estimated probability of correctly identifying a healthy person if the person is healthy (i.e. no dementia) according to the gold standard.
+
+## Sensitivity and Specificity (A forensic example)
+
+**Sensitivity (Recall)**: TP / TP + FN
+
+It is the probability of correctly identifying a malingerer, if the person is a malingerer according to the gold-standard.
+
+**Specificity (Recall)**: TN / TN + FP
+
+It is the probability of correctly identifying a NON-malingerer, if the person is a NON-malingerer according to the gold-standard.
+
+## Sensitivity, Specificity and samples.
+
+![](../Figures/matrice_confusione.png)
+
+**Sensitivity**: TP / TP + FN
+
+**Specificity**: TN / TN + FP
+
+\small
+\pause
+\emph{Is Sensitivity influenced by the results of subjects with pathology?\\ (Condition of Interest PRESENT)}
+\pause
+
+\emph{Is Specificity influenced by the results of subjects with pathology?\\ (Condition of Interest ABSENT)}
+
+
+
+
+## Establishing the discrimination cut-off
+
+Although they depend on different samples, the results of sensitivity and specificity are interconnected when the two distributions of data (of subjects with and without pathology, are overlapping)
+
+Ideally a test should have both high sensitivity and high specificity, but often increasing one comes at the expense of the other.
+
+## Establishing the discrimination cut-off
+
+Imagine moving the line that indicates the discrimination cut-off to the left or right, obviously all classifications would be modified: TP, TN, FP and FN.
+
+For example, moving the line to the left (i.e., making the discrimination cut-off lower, decreases FP, but also decreases TP! And increases TN and FN.
+
+![](../Figures/cut-off_discriminazione.png){height="50%" fig-align="center"}
+
+
+## Establishing the discrimination cut-off
+
+For a dynamic exploration of how changing the threshold changes the classification, you are invited to use this app.
+
+\begin{center}
+\underline{\url{https://app.hsancamillo.it/app/sens-spec}}
+\end{center}
+
+
+## Specificity and normality cut-off
+
+It is interesting to note how the use of a normality cut-off (see slides evaluating cognitive deficits), can be imagined as a condition where **we do not know the distribution of scores of those who have a deficit/damage**, but we know that they will likely be to the left (or generally, worse) than those who do not have a deficit/damage
+
+Not knowing where to place the threshold, we place it at the point that delimits 5% of the sample/population for the healthy.
+
+## Receiver Operating Characteristic (ROC) Curve 1/2
+\small
+The possible results of sensitivity and specificity at different hypothetical thresholds are investigated (and represented graphically) through the so-called **ROC curve**.
+
+In the ROC curve, on the y axis is generally plotted the _Sensitivity_, while on the x axis is plotted _1 - Specificity_ .
+
+Each point of the ROC curve represents the combination of Sensitivity and Specificity given the choice of a specific threshold.
+
+An optimal ROC curve with these characteristics should get as close as possible to the top left corner. The closer the ROC curve is to a diagonal, the more it behaves like a "random classifier", regardless of the threshold value, the classification corresponds to flipping a coin and deciding membership in one of the two groups.
+
+## An example of ROC curve 1/2
+An example of two ROC curves.
+
+![](../Figures/ROC_example.png)
+
+
+## An example of ROC curve 2/2
+
+![](../Figures/ROC_example2.png){width="70%"}
+
+
+## Identifying the optimal threshold 1/3
+
+The optimal threshold is often defined through indices that seek a balance between sensitivity and specificity. In general, an optimal threshold is the point furthest to the top left and that is with higher sensitivity and specificity, or the value in which the sum of sensitivity and specificity is maximum. This is called **Youden's index** or Youden's J statistics, calculated as:
+\center
+
+J = Sensitivity + Specificity - 1
+
+
+
+
+## Identifying the optimal threshold 2/3
+
+
+There are cases (not rare) where optimal thresholds could be two.
+
+E.g.
+
+- A threshold with 0.92 sensitivity and 0.93 specificity
+- A threshold with 0.93 sensitivity and 0.92 specificity.
+
+
+In this case for example the Youden's index (J) would be identical (remember J = Sensitivity + Specificity -1). In these cases the best threshold is chosen according to the needs of the test (favoring sensitivity or specificity).
+
+## Identifying the optimal threshold 3/3
+
+Note that in general, the optimal threshold might not be chosen on a statistical basis, but on the basis of the risk of a misclassification.
+
+For example, for a rapid test for dementia to which one intends to always follow a more extensive assessment, it could be useful to maximize sensitivity, at the expense of specificity. I will make more errors by classifying as possible patients with dementia people who are not, but this could be a preferable scenario to the opposite (incorrectly classifying a patient at risk of dementia as healthy).
+
+## Overlap of the distributions of data from the two groups
+
+It should be noted that the more the distributions of data are separated, the better the sensitivity and specificity of my test will be.
+
+In essence, it will be possible to calculate a threshold that discriminates me well (**discrimination cut-off**)
+
+If instead the distributions of the two groups are too overlapping it is possible that it is impossible to find satisfactory Sensitivity and Specificity, regardless of the threshold selected.
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.15]{../Figures/non_overlap.png}
+\caption*{\tiny non-overlapping distributions}
+\end{figure}
+
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.15]{../Figures/overlap.png}
+\caption*{\tiny overlapping distributions}
+\end{figure}
+\end{columns}
+```
+
+## An important note
+
+It should also be noted that unlike tests based on normality cut-off, for tests aimed at having a discrimination cut-off **there may not be an adequate threshold for discrimination**.
+
+This problem does not exist for tests with normality cut-off because there we can always delimit the 5% of worst performance
+(the truth is that we do not know where the distribution with deficit or damage is located, indeed we have defined as the threshold of damage, precisely that of the 5% of worst performance).
+
+
+## \small Sensitivity and Specificity are properties of the test, not of the assessment 1/3
+
+Like other properties studied so far, it is important to note that Sensitivity and Specificity are characteristics of tests (given specific conditions) and not of the property of the specific assessment. That indeed depends on the reality (which we may not be able to know) of the situation.
+
+## \small Sensitivity and Specificity are properties of the test, not of the assessment 2/3
+
+Often talking about probability can lead to confusion, especially when (at least in theory), we could know what is the truth. It might make sense if it was about the future (e.g., probability of developing Alzheimer's within 5 years), but often the reality is already there (only we don't know what it is).
+
+E.g. We don't know if the person is developing Alzheimer's, but it is possible to imagine that there is a correct answer: either they have it or they don't.
+
+## \small Sensitivity and Specificity are properties of the test, not of the assessment 3/3
+
+It should be remembered that it is not correct to say this individual has a 90% probability of having Alzheimer's (if we had the ability to know the truth: either they have it or they don't). One must always correctly handle the probabilities returned by tests. The test tells me that 90% of people with Alzheimer's have this performance. The example is simpler if you use conditions of interest like "presence of tumor" (either there is or there isn't and you can understand with histological examination, which is our "truth").
+
+## Conditions of interest and validity
+
+It should be noted that in tests where it is possible to evaluate sensitivity/specificity (i.e., there is a gold-standard), the interest is generally on **criterion validity** (see also slides on validity).
+
+In this case, often the concept of construct validity can be relevant. The important thing is not so much what is being measured, but the effectiveness that results in the classification given by those numbers.
+
+This, however, is a delicate reflection, because a test with poor validity is also more susceptible to problems (e.g., influence of constructs of no interest in the final score)
+
+
+## Limits of Sensitivity and Specificity 1/3
+
+Sensitivity and Specificity help us to estimate important things:
+\begin{itemize}
+\small
+\item \emph{Assuming that the individual is truly positive}, what is the probability of being below the test threshold? (Sensitivity)
+\item \emph{Assuming that the individual is truly negative}, what is the probability of being above the test threshold? (Specificity)
+\end{itemize}
+
+## Limits of Sensitivity and Specificity 2/3
+
+The information from Sensitivity and Specificity is useful, but has limits similar to those we had for normality cut-off,
+We are forced into a "backward" reasoning, assuming what we are and see if we are below the threshold.
+
+**P(test below cut-off | Pathological)**
+
+**P(test above or equal to cut-off | Healthy)**
+
+## Limits of Sensitivity and Specificity 3/3
+
+Ideally it would be better to have the opposite situation:
+
+\vfill
+**P(Pathological | test below cut-off)**
+
+\vfill
+\small
+\emph{This, however, is much more difficult to calculate (see next slides)}
+
+## Conditional probabilities and Bayes' theorem
+
+Bayes' theorem is a very important theorem that relates different probabilities. It is important because it clearly expresses the relationship between probabilities that (intuitively) might be confused as identical.
+
+```{=latex}
+\vfill
+\center
+${\color{red} P(A|B)}\neq {\color{blue} P(B|A)}$\\
+\vspace{1em}
+or \\
+\scriptsize
+\vspace{1em}
+{\color{red}P(Pathology | score below cut-off)} $\neq$ {\color{blue}P(score below cut-off | Pathology)}\\
+\vspace{1em}
+We would benefit from the probability in red, but we have the one in blue.
+```
+
+
+## Bayes' Theorem Formula
+```{=latex}
+\center
+$\textbf P(A | B) = \frac{P(B | A)\,P(A)}{P(B)}$
+\vfill
+or, for a practical example
+\vfill
+\scriptsize
+$P(\text{pathology} | \text{score below cut-off}) = \frac{P(\text{score below cut-off} | \text{pathology})\,P(\text{pathology})}{P(\text{score below cut-off})}$
+```
+
+
+
+## Considerations on Bayes' Theorem
+\small
+
+Beyond the mathematical aspect, Bayes' theorem tells us essentially one thing:
+To calculate the probabilities we really care about we would need to know other
+Probabilities that in fact we will never be able to know (i.e., Prior Probabilities, which is also associated with Prevalence, if reference is made to the concepts of PPV and NPV, see next slides).
+
+For this reason tests give us "indicative" information on the probabilities of having a disease or presence of a condition of interest. But it is up to the clinical neuropsychologist to reach his diagnosis, also by ignoring the result of a test, if there are elements that suggest that prior probabilities (or base rate) may alter the values. This will be discussed in more detail in the section on _interpretation_.
+
+
+## Positive and Negative Predictive Value
+
+Other two very relevant measures that can be obtained from the confusion matrix are:
+**Positive Predictive Value** and **Negative Predictive Value** (see also [\underline{here}](https://epidemiology.sruc.ac.uk/shiny/apps/predictive_values/))
+\vfill
+
+**Positive Predictive Value (PPV)** = TP / (TP + FP)
+
+**Negative Predictive Value (NPV)** = TN / (TN + FN)
+\pause
+
+\emph{Reflection: on which samples are PPV and NPV obtained?}
+
+## Positive Predictive Value
+The **PPV** indicates the proportion of people truly positive (by the gold-standard), among all those who test positive.
+
+_E.g. the number of real people with Alzheimer's (according to gold-standard), who result positive on the test, i.e., who are classified as having Alzheimer's in the test that should distinguish Alzheimer's from Healthy,_
+
+## Negative Predictive Value
+
+The **NPV** instead indicates the proportion of people truly negative (by the gold-standard), among all those who test negative.
+
+_E.g. the number of real healthy people (according to gold-standard), who result negative on the test, i.e., who are classified as Healthy in the test that should distinguish Alzheimer's from Healthy,_
+
+
+## Note on interpretation of PPV and NPV
+
+As for Sensitivity and Specificity, PPV and NPV are concepts that refer to the test and that refer to a specific threshold (i.e., a specific cut-off).
+
+Changing the threshold or other parameters will also change PPV and NPV.
+
+Try using the app drawn and also change the numbers of the groups (pathological/healthy) and see how Sensitivity/Specificity changes and how PPV and NPV change.
+
+\begin{center}
+\underline{\url{https://app.hsancamillo.it/app/sens-spec}}
+\end{center}
+
+## PPV and Bayes' Theorem
+![](../Figures/triangle.png){fig-align="center" width="15%"}
+
+The PPV is a direct estimate of **P(Pathological | test below cut-off)** and is directly related to Bayes' theorem.
+
+The PPV only makes sense if the proportion between healthy and pathological (or between true negatives and true positives) is not directly controlled by the experimenter, but reflects that observed in the population.
+
+
+## PPV and NPV - deepening
+
+The formulas of PPV and PPN can (through simple algebra with respect to previous formulas, be rewritten in the following manner
+
+**Positive Predictive Value** = Sensitivity x Prevalence / (Sensitivity x Prevalence) + (1-Specificity)  x (1- Prevalence)
+
+**Negative Predictive Value** = Specificity x (1 - Prevalence) / Specificity x (1 – Prevalence) + (1 - Sensitivity)  x Prevalence
+
+_where_
+
+**Prevalence (or base rate)** =  True Positives / Total Population =
+
+(TP + FN) / (TP + FP + TN + FN)
+
+
+
+## Other measures
+There are also measures that you might find and that are sometimes relevant.
+
+**Accuracy**: (TN + TP) / (TN+TP+FN+FP)
+
+**Precision**: TP / (TP+FP)
+
+Precision is often considered particularly useful when Positives and Negatives are imbalanced in the population (see also [\underline{this article}](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432))
+
+
+## Some useful apps
+You can also use these apps to deepen with other visualizations of these concepts.
+
+\color{blue}
+\url{https://epidemiology.sruc.ac.uk/shiny/apps/predictive_values/}
+
+\url{https://neurotroph.shinyapps.io/Sensitivity-Specificity/}
+
+\url{https://micncltools.shinyapps.io/TestAccuracy/}
+
+\url{https://micncltools.shinyapps.io/TestAccuracy/}
+
+## Mental experiment 1/2
+_AT is a 60-year-old professional who coordinates an accounting firm. For about a year his colleagues have complained about some work errors. AT sometimes forgets important appointments or clients. The Board tries to remove him from his role by claiming he does not have the cognitive abilities to hold this position, but AT does not want to give it up. AT is invited to have a cognitive evaluation for suspected dementia and you are the neuropsychologists who must evaluate him. _
+
+_Suppose a cut-off of 18 on the Moca has 95% Sensitivity and 92% Specificity for identifying Alzheimer's from Controls._
+
+\pause
+_AT scores 16._
+
+_What would you conclude?_
+
+## Mental experiment 2/2
+_AT is a 55-year-old professional who coordinates an accounting firm. Following a car accident with head trauma, his ability to concentrate is dramatically reduced and he is no longer able to follow the company. AT is invited to have a cognitive evaluation for suspected dementia and you are the neuropsychologists who must evaluate him._
+
+_Suppose a cut-off of 18 on the Moca has 95% Sensitivity and 92% Specificity for identifying Alzheimer's from Controls._
+
+\pause
+_AT scores 16._
+
+_What would you conclude?_
+\pause
+_That he probably has Alzheimer's?_
+\pause
+
+_Is the probability of having Alzheimer's the same as the example before or different?_
+
+## Reflections on this mental experiment
+
+The example above shows how sensitivity and specificity do not consider some basic aspects, which relate to the probability, at the start, that the individual had Alzheimer's.
+
+It is not possible to calculate this probability for a specific case (and it would also make little sense), but it is possible to calculate it for a certain context.
+
+In such cases all evaluations conducted in a certain context could be characterized by a different prevalence, with implications for the interpretation of the evaluation.
+
+## Reflections on this mental experiment
+
+The probability of having Alzheimer's of people who are seen in a Center for Cognitive Disorders and Dementias (CDCD) is different from the probability of having Alzheimer's in a context that evaluates cognitive disorders following a car accident (perhaps for insurance purposes).
+
+The probability of malingering in a context of evaluation following head trauma is different from the probability of malingering in a context of evaluation in an Alzheimer's Assessment Center, because likely, the prevalence of pathology _of the tested individuals_ changes.
+
+## Covid example
+
+COVID Example
+
+
+- routine swabs in non-special risk facility (e.g., Rehabilitation Hospital)
+- swabs at pharmacy
+\pause
+Even with tests with very high sensitivity and specificity in the case of mass testing there is a certain risk of true positives (with consequent problems), which varies depending on the context.
+
+It is probably more likely that a swab is a false positive in the hospital than in a pharmacy. This is because in the hospital there are many tests done without a diagnostic question, while whoever comes to be evaluated in a pharmacy likely has symptoms or has had contact with people positive for COVID.
+
+## Considerations on Sensitivity and Specificity
+Remember that Sensitivity and Specificity express probability estimates but very specific ones:
+
+\begin{itemize}
+\small
+\item \emph{Assuming that the individual is truly positive}, what is the probability of being below the test threshold? (Sensitivity)
+\item \emph{Assuming that the individual is truly negative}, what is the probability of being above the test threshold? (Specificity)
+\end{itemize}
+
+Reasoning through formulas and not through intuition helps us to better understand these aspects.
+
+## Importance of PPV and NPV in forensic context
+
+In the forensic field many tests _to identify malingerers_ report the PPV values for different prevalence values.
+
+This allows exploring various scenarios (realistic) and seeing how our patient is classified.
+
+This approach is sensible, but assumes that the prevalence values explored are adequate.
+However, it could give important information: e.g., that whatever the prevalence value explored there are no big differences with respect to the conclusions to be drawn (e.g., that the patient is likely a malingerer).
+
+
+## PPV in forensic context
+[](../Figures/Sim_sens.png)
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.35]{../Figures/Sim_sens.png}
+\end{figure}
+
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.35]{../Figures/Sim_sens_PPV.png}
+\end{figure}
+\end{columns}
+```
+
+Example from Mathias et al., 2002 , \emph{Assessment}
+
+Note how a cut-off of 5 for a series of realistic prevalence scenarios (base rate) based on literature has a PPV of 1. This means that people who are positive on the test are likely positive.
+
+## Do not forget
+
+It is important to note that these considerations (as well as for Sensitivity and Specificity) apply to the group and the test, but never to the specific measurement
+
+They are probabilities referred to the test (Sensitivity and Specificity) or to the test in combination with the context (PPV and PPN).
+
+Indeed for a specific measurement, unless one wants to investigate something that will happen in the future (e.g., probability of developing Alzheimer's within 1 year) , for a specific person there is a truth (e.g., for Alzheimer's that person either has it, or doesn't have it).
+
+The probabilities are in the test of being correct when developed and imagining its repeated use, but **not** in giving us correct information in the specific measurement.
+
+## Sensitivity, Specificity and probability
+
+If we wanted to express the thresholds associated with specific sensitivities and specificities in terms of probability (as done for the normality cut-off). We could use a denotation like the following.
+
+
+$\text{Sensitivity}: P(o < y | C)$
+
+$\text{Specificity}: P(o \geq  y | NC)$
+
+Where $y$ is the discrimination cut-off, $o$ is the observed score. $C$ is membership in the group of people with Condition of interest (e.g., pathology) and $NC$ membership in the group of people without condition of interest (e.g., healthy)..
+
+## A risk of interpretation
+
+PPV and NPV (see also simulations in the attached code), show how intuition about these probabilities can lead to errors. In particular it might be spontaneous to try to interpret as if they indicate this:
+
+$P(C | o < y)$
+
+while in fact they indicate
+
+$P(o < y | C)$
+
+\pause
+_as a "mnemonic" to remind you of Bayes' theorem remember: the probability of being a graduate, if you are a psychologist, is not the same as being a psychologist if you are a graduate!_
+
+NOTE: the two formulas are different! (see also previous slide)
+
+
+## Demographic variables and conditions of interest.
+
+Also for tests that use conditions of interest, ideally we would want the group of healthy and patients to be composed of people as similar as possible to the individual we want to evaluate, because only in that way the expected score (both in the scenario that he has the condition of interest, and in the case he does not) can be possible.
+
+There are also methods that allow calculating ROC curves including covariates (i.e., other variables that can influence the threshold and therefore Sensitivity and Specificity. This is a thing completely analogous to regression methods for calculating normality cut-off. These methods, however, have practically never been used in clinical and forensic neuropsychology and will not be explored in detail.
+
+## Normality cut-off from normative data sample
+```{=latex}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{../Figures/recap_normality_cut_off.png}
+\end{figure}
+\center
+\small
+\emph{Note that the normality cut-off is defined only by the performance of the healthy.}
+```
+
+## Discrimination cut-off
+
+```{=latex}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{../Figures/recap_discrimination_cut_off.png}
+\end{figure}
+\center
+\scriptsize
+\emph{Note that when determining discrimination cut-offs it is the data collector who determines the size of the two samples. (Review Sensitivity and Specificity)}
+```
+
+## A new evaluation
+
+```{=latex}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{../Figures/recap_cut_off_individual.png}
+\end{figure}
+\center
+\scriptsize
+\emph{In the case of a new evaluation, the aim is to understand what is the likely classification of this patient, so we \textbf{do not know} if he is healthy pathological (or with condition of interest)}
+```
+
+## Importance of prevalence 1/2
+
+```{=latex}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{../Figures/recap_PPV_1.png}
+\end{figure}
+\center
+\scriptsize
+\emph{In this case, the majority of pathological individuals go below the cut-off, but since globally pathological individuals are few. Imagining picking at random a person among those below the cut-off, it remains more likely to be a healthy person (and a false positive)}
+```
+
+
+## Importance of prevalence 2/2
+
+```{=latex}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{../Figures/recap_PPV_2.png}
+\end{figure}
+\center
+\scriptsize
+\emph{Also in this case the majority goes below the cut-off, but imagining "picking" at random among those below the cut-off, it is more likely in this case to be a pathological individual. The percentage of pathological individuals below the cut-off has not changed, but globally the proportion of pathological individuals compared to healthy individuals in the population has changed.
+This difference, explained in the last two slides is captured by the concepts of PPV, NPV, and Bayes' Theorem.}
+```
+
+## A further complication
+```{=latex}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{../Figures/recap_cut_off_individual.png}
+\end{figure}
+\center
+\scriptsize
+\emph{Further contextual information could change the hypothetical "population" into which the person is drawn. E.g. Is it a person with suspected dementia? Is it a person who had a head injury. Is it the third time the person is being evaluated? The prevalence data assume that we draw at random from the general population, but this does not happen in reality.}
+```
+
+## Concluding considerations 1/2
+![](../Figures/triangle.png){fig-align="center" width="15%"}
+\small
+
+In what has been reported on the identification of conditions of interest, many of the considerations already made in the context of deficit/damage apply.
+
+Also for Sensitivity, Specificity PPV, etc., it is true that the larger the sample size (because more representative of the population), the more precise they are.
+
+My discrimination cut-off could be different from that of the population (which is what interests me), and the larger my sample the more confident I am that my cut-off will be similar to that of the population.
+
+For this reason it is always better to "interpret" these values by also integrating with other information.
+
+## Concluding considerations 2/2
+![](../Figures/triangle.png){fig-align="center" width="15%"}
+\small
+
+It should be considered that often in the case of tests with condition of interest, cut-offs that take into account variables (e.g., Age, education, gender, etc.) are not available because the methods most commonly used for ROC analysis do not consider them.
+
+For this reason all a series of limits related to the representativeness of the sample considered apply, which should be considered when interpreting the results.
+
+All other considerations remain pertinent (e.g., Better country-specific norms, recent norms, etc.)

@@ -1,0 +1,74 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{C. Activity}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+\date{\today}
+\maketitle
+```
+
+
+## Evidence Based Clinical Practice
+```{=latex}
+\begin{center}
+{\Large \textbf{For which aspects of clinical practice are evidence needed?}}
+
+\includegraphics[width=0.3\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```
+
+
+## How can a clinical practitioner contribute to the collection of evidence?
+
+```{=latex}
+\begin{center}
+\includegraphics[width=0.4\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```
+
+
+## Let us analyze an RCT study together
+
+
+## What are the main limitations of a parallel arms RCT?
+
+```{=latex}
+\begin{center}
+\includegraphics[width=0.4\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```
+
+## What are the problems/limitations of a systematic review and meta-analysis?
+
+```{=latex}
+\begin{center}
+\includegraphics[width=0.4\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```
+
+## Let us analyze a review/meta-analysis together

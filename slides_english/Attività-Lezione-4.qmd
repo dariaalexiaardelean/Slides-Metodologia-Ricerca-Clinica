@@ -1,0 +1,70 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{D. Activity}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+\date{\today}
+\maketitle
+```
+
+## A study on Cognitive Reserve
+
+A study followed a cohort of individuals with different levels of Cognitive Reserve over 10 years, all aged over 65. Controlling for age and socioeconomic status, it was found that individuals with higher cognitive reserve were at lower risk of stroke.
+
+The authors conclude that cognitive training and a rich lifestyle can protect against stroke risk.
+
+
+## A study on Cognitive Reserve
+
+
+```{=latex}
+\begin{center}
+{\Large \textbf{In a study like the one just presented, can you imagine alternative explanations of the results?}}
+
+\includegraphics[width=0.3\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```
+
+## Consider an alternative explanation
+
+
+```{=latex}
+\begin{center}
+{\Large \textbf{How would you exclude this explanation?}}
+\end{center}
+```
+
+
+## What are the main limitations of evidence from meta-analysis?
+```{=latex}
+\begin{center}
+{\Large \textbf{For which aspects of clinical practice is evidence needed?}}
+
+\includegraphics[width=0.3\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```

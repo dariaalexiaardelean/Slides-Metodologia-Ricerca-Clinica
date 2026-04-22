@@ -1,0 +1,92 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+```{=latex}
+% TITLE SLIDES
+\title{Statistical Methods for Forensic Neuropsychology\\ \vspace{1em} \emph{Introduction}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+\date{\today}
+\maketitle
+```
+
+
+## First slide
+
+-   Presentation of the instructor and the course.
+-   Organizational aspects of the course.
+-   Learning objectives and "spirit" of the course.
+
+## Second slide (two columns)
+
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+\textbf{The important aspect to remember is that in neuropsychological tests, most often implicitly, the Stevens definition of measurement is assumed and it is possible to assume a measurement on an interval scale.}
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+
+
+
+## Slide 3 figure and box
+
+```{=latex}
+
+\begin{tikzpicture}
+    % Include your image
+    \node[anchor=south west, inner sep=0] (image) at (0,0)
+        {\includegraphics[width=0.8\textwidth]{../Figures/Test_Methodology_transp.png}};
+
+    % Set coordinate system to match the image
+    \begin{scope}[x={(image.south east)}, y={(image.north west)}]
+
+        % Draw a red rectangle (thin border)
+        %\draw[red, thick, rounded corners] (0.25,0.3) rectangle (0.45,0.5);
+        % Optional label
+        %\node[red, font=\bfseries, above] at (0.35,0.5) {Region 1};
+
+        %\pause
+        % a red rectangle (thicker border)
+        \draw[red, ultra thick] (0.605,0.65) rectangle (0.905,0.85);
+
+        % text (with fine control)
+        \node[anchor=west, xshift=-8mm, yshift=20mm] at (image.east)
+        {\parbox{4cm}{\parbox{3cm}{\scriptsize \textbf{Threats to validity}\\ (the test does not measure what it intends to measure)}}};
+
+
+
+    \end{scope}
+\end{tikzpicture}
+
+```
+

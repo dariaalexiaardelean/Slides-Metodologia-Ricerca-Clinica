@@ -1,0 +1,587 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+header-includes:
+  - \setbeamerfont{title}{size=\large}
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{4. Validity and Reliability — Theory}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+\date{\today}
+\maketitle
+```
+
+
+
+# Validity and Reliability
+
+## Validity and Reliability
+
+```{=latex}
+\small
+\begin{columns}
+\column{0.8\textwidth}
+Validity and reliability are two fundamental qualities of tests (not only didactically).
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+
+\vfill
+
+```
+In the following slides I will provide a general overview without going into the details of the formulas we will see in a later step.
+
+## Validity and Reliability
+Using a test without knowing its validity and reliability can lead to major errors:
+
+
+For an analogy (extreme), using a test with low reliability and no validity for an interpretation could lead to measuring a person's height with a scale that has a margin of error of 10 kg.
+
+**Since tests are measurement instruments, we cannot ignore knowing their qualities.**
+
+
+## Validity and Reliability (brief definitions)
+
+**Validity** is the quality of a test to actually measure the construct it wants to measure.
+
+**Reliability** indicates the precision of a test.
+
+
+
+
+## How we would like Validity and Reliability to be (but they are not)
+**Validity**: my test measures my construct in a known and quantifiable manner. For example:
+
+- 80% of the observed score is attributable to the construct of interest.
+- Other constructs of no interest can contribute by varying by +5% or -5% of the score.
+
+\vfill
+\pause
+
+**Reliability**: my test measures my construct with quantifiable precision. For example:
+
+- my final score can be wrong by +/-3
+- the final score can be wrong by +/-5%
+
+## How we would like Validity and Reliability to be (but they are not)
+Although there are sometimes minimum threshold criteria (for reliability or validity), there is no unanimity on the criteria to consider a test adequate. Often these values help us distinguish tests from each other, to choose the best (or the least worst).
+
+\vfill
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+
+
+% : peggio - meglio
+\node[anchor=west] at (0, 1) {\small \parbox{3cm}{\emph{Worse Reliability \\and/or Validity}}};
+\node[anchor=east] at (10, 1) {\small \parbox{3cm}{\emph{Better Reliability \\and/or Validity}}};
+
+
+\node[anchor=west] at (0, -1.2) {\textbf{Worse}};
+\node[anchor=east] at (10, -1.2) {\textbf{Better}};
+\draw[thick] (1.5, -1.2) -- (8.5, -1.2);
+
+\end{tikzpicture}
+\end{center}
+```
+
+# Validity
+
+## Speaking correctly about validity
+
+Validity is the quality of a test to measure what it actually wants to measure. The term validity is always referred to a **use** that is made of the scores.
+\vfill \pause
+It makes no sense to say that **a test is valid**
+\vfill \pause
+
+```{=latex}
+\begin{center}
+\tikz[baseline=(t.base)]{
+  \node[inner sep=0pt, outer sep=0pt, anchor=base] (t)
+    {\emph{"use this test! it has been validated!"}};
+  \draw[red, thick] ([yshift=0.4em]t.south west) -- ([yshift=0.4em]t.south east);
+}
+\end{center}
+```
+
+## A concept to emphasize
+![](../Figures/Usa_questo_test.png){width="50%" fig-align="center"}
+
+## Validity
+A test can have validity for a certain use or for multiple uses.
+
+Validity is not an all-or-nothing quality, but a quality along a continuum
+
+For example, there is evidence that the _"Free and Cued Selective Reminding Test-it"_ (Clerici et al., 2017) is a test with good validity for measuring memory abilities.
+
+## Validity (not demonstrated)
+
+Sometimes, some tests report no evidence of validity. These are instruments in which we are not sure what they are measuring.
+
+## Types of validity
+
+- Face validity
+- Content validity
+- Convergent/divergent validity (construct validity)
+- Criterion validity
+- Ecological validity
+
+<br>
+There are different classifications of validity and reliability (see Urbina, 2004, Essentials of Psychological Testing, for further details). The one that follows is just one of the possible classifications.
+
+## A priori and a posteriori validity
+
+Validity is also distinguished in _a priori_ and _a posteriori_
+A priori validity is what can be examined before empirical data on the test are available.
+(They are face validity and content validity). A posteriori validity is instead what can only be evaluated when data on the test are available (they are construct validity, criterion validity and ecological validity.)
+
+## Face validity 1/2
+
+**Face validity**: refers to the quality of a test of being clearly related to the construct it wants to measure. For example, a memory test that requires remembering items.
+
+Sometimes it is the only type of validity we have available (but which we should not settle for.)
+
+Given its purely qualitative nature, there are no analyses to verify it.
+
+## Face validity 2/2
+
+The plausibility of a measurement is not sufficient to judge whether we are actually measuring what interests us.
+
+
+![](../Figures/QMP.png)
+
+
+## Content validity 1/2
+
+**Content validity**: the property of items being sufficient and adequate to evaluate the construct of interest. It can be evaluated qualitatively or quantitatively (Lawshe, 1975).
+
+\vfill
+
+It is often not reported in tests or there is only a qualitative evaluation. Two tests that report content validity quantitatively are Abaco (Sacco et al., 2008) and APACS (Arcara & Bambini, 2016), but do not use inferential statistics.
+
+## Content validity 2/2
+
+_Example of test with poor content validity_:
+
+A test that wants to measure reading ability in everyday life and uses only isolated words.
+
+\vfill
+_Example of test with good content validity:_
+
+A test that wants to measure driving abilities. It simulates driving abilities through a sort of video game in numerous conditions.
+
+## Construct validity (convergent/divergent) 1/5
+**Convergent-divergent validity (or construct validity)**: investigates how much the test actually measures the construct it intends to measure by evaluating internal consistency of items, or correlation with other tests.
+It is also called "divergent" validity because it also evaluates the quality of not correlating with tests it should not correlate with (for example a test specific for visuo-spatial memory should not correlate too much with verbal memory).
+
+## Construct validity (convergent/divergent) 2/5
+At the level of data analysis.
+For the coherence of test items with each other, factor analysis or internal consistency indices are used (for these see reliability section).
+
+\vfill
+
+For the relationship of total scores with those of other tests, correlations are often used.
+There are no rules on what values (in factor analysis, or correlations) are acceptable. It depends on the construct measured and the expected relationships.
+
+## Construct validity (convergent/divergent) 3/5
+
+A test with good construct validity correlates with tests that measure the same construct or correlates with tests that measure other constructs in a way consistent with expectations.
+
+
+_For example_, a working memory test with good construct validity correlates with other working memory tests.
+
+A test of understanding figurative language (broader construct) should correlate with other tests that measure the same construct, but moderately. It could also correlate with attention or other related cognitive functions.
+
+## Construct validity (convergent/divergent) 4/5
+
+Construct validity is on one hand perhaps the most important validity, but on the other hand the most difficult to evaluate as adequate when investigating in relation to other tests that measure the same construct. This is because there are no indications of "minimum correlation" that a test should have with another to have support for its construct validity.
+
+_For example_: if I develop a new memory test, it is not necessarily the case that there would be a minimum value of correlation with another memory test that is considered sufficient.
+
+
+For factor analysis or Cronbach's alpha there are instead clearer principles: the analysis must show that items behave in a statistically adequate manner relative to the construct (this will be clearer in the section of psychometric in-depth analysis of these analyses).
+
+## Construct validity (convergent/divergent) 5/5
+
+When using construct validity methods it is often because a "gold-standard" is lacking, that is a measure that we can consider the best measure (a sort of ideal measure) to refer to.
+If we had it the most appropriate validity to use would be criterion validity and the gold-standard is the criterion (see next slides).
+
+Most of the time there is no perfect test for a construct (e.g., there is no memory test that can be considered the reference), so we settle for convergence evidence. My memory test should correlate with other memory measures.
+
+
+## Criterion validity 1/3
+
+**Criterion validity**: The property of a test to provide results related to an external criterion. The criterion is an *observable* variable (unlike constructs). A criterion is often membership in a pathology, or a prognostic aspect (developing a pathology in the future, improving after treatment, etc.), or the score on another test.
+
+Criterion validity, if referred to a classification with another score, is often expressed in terms of correlation. If referred to classification into categories it is often expressed by sensitivity/specificity values (we will see this in detail in a dedicated chapter).
+
+It can be distinguished into **concurrent** if the criterion is measured at the same time, or **predictive** if the purpose is to predict.
+
+## Criterion validity 2/3
+
+Since the interest in neuropsychology/psychology is most often in constructs, criterion validity is only used in some specific cases.
+
+- the criterion is a longer/more expensive test than the one to be evaluated (this happens for example when you want to demonstrate that a short screening test).
+- the criterion is membership in a diagnostic or prognostic category or, in general, to a group that can be identified with sufficient certainty to be defined as "gold-standard".
+
+
+## Criterion validity 3/3
+
+In general, percentages are provided that express the accuracy of the test in predicting the criterion.
+There are different standards reported to consider criterion validity acceptable, but it should be high (sensitivity/specificity greater than 80% or correlation > 0.80).
+
+## Ecological validity 1/2
+
+Ecological validity: refers to the quality of a test to actually reflect abilities that have repercussions in everyday life.
+
+(For example, that poor performance on a memory test reflects memory difficulties in everyday life).
+
+It can be evaluated through various analyses, e.g., Correlations with other questionnaires or scales related to everyday life.
+
+There are no shared threshold values that a test must have. Note that ecological validity is rarely available given the difficulty in being verified.
+
+## Ecological validity 2/2
+
+Note that **ecological validity is often neglected** but particularly important because often in evaluations implicit inferences are made about the impact of the deficit on everyday life. Identifying a memory deficit is indeed relatively important _in itself_: what is often relevant is to understand what impact this deficit has on the patient's life.
+
+This is particularly relevant in the case of patient damage assessments. Having a cognitive deficit that is particularly disabling is obviously different from having a deficit that has no impact on everyday life.
+
+A test with data on ecological validity would help us make these interpretations because there would be scientific support for the relationship between test performance and everyday behavior.
+
+## How to know the validity of an instrument?
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\begin{itemize}
+\itemsep1em
+
+\item To know the validity of a test, one must document (manual, scientific article).
+
+\item To understand the effects of validity one must know some (really basic) aspects of statistics.
+
+\item In Italy and in neuropsychological tests there is often little attention to validity. Few tests report validity data. The term \emph{validated} is sometimes used to indicate that normative data have been collected, a completely different aspect.
+\end{itemize}
+\column{0.2\textwidth}
+\vspace{7em}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Validity in Italian tests.
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+\vspace{2em}
+
+\begin{figure}
+\includegraphics[scale=0.4]{../Figures/Aiello_table.png}
+\end{figure}
+
+\column{0.5\textwidth}
+Validity in Italian screening tests (live administration).
+Aiello et al., 2022. A cell without a checkbox indicates that that data is not available.
+
+\vspace{2em}
+
+CV=concurrent validity
+CrV=criterion validity
+DV=divergent validity
+
+\end{columns}
+```
+
+## An important aspect of validity
+
+\textbf{Validity is not an "immutable" quality and given of a test}. but depends on how it is used.
+If the test is used inappropriately, then it may not become more valid.
+
+The appropriateness of test use is determined by adherence to procedures related to test use itself. The more I deviate from the initial procedures the less valid the test is.
+
+\pause
+\textbf{NOTE:} these considerations apply to every measurement tool. There are circumstances where it may not work well. These can depend on what we are measuring or on our not using the procedures that define the test adequately.
+
+## Loss of Validity 1/3
+Example from image of the "Scene Description" test - APACS
+
+![](../Figures/APACS_scene1.png){width="60%" fig-align="center"}
+
+it is a test that measures communication effectiveness, using as a starting point the description of a photograph.
+You are asked to say where you are, who is in the picture and what you are doing.
+
+## Loss of Validity 2/3
+Imagine printing an image with this definition.
+Or that a person has vision problems and sees this.
+
+![](../Figures/APACS_scene2.png){width="60%" fig-align="center"}
+
+Are we still measuring what we intended?
+
+Is the test still "valid"?
+
+## Loss of Validity 1/3
+This example, somewhat extreme, shows how for a series of reasons, the test might no longer measure what it intended.
+
+Ideally we should use tests that are less susceptible to conditions where validity is lost.
+
+The neuropsychologist should be careful to identify if there are situations that have made the test lose validity. Again, this underscores the importance of _interpreting_ scores.
+
+## Example 1: MoCA and MMSE
+
+_What is the MoCA valid for?_
+
+\
+In identifying what a test is based on, it is common to make the mistake of relying on intuition or only on face validity and not on other proofs of validity.
+
+\pause
+In the original paper by Nasreddine et al., 2005.
+The MoCA was valid for discriminating between MCI, AD and controls.
+
+The MMSE (Folstein et al., 1975) was born to distinguish Dementias from Depression, but is commonly used as a general cognitive functioning test.
+
+## Example 2: Frontal Assessment Battery (FAB) 1/2
+
+![](../Figures/FAB_validity.png){width="50%"}
+
+
+In the original 2005 article (Appollonio et al. 2005) there is actually no effective evidence of validity. This does not mean that FAB-it does not have evidence of validity for measuring executive functions (versions in other languages of the FAB do), but that in fact there is no evidence for the Italian one.
+
+## Example 2: Frontal Assessment Battery (FAB) 2/2
+
+
+Evidence of the validity of the FAB came later, in 2022, Aiello et al., 2022 **highlighting how Validity is a continuous process of accumulating evidence.**
+
+## Example 3: `{\small ABaCo Assessement BAttery for COmmunication}`{=latex} 1/2
+The ABACo test for assessing communication abilities is an example of an excellent test regarding validity.
+
+## Example 3: `{\small ABaCo Assessement BAttery for COmmunication}`{=latex} 2/2
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+\small
+Validity of the ABaCo test\\ (Sacco et al., 2008)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.3]{../Figures/ABACO_validity.png}
+\end{figure}
+\end{columns}
+```
+
+## Which validity do you consider most important?
+```{=latex}
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../Figures/wooclap_validity.png}
+\end{figure}
+```
+
+
+
+# Reliability
+
+## Reliability
+
+**Reliability** (or **Dependability**) is the quality of a test to provide consistent scores in different measurements, and can therefore be understood as the precision of a test.
+
+## Types of Reliability
+
+- Inter-rater reliability
+- Test-retest reliability
+- Split-half reliability
+- Internal consistency
+
+
+There are different classifications of reliability. The one I am using is one of the possible ones.
+
+## Desirable values
+
+Often reliability measures are associated with numbers. In the following slides I will hypothesize desirable values of reliability that a test should have.
+
+It is important that these are "indicative" values and there are no real values considered as standard in the literature. For this reason tests with values well below the desirable ones often circulate.
+
+## Inter-rater reliability
+
+**Inter-rater reliability**: is a measure of the consistency with which different examiners evaluate the same performance of the same patient. It is related to the clarity of instructions on how to assign scores and the complexity of behaviors observed in the test.
+
+There are various ways to calculate it. In the most widespread method it is expressed by a coefficient, the intraclass correlation, which ranges from 0 to 1, where 0 indicates complete inconsistency between scores and 1 indicates absolute consistency between the scores of two or more examiners.
+
+Values greater than 0.60 are desirable.
+
+## Test-retest reliability 1/4
+
+**Test-retest reliability**: represents the consistency of two measurements with the same test performed by the same examiner and on the same individual after a time interval _in which it is assumed that no change has occurred._
+
+
+It is generally expressed by a correlation coefficient that ranges from -1 to 1. But it can also be expressed by the ICC coefficient (the same one used for Inter-rater).
+
+values greater than 0.70 are desirable
+
+## Test-retest reliability 2/4
+
+Note that test-retest reliability is always evaluated with a specific interval (e.g., 1 month). For this reason there are infinite possible test-retest reliabilities, since this value could vary depending on the interval.
+
+Generally. The shorter the interval, the more likely test-retest reliability is to be high.
+
+## Test-retest reliability 3/4
+
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+\textbf{If measured with correlation, test-retest reliability \textbf{does not indicate the stability of test scores over time, or the possibility of using it for assessments over time.}}
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Test-retest reliability 4/4
+
+When correlation is used as a measure, scores could have a test-retest reliability (correlation) of 0.98, but be unstable because subject to _systematic variations_.
+
+\pause
+More specifically. Test-retest reliability measured through correlation does not account for the practice effect (discussed in later slides), since it assumes (also mathematically) that there are no changes over time. This aspect will be clear by studying the formula with which test-retest is calculated, both through simulations.
+
+
+## Split-Half Reliability
+
+Split-half reliability estimates the reliability of a test by measuring the correlation between two halves of the test.
+
+The test is divided into two (half of the items in one part, half in the other) and a correlation is calculated.
+
+Values greater than 0.70-0.80 are desirable.
+
+## Split-Half Reliability
+
+Split-half reliability is less expensive to calculate than test-retest.
+
+The main limitation is that the result depends heavily on the division into halves (arbitrary.)
+
+## Internal consistency
+
+**Internal consistency**: represents the consistency between items of a test
+
+It is generally calculated using Cronbach's alpha, an index that ranges from 0 to 1.
+It can be considered as the average value of all possible split-half reliability.
+
+
+values greater than 0.70 are desirable, but often in neuropsychological tests are around 0.60.
+
+## Variations in reliability
+
+As with validity, the reliability of a specific measurement can also change.
+
+If procedures change (or if there are interferences), reliability may be lower.
+
+
+## Relationship between Validity and Reliability
+
+![](../Figures/Validity_Reliability.png){width="50%" fig-align="center"}
+
+\tiny
+Figure adapted from "Reliability and validity" by © Nevit Dilmen. Licensed under CC BY-SA 3.0 via Commons.
+
+## Validity and Reliability in practice
+
+Reliability is not just some number indicated in test manuals, but values that have an impact on the clinical conclusions drawn from the tests.
+
+## Evidence of Validity and Reliability
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+The fact that a test has been published does not assure us that it is validated for some reason and has sufficient reliability! (Disclaimer: Even tests published by me have low reliability, use with caution)
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+
+{\small From APACS (Arcara \& Bambini, 2016)}
+\begin{figure}
+\includegraphics[width=\textwidth]{../Figures/APACS_reliability.png}
+\end{figure}
+```
+
+## Validity, Reliability and Measurement Invariance
+
+Usually information on validity and reliability is available and obtained only on a group of subjects. Normally only on healthy subjects, but if data is available on patients of a certain type, only of a certain type.
+
+There is a series of analyses called **measurement invariance** that go to evaluate whether measurement properties remain constant even for different groups.
+
+
+## Effect of perturbations on Validity and Reliability.
+
+Try to imagine perturbing a hypothetically perfect relationship.
+What effects does it have on validity and reliability _of a specific measurement_?
+
+```{=latex}
+\begin{figure}
+  \includegraphics[scale=0.3]{../Figures/measurement_diagramma.png}
+\end{figure}
+```
+
+## Concluding considerations 1/4
+
+Reliability and validity are two important qualities that allow us to evaluate a test.
+
+In general, once we have identified what we need to measure, we should choose tests with high reliability and validity for the interpretations we need.
+
+
+## Concluding considerations 2/4
+
+These two qualities do not, however, necessarily tell us the **clinical utility** of the test **for a specific assessment**.
+
+A test could be excellent for measuring a certain construct, but then, ultimately, not help us in diagnosing the disorders of a specific individual, for clinical purposes (e.g., for diagnosis or establishing the rehabilitation plan).
+
+For example, if the question is to quantify a memory deficit, an excellent test for language might not be useful.
+
+## Concluding considerations 3/4
+
+Beyond this, Validity and Reliability generally express qualities of the test but it is not certain that the test maintains the same qualities in the specific measurement.
+
+For example, if a test has much evidence of validity in measuring memory, it might then not do so during a specific measurement (e.g., because the patient is not cooperative, is trying to simulate a deficit, has not understood the instructions, etc.)
+
+## Concluding considerations 4/4
+
+Validity and reliability should always be considered as properties of a test _in ideal conditions_.
+Even if a test has excellent values, it could still give completely inaccurate results if used inappropriately or if there are negative external circumstances (e.g., the examinee is not cooperative).
+
+One of the criticisms of the definition of Validity provided is indeed not stressing the fact that it is the measurement that is valid or not (rather than the test).
+
+NOTE: In forensic settings the identification of "simulators" focuses precisely on identifying the validity _of specific evaluations_.

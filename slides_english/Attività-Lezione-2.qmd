@@ -1,0 +1,106 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{B. Activity}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+\date{\today}
+\maketitle
+```
+
+##
+```{=latex}
+\begin{center}
+{\Large \textbf{How to choose and evaluate a test? \\(summary from previous lesson)}}
+
+\end{center}
+```
+
+
+## A hypothetical test (test A)
+
+ Task  | Raw Score | Percentile | Cut-off |
+|--------------------------|------------------|------------|---------|
+| Memory                  | 45               | 60         |         |
+| Attention               | 30               | 25         | *       |
+| Language               | 50               | 75         |         |
+| Executive Functions       | 28               | 15         | *       |
+| Visuospatial            | 40               | 50         |         |
+| Processing Speed | 22               | 10         | *       |
+
+## A hypothetical test (test B)
+
+ Task  | Raw Score | Percentile |  |
+|--------------------------|------------------|------------|---------|
+| Memory                  | 45               | 60         |         |
+| Attention               | 30               | 25         |         |
+| Language               | 50               | 75         |         |
+| Executive Functions       | 28               | 15         |         |
+| Visuospatial            | 40               | 50         |         |
+| Processing Speed | 22               | 10         |         |
+
+## Wooclap
+
+![](../Figures/wooclap_metodi.png){fig-align="center"}
+
+##
+```{=latex}
+\begin{center}
+{\Large \textbf{What does it tell us when a performance is below the cut-off? And why is it useful?}}
+
+\includegraphics[width=0.3\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```
+
+##
+
+Construction of thresholds
+
+##
+```{=latex}
+{\Large \textbf{How are the thresholds used in clinical practice constructed?}}
+```
+
+
+##
+```{=latex}
+\begin{center}
+{\Large \textbf{When might comparison with norms not be adequate?}}
+
+\includegraphics[width=0.3\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```
+
+
+##
+```{=latex}
+\begin{center}
+{\Large \textbf{What happens to Specificity if Sensitivity increases?}}
+
+\includegraphics[width=0.3\linewidth]{../Figures/Padlet_properties_qr_code.png}
+\end{center}
+```

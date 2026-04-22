@@ -1,0 +1,390 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{07 - Simulation and Performance Validity}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+
+%\date{\today}
+\maketitle
+```
+
+
+## Performance Validity
+
+In the context of forensic studies, we often speak of performance validity to assess whether a specific evaluation is to be considered valid.
+
+Note that we have discussed Validity as a property of tests, whereas this is a property of the evaluation.
+
+_In this specific instance of measurement, am I measuring what I intend to measure?_
+
+## Performance Validity Testing
+\small
+There are tools (practical and conceptual) to assess whether a performance is to be considered valid. These procedures are known as **Performance Validity Test (PVT)**.
+
+Tests using these procedures are also known as **Effort Tests** (tests of effort): we investigate whether the participant is "making sufficient effort".
+
+Recall that cognitive tests are tests of maximal performance (see slides 02. Theoretical Framework). If one exerts less effort (or "tries less") the result of the test is invalidated.
+
+## Validity of a Performance
+
+```{=latex}
+
+\begin{tikzpicture}
+    % Include your image
+    \node[anchor=south west, inner sep=0] (image) at (0,0)
+        {\includegraphics[width=0.8\textwidth]{../Figures/Test_Methodology_transp.png}};
+
+    % Set coordinate system to match the image
+    \begin{scope}[x={(image.south east)}, y={(image.north west)}]
+
+        % Draw a red rectangle (thin border)
+        %\draw[red, thick, rounded corners] (0.25,0.3) rectangle (0.45,0.5);
+        % Optional label
+        %\node[red, font=\bfseries, above] at (0.35,0.5) {Region 1};
+
+        %\pause
+        % a red rectangle (thicker border)
+        \draw[red, ultra thick] (0.605,0.65) rectangle (0.905,0.85);
+
+        % text (with fine control)
+        %\node[anchor=west, xshift=-8mm, yshift=20mm] at (image.east)
+        %{\parbox{4cm}{\parbox{3cm}{\scriptsize \textbf{Threats to validity}\\ (the test does not measure what it intends to measure)}}};
+    \end{scope}
+\end{tikzpicture}
+
+\small \emph{not making adequate effort undermines the relationship between the construct to measure, behavior, and final score}
+
+```
+
+## A Note on Simulation
+\small
+Note that considering simulation as a yes/no condition (either I am simulating or I am not simulating) is probably an oversimplification
+(Nies & Sweet, 1994)
+
+It is more reasonable to think that performance can lie along a continuum between genuine performance and that with simulation.
+
+Furthermore, certain aspects (e.g., unconscious psychological aspects) come into play that could lead to deficient performance in the absence of cognitive deficit/damage.
+
+In these slides we will not delve into these aspects (very important) because they are more theoretical and we will focus on statistical aspects.
+
+## Definitions
+\small
+There are important related concepts that are worth making explicit and terms that will return in subsequent slides.
+
+**Malingering (Simulation)**: the intentional production of false or grossly exaggerated physical or psychological problems. The motivation for malingering is usually external (e.g., avoiding military service or work, obtaining financial compensation, evading prosecution, or obtaining drugs).
+
+**Symptom Validity Assessment (SVA)**: the set of techniques (interviews, tests, evidence collection) to assess the credibility of symptoms (cognitive and physical) manifested by an individual.
+
+**Performance Validity Testing (PVT)**: the set of statistical and methodological techniques to ensure that the patient is adequately facing the evaluation situation (adequate effort, adequate motivation).
+
+
+## How to Identify a Simulator?
+
+
+As a general principle, tests are constructed in such a way that performance demonstrates that it is likely the person is lying.
+
+
+## Main Strategies for Identifying Simulators
+\small
+
+**1) Pattern of implausible responses even when responding randomly.** These can be used in forced-choice tests by observing if the observed performance is unlikely even when responding randomly (and therefore suggesting intentional deception)
+
+**2) Very easy tests even for impaired patients.** Normative values obtained from clinical populations to show that even in very severe clinical populations, the expected performance is not so low.
+
+**3) Tests developed with criterion validity**: with groups of people explicitly asked to feign a deficit, to have a condition of interest of "simulation". These people can be healthy or patients/target category (e.g., psychiatric populations).
+
+
+## \small 1) Pattern of Implausible Responses, Even When Responding Randomly.
+```{=latex}
+\vfill
+{\center
+$\text{find}\ x\ \text{such that}\ P(o < x | R) = k_s$
+\vfill
+}
+```
+This strategy can only be applied in the case of forced-choice tests (e.g., Image on the right or image on the left?). In this case the probability of obtaining the observed pattern if the choice were random (50% for each possibility) $k_s$ indicates a very small probability threshold (usually the standard 5%).
+
+
+## 1) The Test of Memory Malingering (TOMM)
+
+The Test of Memory Malingering is the most common test for identifying this type of disorder. It is based on a very simple assumption. In the case of a multiple-choice question with two options, it is very easy to model the probability of a certain number of random responses.
+
+It consists of two phases: in one phase items are presented for recognition to remember them (this is repeated twice in the original version of TOMM).
+
+In the test phase the items presented in the learning phase are presented in pairs with a distractor. For each pair the examinee must indicate which was the item they had seen previously.
+
+## 1) The Test of Memory Malingering (TOMM)
+![](../Figures/TOMM.png){fig-align="center" width="80%"}
+\center
+An example of TOMM stimuli
+
+## 1) The Test of Memory Malingering (TOMM)
+\small
+The assumption is simple. A simulator will tend to intentionally select the wrong image more often than by chance. However, this actually suggests that they recognized which is the correct image.
+
+In the case of multiple choice it is simple to model the expected probability of a certain pattern of responses (given a certain number of trials) using the binomial distribution as reference.
+
+e.g., out of 50 items even responding in a totally random manner there is less than 5% probability of responding correctly to fewer than 19 items assuming there is a 50% probability of selecting the correct item even randomly.
+
+\emph{See code for example}
+
+## 1) The Test of Memory Malingering (TOMM)
+\small
+**Advantages**
+
+- TOMM is a very simple test and in fact does not require normative data. Only modeling the probability of random responses.
+- It proves very effective even in identifying simulators defined through another procedure (good sensitivity and specificity, see also examples 3) ).
+
+**Disadvantages**
+
+- If one knows or suspects how TOMM works it is easy to bypass it, by responding in a mixed or correct manner and then performing poorly on other tests.
+- A client could be coached by their consultants on how to respond to this type of test.
+
+## 2) Very Easy Tests for Impaired Patients
+
+```{=latex}
+\vfill
+{\center
+$\text{find}\ x\ \text{such that}\ P(o < x | D) = k_s$
+\vfill
+}
+```
+Where $k_s$ indicates a very small probability value (e.g., 5%) even in very impaired patients ($D$).
+
+## 2) The Word Memory Test
+\small
+The Word Memory Test is a memory test for word pairs (Green et al., 1999)
+
+It is divided into multiple phases.
+
+In phase 1, 20 word pairs are presented (dog/cat, fish/fin)
+Presented for 6 seconds on the screen in pairs twice each.
+
+Immediately afterward 40 pairs are presented, of which only one word was originally presented and the other is a distractor (e.g., dog/rabbit; cat/mouse).
+
+After 30 min, without having been told, another 40 pairs are presented with another 40 distractors (e.g., dog/rat, etc.)
+
+_Often in these tests (as in every malingering test) it is stressed that the test is difficult, to induce the person to believe that a person with deficit would have low performance (when in fact this is not true)._
+
+
+## Word Memory Test
+
+**Advantages**
+
+- it is relatively easy to obtain cut-offs this way
+
+**Disadvantages**
+- Suffers from the same problem as all cut-off normality: the reasoning is reversed, but there is no sensitivity or specificity in identifying a _true simulator_. For this reason practically all tests, (including WMT) are also developed using criterion validity (see subsequent slides).
+
+## 3) Tests Developed with Criterion Validity
+
+Many tests for identifying simulators in forensic settings follow principles of criterion validity.
+Where the condition of interest is _being plausibly a simulator_.
+
+$\text{Sensitivity}: P(o < y | S)$
+
+$\text{Specificity}: P(o \geq  y | NS)$
+
+where $S$ indicates being a simulator according to gold standard, while $NS$ indicates being a non-simulator according to gold-standard.
+
+## How to Define a "Simulator"? 1/3
+\small
+1. groups are created for condition of interest by asking healthy people to simulate (also giving financial incentive if successful to increase realism) and they are compared with other healthy people or with patients for whom it is implausible they are simulating.
+
+## How to Define a "Simulator"? 2/3
+2. the presence of condition of interest (simulators vs non-simulators) is identified based on application of other PVT tools (also combination of multiple tools). In this case the result on other PVT tools becomes the gold-standard.
+
+## How to Define a "Simulator"? 3/3
+\small
+3. groups are used in which it is extremely plausible that there is simulation or probable malingering, i.e., pathological groups for which there is already strong suspicion of simulation compared to others in which this is not the case. A classic example is comparing patients who are undergoing rehabilitation (low probability of being simulators) with patients who have requested evaluation to collect insurance and who have very severe reported cognitive deficits compared to apparently high daily functioning (higher probability of being simulators).
+In this case, membership in one group versus these criteria is the gold standard.
+
+## Definition of "Plausibly a Simulator"
+\small
+From point 3) of previous slide
+
+Slick et al. (1999), defines criteria for identifying different probabilities of simulators (frank, probable, possible) based on the presence of one or more of the following criteria:
+
+```{=latex}
+\scriptsize
+\emph{In determining the presence of MND (Malingered Neurocognitive Dysfunction), the case must be evaluated on the basis of four criteria:
+\begin{itemize}
+\item[(A)] presence of substantial external incentive,
+\item[(B)] evidence from neuropsychological testing,
+\item[(C)] evidence from self-report, and
+\item[(D)] behaviors meeting the necessary B and C criteria are not fully accounted for by psychiatric, neurological, or developmental factors.
+\end{itemize}
+
+All diagnoses of malingering require the presence of an external incentive (Criterion A).}
+\vfill
+Slick, Sherman, Iverson (1999) Diagnostic Criteria for Malingered Neurocognitive
+Dysfunction: Proposed Standards for Clinical Practice
+and Research. \emph{The Clinical Neuropsychologist}.
+```
+
+
+## 3) The Reliable Digit Span
+
+The Reliable Digit Span is nothing more than the sum of Digit Span Forward and Digit Span Backward.
+
+
+Its utility in forensic contexts is based on the fact that people can overestimate the difficulty of this test and have a very (too low) performance. Often however criterion validity is reported with respect to the possibility of distinguishing between groups of patients.
+
+## Reliable Digit Span
+
+[](../Figures/Sim_sens.png)
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.35]{../Figures/Sim_sens.png}
+\end{figure}
+
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.35]{../Figures/Sim_sens_PPV.png}
+\end{figure}
+\end{columns}
+```
+\small
+Mathias et al. (2002) Detecting Malingered Neurocognitive Dysfunction Using the Reliable Digit Span in Traumatic Brain Injury. \emph{Assessment}.
+
+## Reliable Digit Span
+
+```{=latex}
+\begin{columns}
+\column{0.7\textwidth}
+
+\begin{tikzpicture}
+    % Include your image
+    \node[anchor=south west, inner sep=0] (image) at (0,0)
+        {\includegraphics[width=0.9\textwidth]{../Figures/Sim_sens_PPV.png}};
+
+    % Set coordinate system to match the image
+    \begin{scope}[x={(image.south east)}, y={(image.north west)}]
+
+        % Draw a red rectangle (thin border)
+        %\draw[red, thick, rounded corners] (0.25,0.3) rectangle (0.45,0.5);
+        % Optional label
+        %\node[red, font=\bfseries, above] at (0.35,0.5) {Region 1};
+
+
+        % a red rectangle (thicker border)
+        \only<2>{\draw[red, ultra thick] (0,0.38) rectangle (0.98,0.42)};
+
+
+    \end{scope}
+\end{tikzpicture}
+
+\column{0.5\textwidth}
+\scriptsize
+Recall that Positive Predictive Power (or Value) indicates:
+What percentage of positives will actually be a simulator?\\
+\vspace{2em}
+This depends on how many "simulators" we expect in the population.
+Having these values can help us interpret the results.
+
+\end{columns}
+\pause
+\scriptsize
+E.g., if an individual obtains a value < 5. We could say "even assuming a low base rate of .1 (i.e., 10\% simulators in the population). A performance below 5 has 100\% sensitivity and 92\% specificity)"
+
+```
+
+## 3)  Tests Developed with Criterion Validity.
+\small
+**Advantages**:
+
+- Tests developed with criterion validity allow us to have sensitivity/specificity PPV and NPV values that greatly help in interpreting results.
+
+**Disadvantages**:
+- In these tests the main limitation is the adequacy of the "Simulator" group.
+In some cases they are assumed to be simulators, e.g., from other tests. In cases where you are explicitly asked to simulate, it can be an ecologically poor choice: in simulation related to test development the stakes will inevitably be lower (E.g., A student who wins 10 € more if they fake well cannot be compared to a patient faking a deficit to get higher insurance payout).
+
+## Other Tests Used to Identify Simulators
+
+There are also other tests used to identify simulators that are not tests of maximal performance.
+
+## The Structured Inventory of Malingered Symptoms (SIMS) 1/4
+
+There are also other tests that are not maximal performance that are related to the study of simulation. An example is the Structured Inventory of Malingered Symptoms (SIMS) which is a questionnaire with yes/no response.
+
+It is divided into various items grouped in scales that help identify simulation of intellectual disability, physical disorders, or psychiatric disorders. A total score is also obtained.
+
+## The Structured Inventory of Malingered Symptoms (SIMS) 2/4
+
+```{=latex}
+\vfill
+\small
+In recent days I have difficulty sleeping \hfill \textbf{YES/NO}\\
+\vspace{3em}
+My memory has deteriorated so much that for\\ some days I cannot remember anything \hfill \textbf{YES/NO}
+```
+\pause
+\emph{What is the difference between these two items?}
+
+
+## The Structured Inventory of Malingered Symptoms (SIMS) 3/4
+
+The characteristic of some SIMS items is that they define some symptoms as "impossible".
+
+
+## The Structured Inventory of Malingered Symptoms (SIMS) 4/4
+
+The original SIMS study showed criterion validity evidence using a series of groups of participants asked to feign specific deficits (e.g., psychiatric, cognitive, etc.)
+
+In particular high sensitivity, specificity etc. (Smith & Burger 1997)
+
+![](../Figures/SIMS.png){height="50%"}
+
+
+## Closing Considerations 1/4
+![](../Figures/triangle.png){fig-align="center" width="15%"}
+\small
+The identification of simulators is based on the same statistical principles used to identify deficits/damage or other conditions of interest (pathology).
+
+In this case the test is often constructed to induce those with ill intent to have a certain pattern of responses that is unlikely and that a patient with a real deficit (even severe) would not commit.
+
+## Closing Considerations 2/4
+\small
+Very often simulation tests are associated with sensitivity and specificity in identifying simulators and also with PPV (Positive Predictive Value) or NPV (Negative Predictive Value) according to various scenarios.
+
+The issue of simulation is complex also because (for statistical purposes) a sharp distinction between simulation/non-simulation is often used, when it is plausible that there are different degrees of simulation.
+
+## Closing Considerations 3/4
+\small
+Also for tests specific to simulations the same considerations made for every other statistical aspect.
+
+Large samples are preferable to have more solid cut-off estimates (samples more representative of the population)
+
+## Closing Considerations 4/4
+\small
+The limits of comparison with a single normative sample are present which may not be adequate for our purposes (e.g., for age, education). It would be ideal to always have only people as similar as possible to the individual being evaluated.
+
+Every other consideration remains pertinent (e.g., better country-specific norms, recent norms, etc.)
+

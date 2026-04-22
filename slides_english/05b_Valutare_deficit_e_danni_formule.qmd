@@ -1,0 +1,778 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{05 - Assessing Deficits and Impairments - Formulas}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+%\date{\today}
+\maketitle
+```
+
+
+# 5. Assessing Cognitive Deficits and Impairments - Formulas
+
+## Assessing Cognitive Deficits and Impairments
+
+1. The concept of thresholds for percentages or probabilities
+2. Z-scores and probability
+3. Percentiles
+4. Sample vs Population
+5. Test for single case (Crawford's t)
+6. Regression methods for score correction
+7. Equivalent Scores method
+
+## The Clinical Cut-off and Threshold Values
+
+The concept of clinical cut-off (or in general of threshold values or values that delimit certain percentages) are fundamental in statistics applied to clinical neuropsychology.
+
+The underlying idea in their use is to find a value that helps classify the patient's performance or, more generally, to determine how probable/improbable it is.
+
+Improbability is closely linked to the concept of deficit or presumed cognitive impairment, which in fact is operationalized as unusual, improbable performance, assuming one is normal.
+
+## The Clinical Cut-off and Threshold Values
+
+However, the use of probabilities in clinical settings is insidious because it is easy to make mistakes in their use and interpretation.
+
+Formalizing more rigorously helps avoid the effects of vague terminology.
+
+## The Clinical Cut-off
+
+![](../Figures/Healthy_vs_Pathological.png){width="50%" fig-align="center"}
+
+*Not knowing where pathological populations (deficit or impairment) are, we arbitrarily place a threshold that delimits the 5% lowest (gray area). Assuming that deficit and pathology are somewhere to the left.*
+
+## Values Useful for Clinical Practice
+
+We define in general values useful for clinical classification those scores x below which there is a known probability k that an observed score o has a value equal to or less than x (in tests where a low score indicates worse performance).
+
+$$
+\small
+\text{we define}\ x\ \text{such that}\ P(o<x) = k
+$$
+
+Example: with "cut-off of normality", $k$ = 0.05 and the value $x$ is the value such that $p(O < x ) = 0.05$ (there is a 5% probability of observing performance below x, being low, we infer an impairment).
+
+The 5% threshold is completely arbitrary.
+
+## Percentiles
+
+This definition is overlapping with the one used in statistics of "percentiles", with reference to a distribution.
+
+The use of the normal curve or non-parametric percentiles represent different methods to identify these percentages.
+
+The use of z-scores is nothing more than a (parametric) method that simplifies the identification of these percentiles.
+
+## Percentiles
+
+Recall that the use of the normal curve (and **transformation into z-scores**) makes sense because it helps us identify percentiles, that is, values that delimit known portions of the distribution.
+
+![](../Figures/gaussiana.png){width="80%" fig-align="center"}
+
+## Transformation into Z-scores
+
+$$
+Z = \frac{X - M}{SD}
+$$
+Recall that this formula is useful because it helps us define percentiles (parametric).
+
+We can use it in two ways:
+
+- we calculate threshold z-values, starting from mean and standard deviation (usually, what raw score corresponds to the z-score $$z = - 1.64$$, which corresponds to the 5th percentile).
+
+- we transform the raw score into z-score and from this determine what percentile it corresponds to.
+
+
+## Z-scores (Another Way of Viewing)
+
+\small
+When you transform scores into z-scores, there are some important points that emerge.
+
+If scores are **not** standardized (I don't transform into z-scores first).
+
+- Mean – 1.64 * SD delimits the 5% of lowest scores
+- Mean - 1.96 * SD delimits the 2.5% of lowest scores
+
+If scores are **standardized** (z-scores with Mean = 0 and SD = 1):
+
+- -1.64 delimits the 5% of lowest scores
+- -1.96 delimits the 2.5% of lowest scores
+
+Sometimes you find "2 standard deviations". It is nothing other than another number (always arbitrary) to delimit low performance, always arbitrary (but easier to remember).
+
+## Non-parametric Percentiles
+
+What about in case of non-normal distributions?
+
+One can use **non-parametric percentiles**.
+
+(for examples see associated R code for potential impact of non-normality, especially with marked ceiling effect.)
+
+## The Reference Distribution
+
+This definition of percentiles can be further explored by focusing on a critical point that we previously glossed over, namely that the values are **relative to the reference distribution**.
+
+We can therefore better specify the formula as follows:
+$$
+\small
+\text{we define}\ x\ \text{such that}\ P(o< x∣N )=k
+$$
+$x$ is the value for which we expect a probability $k$ that a score O is less than $x$, assuming that the person comes from a population of "healthy" people (that is, without cognitive deficit).
+
+In fact, if the person came from other populations (e.g., patients with Alzheimer's) the expected values could be different.
+
+## Analogy with Null Hypothesis in Statistical Test
+
+\small
+Note that this formulation is entirely analogous to that of the p-value in relation to the null hypothesis and the identification of critical values of the statistic (e.g., the critical t-value beyond which I consider the result significant).
+$$
+x : P (t_{obs}<t_{crit}∣H_0)=q
+$$
+\begin{center}
+\begin{footnotesize}
+This formula is simplified, and degrees of freedom are not considered
+\end{footnotesize}
+\end{center}
+
+$x$ is the value for which we expect a probability $q$ that the observed statistic ($t_{obs}$ in this case) is less than the critical $t$, assuming that $H_0$ is true.
+
+$H_0$ depends on the type of test, but in the case of a comparison between samples it indicates that the two samples compared with the t-test come from the same population.
+
+## Thought Experiment
+
+Suppose we have normative data and know that the threshold that delimits the point -1.64 (5%) is 4, or that the 5th percentile is 4.
+
+Suppose we observe a performance of 3.
+
+Would we consider it deficient?
+
+If I told you that I calculated this threshold from a sample with 20 subjects or with 200 subjects, would we trust the threshold in the same way?
+
+**Considering a threshold for inferences of a clinical type cannot prescind from reflecting on the representativeness of my sample with respect to the population and on how generalizable the results are.**
+
+## Sample or Population
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+A crucial aspect is that although percentiles can be calculated for sample or population, in the context of neuropsychological evaluation the interest is always (implicitly) in the population.
+
+\textbf{I am not interested in classifying my patient compared to my specific sample (e.g., my 10, 100, 1000 healthy subjects), but how my patient would classify in general with respect to the population of healthy people.}
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Sample or Population
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+Another way of seeing the problem is that my classification should not depend on the specific normative sample, but should hold for all possible normative samples.
+\vspace{1em}
+
+This especially holds true if my normative sample has limited size (and is therefore not very representative of the population).
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Percentile or Probability?
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+Note that the percentile tells us nothing about probability, but tells us the value that delimits a certain percentage of sample observations.
+\vspace{1em}
+
+Having a percentage does not necessarily mean that I am controlling the probability of error; using percentiles or z-scores approximates probability (in terms of population) only when samples are large and assumptions are met (e.g., Normality of population distribution).
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Sample or Population
+
+![](../Figures/normativi_percentili.png){width="50%" fig-align="center"}
+
+The figure shows three hypothetical samples (n=25) drawn from the same population.
+
+The number above indicates the true cut-off (5%) and that obtained in the samples.
+
+## Sample or Population
+
+Using a threshold calculated on the 5% of the sample (e.g., via z-scores) thus has limits: it does not guarantee that it delimits the 5% threshold in the population.
+
+But can we estimate a population value based on what we have? (that is, the sample)
+
+Yes, and this estimate (associated with errors) is at the basis of concepts of **inferential statistics**. Inferential statistics is (by definition) that branch of statistics that allows us to make inferences about the population from sample data, associating certain percentages of error.
+
+## Comparisons with Threshold Values and Inferential Statistics
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+An inferential statistic is characterized by being able to make precise statements about the probability of error referred to the population from which the sample is extracted and not to the sample itself.
+\vspace{1em}
+
+In general, not using a statistical test to make an inference can be seen as a qualitative and less robust strategy because the probability of making errors and the generalizability of results beyond the sample used for comparison is not known.
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Comparisons with Threshold Values and Inferential Statistics
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+More concretely, if I calculate the cut-off using the threshold -1.64 of the standardized score:
+\vspace{1em}
+
+1) I do not know how much my classification would generalize to other samples.
+
+2) I do not know what the probability of classification error is (assuming the person is healthy), imagining infinite repetitions.
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Comparisons with Threshold Values and Inferential Statistics
+
+Note on statistics:
+
+Using comparison with z-scores as a statistical test is known as **z-test** and can be a statistical test, but assumes:
+
+- that we are **comparing a sample mean with a reference population**
+- that we know the **variance of the population** (not the sample).
+
+With unknown variance, we should use the t-test (with the t distribution that approximates normal for large samples).
+
+## Comparisons with Threshold Values and Inferential Statistics
+
+Using comparison with z-scores as a statistical test thus implies two errors:
+
+1) I am treating my *single individual as a sample mean*
+2) I am treating the normative data (which are a sample) as if they were a population.
+
+Beyond formal and theoretical correctness, this implies possible differences in our ability to make classification errors, which in the absence of appropriate statistics, is not known.
+
+## Reassuring Note
+
+In reality, it should be recognized that with sufficiently large samples (>100) and if the distribution is truly normal and with standard deviation not too high, the errors are not dramatic.
+
+(This is a consideration to be taken *cum grano salis*, based on simulations from the associated script 10 to these slides)
+
+## Crawford & Howell t-test
+
+The Crawford & Howell t-test (1998)[^1] is a modification of the t-test that allows comparing a single case with a mean of a sample.
+
+The Crawford t-test is a modification of the t-test that allows comparing a single case with a sample, but with inference with respect to a population, with known error.
+
+\underline{The test works even with small samples (~10 subjects).}
+
+[^1]: actually the test is from Sokhal and Rohlf (1995). Crawford & Howell had the merit of popularizing it for single-case in neuropsychology context.
+
+## Crawford & Howell t-test
+
+$$
+t = \frac{X_i - \bar{X_2}}{s_2\sqrt{\frac{N_2+1}{N_2}}}
+$$
+
+\vspace{1em}
+Where $X_i$ is the score of the single individual to be tested. $\bar{X_2}$ is the mean of the normative sample. $S_2$ is the Standard deviation of the normative sample and $N_2$ is the size of the normative sample.
+Comparing with the distribution with $N_2-1$ degrees of freedom the result returns the probability (given null hypothesis is true) of obtaining $t$ values equal to or less than those observed (see example code for details).
+
+
+## Notes on Crawford's t-test (1/2)
+
+Crawford's t-test behaves more appropriately than the z-test or non-parametric percentiles (see also script with simulations).
+
+Crawford's t-test is also more robust in case of violation of normality. This means that even if one of the assumptions is violated, overall the behavior of the test is adequate.
+
+Crawford's test works well (at the level of Type I error) even for small samples, suggesting potential use even for samples collected ad-hoc (but pay attention to Reliability and Validity, they should be available).
+
+## Notes on Crawford's t-test (2/2)
+
+\small
+Crawford's t-test maintains a Type I error constant at 5% even for very small samples (n=5).
+
+**This does not mean that small samples are sufficient, in reality it is always better to have large samples, because they will yield cut-offs more realistic to those of the population**
+
+(See simulation in script 11_C&H_test)
+
+The important thing is that Crawford's t-test even with small samples maintains a Type I error at the level of 5% (concretely, for example if a person comes from the population of healthy individuals, we will get a value below "cut-off" 5% of the time, just as expected. In the case of z-score the percentage could be 10% or more).
+
+## Comparison with Normative Data
+
+Crawford's test, like z-score usage and percentile usage, still requires identifying a reference sample.
+
+The data should be from healthy subjects (thus normal) similar to the person tested. But how to define this?
+
+**Often for a normative comparison, reference is made to people of the same sex and with similar age and education.**
+
+The choice of these variables is pragmatic: they are variables we know influence cognitive performance and are easy to collect (at the time of test creation).
+
+
+## Comparison with Normative Data
+
+\small
+So far we have made reference to formulas that compare **with a single group of data**, called "normative sample" or "normative data" that allows us to obtain a distribution of data.
+
+![](../Figures/normative_data.png){width="40%" fig-align="center"}
+
+This group will be made up of individuals with a certain age, a certain education, etc., and we have always emphasized that normative data should be similar to the individual being evaluated.
+
+But how do we define whether the sample is adequately similar?
+
+## Comparison with Normative Data
+
+\small
+How do we choose a reference sample as similar?
+
+Example: if my patient is 68 years old and has 5 years of education, what is an appropriate group?
+
+Examples:
+
+- people from 65 to 75 years old with education between 3 and 5 years.
+- people with exactly 68 years old and exactly 5 years of education.
+
+Generally tests report predefined tables and, at the level of data collection, some combinations may be poorly represented. Beyond this, it is often not possible to have access to the entire data and "compose" the normative data reference, but we must rely on available tables.
+
+## Appropriateness of the Reference Sample
+
+\small
+It is an important methodological aspect with impact. If in my reference sample I am using people who are not similar to the person whose performance I am observing, my inferences (on deficit or impairment) would be distorted.
+
+Example: suppose my test provides a cut-off that refers to the age range 70-80 years.
+
+Suppose I need to test a patient who is 70 years old. That means in the data distribution there will be people aged 80 (whose performance could be much lower).
+
+**The arbitrary stratification in samples for relevant variables (age, education, sex) always has problems with normative sample composition and its representativeness.**
+
+## Regression Methods
+
+As an alternative to methods using a simple reference sample, there are methods instead based on regression.
+
+The rationale of these methods is as follows:
+
+1) Starting from some variables I can predict the expected performance of the participant given the observed variables, according to a linear regression model
+2) Once I have this regression model I can establish whether the observed performance is sufficiently improbable given the observed values.
+
+## Regression Methods
+
+A potential formalization of cut-offs obtained through regression methods is the following.
+
+The cut-off $x$ is the score such that patient i-th (with specific values for additional variables V1, V2, …, Vn), such that the probability of observing that performance is $k$ (with $k$ critical normally 0.05)
+
+$$
+\small
+\text{we define}\ x\ \text{such that}\  P(o_i< x∣ V1_i , V2_i , ... , Vn_i , N )=k
+$$
+
+Where $_i$ indicates the index for a specific score combination given a specific combination of variable values $(V1, ... V_n)$ that can influence performance
+Classically regression models include age, education, and sex as predictor variables of performance
+
+## Regression Methods: Variables to Consider
+
+Which variables to consider in the regression?
+
+There are many ways to select variables to consider and which to include. Going deeper into this is beyond the scope of this course.
+
+More refined regression methods also include methods to account for any "non-linearity" (relationships describable by non-linear functions, e.g., exponential, hyperbolic, and the observed variable).
+
+![](../Figures/metodi_regressione.png){width="60%" fig-align="center"}
+
+## Regression Methods: Variables to Consider
+
+
+![](../Figures/tele_gems.png){width="100%" fig-align="center"}
+
+\begin{center}
+  \footnotesize
+  Example from Montemurro et al., 2023
+\end{center}
+
+## Regression Methods
+
+In the slides that follow is shown a popular method based on regressions that underlies most neuropsychological tests developed in Italian, the Equivalent Scores method.
+
+This method contains two main parts:
+
+- a part to obtain "corrected" scores through regressions.
+- a part to obtain thresholds that account for the sample/population difference
+
+## Equivalent Scores
+
+Introduced by Erminio Capitani in the standardization collection of Spinnler and Tognoni tests (1987)
+
+Three key aspects:
+
+- They correct for age and education through regressions.
+- They account for difference between sample and population
+- They allow comparison between different tests
+
+## Equivalent Scores
+
+The calculation of Equivalent Scores is divided into various steps:
+
+1) Calculation of adjusted scores, which remove the effect of age and education.
+2) Calculation of tolerance limit (ES = 0).
+3) Calculation of the remaining ES.
+
+## Equivalent Scores
+
+**1) Calculation of Adjusted Scores, which Remove the Effect of Age and Education (and Sex).**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+The distribution of raw scores includes people of different ages.
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/raw_scores_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+**1) Calculation of Adjusted Scores, which Remove the Effect of Age and Education (and Sex).**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Effect of age
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/age_effect.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+**1) Calculation of Adjusted Scores, which Remove the Effect of Age and Education (and Sex).**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Effect of age and regression line
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/age_effect_regr_line.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+**1) Calculation of Adjusted Scores, which Remove the Effect of Age and Education (and Sex).**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Difference between predicted score and observed score
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/age_effect_regr_line_residual.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+**1) Calculation of Adjusted Scores, which Remove the Effect of Age and Education (and Sex).**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Calculation of residuals of all subjects in the normative data
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/age_effect_regr_line_allresidual.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+**1) Calculation of Adjusted Scores, which Remove the Effect of Age and Education (and Sex).**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+The residuals could be considered already "adjusted" scores because they are what remains of the score after removing the influence of the predictors (in this case cleaned of the effect of age)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/residual_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+
+
+**1) Calculation of Adjusted Scores, which Remove the Effect of Age and Education (and Sex).**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+In the ES method, adjusted scores are reported on a scale similar to the original (technically, by adding the intercept to the residual)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/adj_scores_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+
+**1) Calculation of Adjusted Scores, which Remove the Effect of Age and Education (and Sex).**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+The ES = 0 is calculated as \textbf{one-sided non-parametric tolerance limit (5\%)}
+
+It indicates the score that will not be obtained by more than 5\% of the population. (thus the cut-off, at the population level)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/limiti_tolleranza.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+**2) Calculation of Tolerance Limit (ES = 0)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+With reference to the hypothetical distribution of underlying ability, ES=4 is also found and then the space between ES = 0 and ES = 4 is divided into equally spaced intervals. (equally spaced with respect to underlying ability)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/PE_distr.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+**2) Calculation of Tolerance Limit (ES = 0)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+1) We calculate the \textbf{adjusted score} by comparison with table or application of the regression formula
+
+2) Comparison with the adjusted score – Equivalent Score correspondence table
+
+Scores that obtain the maximum or minimum score are not corrected.
+
+\textbf{If corrected score is < ES = 0 threshold, then deficient performance.}
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/adj_score.png}
+\end{figure}
+\end{columns}
+```
+
+## Equivalent Scores
+
+Let's try together to make a hypothetical use of equivalent scores.
+
+(see article)
+
+## Considerations on Regression Methods
+
+Regression methods might seem a perfect solution to the problem raised for simpler tests of comparison with normative data (e.g., Crawford's T-test). In particular **they avoid arbitrary steps** and allow a more correct estimate of the patient.
+
+However, they are not without problems. In particular an incorrect estimation of the regression model that leads to final scores can lead to distorted estimates.
+
+## Considerations on Regression Methods
+
+In general we expect distortion effects most for extreme values in the predictor variables, example very high or very low education or age (these are the points where any model inaccuracies would have more pronounced effects).
+
+Regression models can also give the illusion of having good predictions for some points (in the space of possible values) for which there may actually be few observations and imprecise estimates.
+
+## Limitations of Regression Methods (1/2)
+
+Regression models can also give the illusion of having good predictions for some points (in the space of values) for which there might actually be few observations and imprecise estimates.
+
+For example, suppose we have normative data of 1000 subjects with a regression method. But suppose we need to test a particular subject (e.g., 80-year-old woman with 23 years of education).
+
+## Limitations of Regression Methods (1/2)
+
+It is possible that in reality in my sample there are very few (or even none, in which case we speak of *extrapolation*) people that match this combination of values.
+
+It would be more appropriate to have a small sample (e.g., even 15 people) that are truly representative with respect to the individual I want to evaluate and an appropriate test (e.g., Crawford's T-test).
+
+## Considerations on Type I and II Error
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+In general we have seen how using methods that account for differences between sample and population is better.
+
+Crawford's t method (and Crawford regression methods) also show that they are able to maintain Type I error (that is, having a subject below cut-off when they are healthy) at the expected level (that is, 0.05 or 5%) when there are a high number (in reality infinite) of repetitions.
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Considerations on Type I and II Error
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+There is also another relevant type of error which is Type II error, that is failing to correctly identify a pathological subject. For tests used for deficit/impairment, this is difficult to calculate, because we do not know what the expected performance is for those with deficit/impairment (see figure in initial slides).
+
+To calculate Type I error, various possible scenarios are generally studied \textbf{hypothetically} with different levels of deficit severity. However, this is \underline{never done} for neuropsychological tests. And focus is only on the cut-off and Type I error.
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Considerations on Type I and II Error
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+Type I and II error also apply not to a specific sample, but imagining \textbf{infinite} samples.
+
+See simulation to see how much more variable the cut-off estimate is with small samples.
+
+Given these aspects it would always be desirable (where possible) to have large samples.
+
+\column{0.2\textwidth}
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Consideration
+\pause
+\Large
+\center
+What Ever Happened to Reliability and Validity?
+
+## Reliability, Validity, and Cut-offs
+
+By convention, reliability and validity are often not considered in the calculation of threshold values.
+\pause
+
+This is a problem because tests with different reliability are treated the same way (I have work-in-progress on this).
+
+Reliability, Validity, and cut-offs/transformations to percentiles are thus combined only through interpretation of results and not through mathematical formulas that consider both.
+
+## Final Summary (1/2)
+
+We started with the problem of defining deficit and impairment.
+
+The most common method is based on the improbability of observing that performance if one is healthy (convoluted reasoning, but necessary, see slides).
+
+Often there is a need for a threshold, and it is arbitrarily placed at the 5% of worst performances. Note that both choices are reminiscent of rejection of the null hypothesis that exists for statistical tests.
+
+## Final Summary (1/2)
+
+\begin{center}
+PROBLEM: what is meant by 5\%?
+\end{center}
+
+It would not make sense to refer to the distribution of the sample, but it would be better to refer to the population.
+
+In general there are various methods for calculating thresholds and probabilities, and it would be better to:
+
+a) use those that effectively account for the distinction between sample/population
+
+b) have large samples (at least n > 100).
+
+Even using non-optimal methods, having large samples improves.
+
+## Final Summary (2/2)
+
+Methods based on samples however have the problem of "steps" that are created for each group into which we have transformed a continuous variable (e.g., Age) into separate groups.
+
+Methods based on regression solve the "steps" problem, but pay attention to representativeness in regression-based methods and pay attention to extreme values in predictors (e.g., Education, age). These are the values where the estimate could be more imprecise.

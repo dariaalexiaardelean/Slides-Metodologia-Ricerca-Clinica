@@ -1,0 +1,327 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{08 - Other uses of tests}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+# 8. Other uses of test scores
+
+## Example
+
+\small
+We test a patient using the Figurative Language test 1.
+
+The patient obtains a score of 12. After 6 months they are evaluated again and obtain a score of 10. What can we say about the patient?
+
+![](../Figures/Figure_true_obs_1.5.png){width="50%" fig-align="center"}
+
+
+\footnotesize
+Recall (see reliability slides) that in the case of repeated measurements, we expect some fluctuations in the observed score. The point is to understand: is the variation I observed attributable to these fluctuations (due to imprecision?) or to a "true" change?
+
+## Assessing changes over time
+
+Assessing changes over time is a thorny issue in clinical neuropsychology and is very common.
+
+Why evaluate the same subject/patient multiple times?
+
+- to investigate whether they have changed following a neurorehabilititation treatment.
+
+- to investigate whether they show decline in cognitive functioning, possibly a sign of progressive deterioration.
+
+- To investigate whether they have undergone cognitive alterations following an event, such as neurosurgical operation to remove a tumor.
+
+## Assessing changes over time
+
+\begin{center}
+  \textbf{The problem with assessing change over time}
+\end{center}
+\vspace{2em}
+
+It is absolutely normal that a subject does not obtain exactly the same score in two different evaluations.
+
+- *Random effects*: related to test precision and captured by test-retest reliability
+
+- *Systematic effects*: the most common is the **practice effect**
+
+## Assessing changes over time
+
+\begin{center}
+  \textbf{The practice effect}
+\end{center}
+\vspace{1em}
+
+It is the effect whereby a second evaluation achieves a better score than the previous one. There are various reasons underlying the practice effect.
+
+- Greater familiarity with the testing situation (less anxiety)
+
+- Ability to use strategies discovered in the previous performance.
+
+## Parallel forms
+Sometimes some tests might have **parallel forms**, that is an equivalent version of the test in which however the items are different.
+
+With parallel forms an additional problem is introduced: demonstrating that the two tests should be considered equivalent.
+
+Furthermore, the use of parallel forms does not guarantee protection from the practice effect (Mondini and Arcara, 2008, see also the GEMS test, Mondini et al., 2022 for an example where parallel forms still have practice effect).
+
+
+## Assessing changes over time
+
+\begin{center}
+  \textbf{How to assess changes over time}
+\end{center}
+\vspace{1em}
+
+The only (rigorous) way is to use **statistical methods to assess change** (e.g. Chelune et al., 1993; Crawford & Garwhaite, 2006)
+
+To my knowledge the only Italian studies that report such data are not many. For example:
+
+- the **ENB-2** (Mondini et al., 2011)
+- **APACS** (Arcara & Bambini, 2016)
+- **NADL-F** (Arcara et al., 2019)
+- **GEMS** (Mondini et al., 2023)
+- **Tele-GEMS** (Montemurro et al. 2023).
+
+## Assessing changes over time
+
+\begin{center}
+  \textbf{How to assess changes over time}
+\end{center}
+\vspace{2em}
+
+![](../Figures/thresholds_significant_changes_figlang1apacs.png){width="100%" fig-align="center"}
+
+## Assessing changes over time
+
+\begin{center}
+  \textbf{How to assess changes over time}
+\end{center}
+\vspace{2em}
+
+![](../Figures/schermata_ENB2.png){width="100%" fig-align="center"}
+
+## Assessing changes over time
+
+\begin{center}
+  \textbf{Methods for assessing changes over time}
+\end{center}
+\vspace{2em}
+
+There are numerous methods for assessing significant changes over time (see Collie 2002). In all these methods the objective is to construct thresholds (an upper and a lower one) beyond which we infer that the variation is not attributable to chance and, therefore, should be considered significant.
+
+## Assessing changes over time
+
+\begin{center}
+  \textbf{Methods for assessing changes over time}
+\end{center}
+\vspace{2em}
+
+To do this, almost all methods are based on this methodology:
+
+a **group of individuals is taken and tested twice (t0 and t1) over a time span in which it is assumed that no change has occurred**. For example, healthy subjects tested at t0 and at t1 after one month. These subjects should not have done training or other things that could explain differences between scores.
+
+Any difference between t0 and t1 will therefore be attributable to test imprecisions. Starting from this (via different statistical methods) an interval is constructed with an upper or lower limit of significant change.
+
+## Assessing changes over time
+
+\begin{center}
+  \textbf{Methods for assessing changes over time}
+\end{center}
+\vspace{1em}
+
+The principle of these methods is often analogous to what has already been seen for identification of deficit/damage.
+
+A kind of distribution is constructed that tells us the expected values assuming there is no change (H0) and we go to see if the observed score (or the observed score variation) is so extreme as to not be attributable to chance. If so, then we infer significant change (improvement/deterioration).
+
+## Assessing changes over time
+
+\begin{center}
+\textbf{Reliable Change Index (RCI)}
+\end{center}
+\vspace{2em}
+
+The RCI is the most famous method for calculating significant differences over time.
+
+$$
+  RCI = \frac{X_{i1} -X_{i0}}{SE_{diff}}
+$$
+
+\small
+$$ SE_{DIFF} = \sqrt{2SE^2} $$
+$$SE = s_0\sqrt{1-r} $$
+$$s_0 = sd(X_0)r_0 = cor(X_0,X_1)$$
+
+## Assessing changes over time
+
+\begin{center}
+\textbf{Reliable Change Index (RCI)}
+\end{center}
+\vspace{2em}
+
+Once the RCI is obtained, it can be treated as a z-score.
+
+If > 1.64, it indicates significant improvement (5%), while if < -1.64, it indicates significant deterioration (5%).
+
+## Assessing changes over time
+
+\begin{center}
+\textbf{Modified Reliable Change Index (mRCI)}
+\end{center}
+\vspace{2em}
+
+The mRCI is a variation of the RCI, which accounts for the practice effect.
+
+$$
+mRCI = \frac{(X_{i1}-X_{i0})-m}{SE_{diff}}
+$$
+
+\small
+$$m = \bar{X}_1 - \bar{X}_0$$
+$$SE_{diff} = \sqrt{2SE^2}$$
+$$SE = s_0\sqrt{1-r_{01}}$$
+$$s_0 = sd(X_0)r_{01} = cor(X_0, X_1)$$
+
+## Assessing changes over time
+
+\begin{center}
+\textbf{Modified Reliable Change Index (mRCI)}
+\end{center}
+\vspace{2em}
+
+Again, once the mRCI is obtained, it can be treated as a z-score.
+
+If > 1.64, it indicates significant improvement (5%), while if < -1.64, it indicates significant deterioration (5%).
+
+## Assessing changes over time
+
+\begin{center}
+\textbf{Regression Method Crawford \& Garthwaithe, 2006}
+\end{center}
+\vspace{2em}
+
+Although mRCI accounts for the practice effect, it does not account for regression to the mean (i.e., extreme scores at t0 will tend to be closer to the mean at t1).
+
+They also do not account for differences that could exist depending on the baseline score (at t0); the practice effect is corrected in the same way.
+
+## Assessing changes over time
+
+\begin{center}
+\textbf{Regression Method Crawford \& Garthwaithe, 2006}
+\end{center}
+\vspace{2em}
+
+The Crawford & Garthwaithe method, instead, accounts for all these aspects and also provides a statistic that accounts for the difference between sample and population (and works even with small samples n~5).
+
+RCI and MRCI instead do not account for distinction between sample and population (like z-scores).
+
+Going into the formula details is beyond the scope of this course.
+
+## Assessing changes over time
+
+\begin{center}
+\textbf{How to assess changes over time}
+\end{center}
+\vspace{2em}
+
+What to do if the test does not have values for significant change?
+
+Exercise MUCH caution in using it to infer change (avoid it if possible).
+
+Look at test-retest reliability values and select tests where they are high, but remember that the practice effect is not included.
+
+## Assessing changes over time
+
+\begin{center}
+\textbf{To remember}
+\end{center}
+\vspace{1em}
+
+It should be remembered that, as with test-retest reliability, the intervals of significant change refer to the specific time interval with which they were constructed (e.g. 1 month) and there are infinite time distances (between t0 and t1) for which to calculate change intervals.
+
+In general, these are made at relatively short times (e.g. 1 month) because otherwise it becomes difficult to assume that no change has occurred.
+
+Alternatively, the same intervals of clinical relevance are used. (e.g. 2 weeks for surgery, 6 months for Multiple Sclerosis).
+
+## Compare scores from different tests
+
+\begin{center}
+  \textbf{Compare scores from different tests}
+\end{center}
+\vspace{2em}
+
+In certain cases it can be useful to compare different tests.
+
+Can be compared:
+
+- different tests that measure the same construct (to investigate more deeply whether the deficient performance is linked to a specific test).
+
+- tests that measure different things (to infer selective deficits)
+
+## Compare scores from different tests
+
+\begin{center}
+  \textbf{Compare scores from different tests}
+\end{center}
+
+To allow comparison between different tests, the scores must be transformed so that they are comparable.
+
+The most widespread strategy is to transform the score based on the percentage of the sample or population that obtained that score (or a lower score; for example, 20%, 30%, 40%, etc.).
+
+This is often done through:
+
+- Conversion to **z-scores** (but the distributions of tests must be similar)
+- Use of **equivalent scores** (Capitani and Laiacona, 2007)
+- (other methods exist, e.g. Crawford, Howell & Garthwaite, 1998)
+
+## Compare scores from different tests
+
+\begin{center}
+  \textbf{Limits of comparing different tests}
+\end{center}
+\vspace{2em}
+
+It is important to remember some aspects when using strategies to compare different tests through transformations.
+
+In particular, we must remember that the comparison is often to be considered as descriptive (and not linked to a statistical inference).
+
+## Compare scores from different tests
+
+\begin{center}
+  \textbf{Limits of comparing different tests}
+\end{center}
+\vspace{2em}
+
+Suppose we transform scores and see that the person is at the 70th percentile on memory tests, while at the 20th percentile for executive function tests. One could interpret this as showing selective decline in executive functions.
+
+This is possible (and reasonable), but it is important to remember that we do not know how *unlikely* it is to observe this pattern in healthy individuals. Many of the inferences we made were based on unlikelihood, but in this case we do not know if it is an actually very unlikely pattern to suggest selective damage (we are *implicitly assuming* it).

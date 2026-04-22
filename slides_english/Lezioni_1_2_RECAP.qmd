@@ -1,0 +1,79 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex
+incremental: true
+header-includes: |
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+  \usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, backgrounds, calc}
+  \usepackage{booktabs}
+  \usepackage{xcolor}
+  \definecolor{mblue}{RGB}{35,55,100}
+---
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+\title{Clinical Research Methodology\\
+\vspace{0.5em}
+{\normalsize \textbf{Lectures 1-2: Summary}}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+\titlegraphic{
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+## Summary 1/3
+
+For evidence-based psychological/neuropsychological practice, it is essential to have **measurements**.
+
+**Tests** are tools for psychological measurement. Measurement and tests are objects of study of **psychometrics**.
+
+When using tests in clinical practice, we face a particular problem: making inferences at the level of the **single case**, which requires special attention.
+
+## Summary 2/3
+
+The knowledge of **applied psychometrics** comes into play essentially in two moments:
+
+- when we select the tests to use
+
+- when we interpret the test results
+
+
+## Summary 3/3
+
+Some important considerations are:
+
+```{=latex}
+\begin{itemize}
+\item Consider \textbf{all the psychometric properties of a test}
+
+\begin{itemize}
+  \item validity
+  \item reliability
+  \item normative data
+  \item change over time
+  \item \ldots
+\end{itemize}
+
+\item in the transformation of scores to percentiles (and possible comparison with thresholds) remember that they respond to the question:
+
+\begin{itemize}
+\item How "strange" is it to observe this performance in my sample/normative population?
+\end{itemize}
+
+\end{itemize}
+
+```
+

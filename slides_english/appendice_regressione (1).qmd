@@ -1,0 +1,811 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex
+incremental: false
+header-includes: |
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+  \usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, backgrounds, calc}
+  \usepackage{booktabs}
+  \usepackage{xcolor}
+  \usepackage{array}
+  \usepackage{colortbl}
+  \definecolor{mblue}{RGB}{35,55,100}
+  \definecolor{mred}{RGB}{160,30,30}
+  \definecolor{mgreen}{RGB}{30,100,60}
+---
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+\title{Clinical Research Methodology\\
+\vspace{0.5em}
+{\normalsize \textbf{APPENDIX --- Linear and Logistic Regression}}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+\titlegraphic{
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+# Introduction to Regression Models
+
+## Why Regression?
+
+\small
+
+Regression is the most widely used statistical tool in clinical research for:
+
+\begin{itemize}\footnotesize
+\item Describing the relationship between a dependent variable and one or more predictors
+\item Statistically controlling for confounding variables
+\item Predicting an outcome from a set of variables
+\item Quantifying the magnitude of the effect of a predictor \emph{while holding others constant}
+\end{itemize}
+
+\vspace{0.4em}
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners,fill=mblue!15,text width=3.2cm,
+              align=center,font=\footnotesize,minimum height=0.9cm},
+  arr/.style={-{Stealth},mblue,thick}
+]
+\node[box] (x1) at (-3.5,0) {Predictors\\$X_1, X_2, \ldots, X_p$};
+\node[box] (mod) at (0,0)   {Regression\\Model};
+\node[box] (y)  at (3.5,0)  {Dependent\\variable $Y$};
+\draw[arr] (x1)--(mod); \draw[arr] (mod)--(y);
+\end{tikzpicture}
+\end{center}
+```
+
+\vspace{0.3em}
+\small Two distinct questions: \textbf{(1) explanation} --- which predictors are associated with $Y$ and by how much? \textbf{(2) prediction} --- how accurately can I estimate $Y$ for a new subject?
+
+## Linear vs Logistic Regression: When to Use Them
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners,fill=mblue!15,text width=4.2cm,
+              align=center,font=\footnotesize,minimum height=1.3cm},
+]
+\node[box] (lin) at (-2.8,0) {
+  \textbf{Linear Regression}\\[4pt]
+  \footnotesize $Y$ continuous\\
+  E.g.\ MMSE score, hippocampal volume,\\
+  depression scale score
+};
+\node[box] (log) at (2.8,0) {
+  \textbf{Logistic Regression}\\[4pt]
+  \footnotesize $Y$ binary (0/1)\\
+  E.g.\ MCI diagnosis yes/no,\\
+  conversion to AD yes/no,\\
+  treatment response yes/no
+};
+\node[font=\normalsize\bfseries,mblue] at (0,0) {vs};
+\end{tikzpicture}
+\end{center}
+\vspace{0.4em}
+\small \textbf{Note}: extensions exist for ordinal outcomes (ordinal regression), counts (Poisson), time to event (Cox) --- but linear and logistic cover the majority of situations in neuropsychology.
+```
+
+# Linear Regression
+
+## The Model
+
+\small
+
+$$Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \ldots + \beta_p X_{pi} + \varepsilon_i$$
+
+where $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ (errors i.i.d., normal distribution).
+
+\vspace{0.4em}
+
+**Interpretation of coefficients** $\beta_j$:
+
+\begin{itemize}\footnotesize
+\item $\beta_0$: expected value of $Y$ when all predictors = 0 (intercept)
+\item $\beta_j$: expected change in $Y$ for a one-unit increase in $X_j$,\\ \textbf{while holding all other predictors constant}
+\end{itemize}
+
+\vspace{0.4em}
+
+**Estimation**: ordinary least squares (OLS) --- minimizes $\sum_i (Y_i - \hat{Y}_i)^2$.
+
+\vspace{0.4em}
+
+**Fit measures**:
+\begin{itemize}\footnotesize
+\item $R^2$: proportion of variance in $Y$ explained by the model
+\item Adjusted $R^2$: penalizes for the number of predictors
+\item RMSE (Root Mean Squared Error): mean error in units of $Y$
+\end{itemize}
+
+<!--
+## Visualization: Simple Regression
+
+```{=latex}
+% [SUGGESTED IMAGE: scatterplot with regression line and confidence bands,
+%  e.g., age vs MMSE score in MCI patients]
+\begin{center}
+\begin{tikzpicture}[scale=0.88]
+  \draw[thick,->] (0,0) -- (6.5,0) node[right,font=\small]{Age (years)};
+  \draw[thick,->] (0,0) -- (0,4.5) node[above,font=\small]{MMSE};
+
+  % Axis labels
+  \foreach \x/\lbl in {1/60, 2/65, 3/70, 4/75, 5/80}
+    \node[below,font=\tiny] at (\x*1.1,-0.15) {\lbl};
+  \foreach \y/\lbl in {0.5/20, 1.5/22, 2.5/24, 3.5/26, 4.2/28}
+    \node[left,font=\tiny] at (-0.1,\y) {\lbl};
+
+  % Confidence band
+  \fill[mblue!10] plot[smooth] coordinates
+    {(1.1,3.8)(2.2,3.3)(3.3,2.7)(4.4,2.1)(5.5,1.5)} --
+    plot[smooth,reverse path] coordinates
+    {(1.1,3.2)(2.2,2.8)(3.3,2.3)(4.4,1.7)(5.5,1.1)};
+
+  % Regression line
+  \draw[thick,mblue] (1.1,3.5) -- (5.5,1.3);
+
+  % Data points
+  \foreach \x/\y in {
+    1.2/3.7, 1.4/3.4, 1.8/3.6, 2.0/3.1, 2.3/2.9, 2.5/3.3,
+    2.8/2.7, 3.1/2.5, 3.3/2.8, 3.6/2.2, 3.9/2.0, 4.1/2.4,
+    4.3/1.9, 4.6/1.6, 4.8/2.0, 5.0/1.4, 5.3/1.2, 5.5/1.5
+  }{
+    \fill[mblue!70] (\x,\y) circle (2.2pt);
+  }
+
+  % Residual example
+  \draw[mred,dashed] (3.1,2.5) -- (3.1,2.1);
+  \node[right,font=\tiny,mred] at (3.15,2.3) {$\varepsilon_i$};
+
+  \node[font=\footnotesize,mblue] at (4.5,3.8)
+    {$\hat{Y} = 5.2 - 0.05 \cdot \text{Age}$};
+\end{tikzpicture}
+\end{center}
+\vspace{-0.4em}
+\small Each point is a MCI patient. The line is the OLS estimate. The gray bands are the 95\% CI of the line. Residuals $\varepsilon_i$ are the vertical distances between points and the line.
+```
+
+-->
+## Output of a Linear Regression (as it appears in an article)
+
+```{=latex}
+\vspace{-0.2em}
+\begin{center}
+\small
+\textbf{Table 1.} Predictors of MMSE score in patients with MCI ($N = 120$)
+\vspace{0.4em}
+
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Predictor} & $\boldsymbol{\hat{\beta}}$ & \textbf{SE} & \textbf{95\% CI} & $\boldsymbol{p}$ \\
+\midrule
+Intercept           & 34.21 & 2.18 & [29.90, 38.52] & $<.001$ \\
+\rowcolor{mblue!8}
+Age (years)           & $-0.18$ & 0.04 & [$-0.26$, $-0.10$] & $<.001$ \\
+Education (years)     & $+0.31$ & 0.07 & [$+0.17$, $+0.45$] & $<.001$ \\
+\rowcolor{mblue!8}
+Depression (GDS)    & $-0.22$ & 0.09 & [$-0.40$, $-0.04$] & $.018$  \\
+Sex (F vs M)       & $-0.41$ & 0.48 & [$-1.36$, $+0.54$] & $.393$  \\
+\midrule
+\multicolumn{5}{l}{\footnotesize $R^2 = .38$; \; $R^2_{\text{adj}} = .36$; \; $F(4, 115) = 17.6$, $p < .001$} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.2em}
+\footnotesize
+\textbf{Reading}: Each additional year of age is associated with a lower MMSE score of 0.18 points ($p < .001$), holding education, depression and sex constant. Sex is not a significant predictor in this model ($p = .393$).
+```
+
+## How to Read Coefficients (Linear Regression)
+
+\small
+
+**Continuous predictor** (e.g., education):
+
+$\hat{\beta} = +0.31$ means: for each additional year of education, the MMSE score increases by 0.31 points \emph{on average}, holding other predictors constant.
+
+\vspace{0.4em}
+
+**Binary categorical predictor** (e.g., sex F vs M):
+
+$\hat{\beta} = -0.41$ means: women have an MMSE score on average 0.41 points lower than men, holding other predictors constant. (Not significant: $p = .393$.)
+
+\vspace{0.4em}
+
+**95\% confidence interval**: the interval that, if we repeated the study infinitely many times, would contain the true parameter 95\% of the time. If the CI \textbf{does not include zero} $\Rightarrow$ significant at $\alpha = 0.05$.
+
+\vspace{0.4em}
+
+\textbf{Beware of units}: $\hat{\beta}$ depends on the measurement units of the predictor. To compare the relative importance of predictors with different scales, use \textbf{standardized coefficients} ($\beta^*$).
+
+# Logistic Regression
+
+## The Problem with a Binary Dependent Variable
+<!--
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[scale=0.88]
+  \draw[thick,->] (0,-0.3) -- (6.5,-0.3) node[right,font=\small]{MMSE};
+  \draw[thick,->] (0,-0.3) -- (0,3.8) node[above,font=\small]{AD Conversion (0/1)};
+  \node[left,font=\tiny] at (-0.1,-0.3) {0};
+  \node[left,font=\tiny] at (-0.1,3.3) {1};
+  \draw[dashed,gray!50] (0,3.3) -- (6.2,3.3);
+
+  % Data points at 0 and 1
+  \foreach \x in {1.0,1.5,2.0,2.3,2.8,3.2}
+    \fill[mred!70] (\x,3.3) circle (2.5pt);
+  \foreach \x in {3.5,4.0,4.5,5.0,5.5,6.0}
+    \fill[mblue!70] (\x,-0.3) circle (2.5pt);
+  \foreach \x in {2.5,3.0,3.8,4.2}
+    \fill[mblue!40] (\x,3.3) circle (2.5pt);
+  \foreach \x in {1.8,2.2,3.3}
+    \fill[mred!40] (\x,-0.3) circle (2.5pt);
+
+  % Linear fit (bad)
+  \draw[mred,thick,dashed] (0.5,3.8) -- (6.2,-0.5);
+  \node[right,font=\tiny,mred] at (5.5,0.5) {Linear: values $>1$ and $<0$!};
+
+  % Logistic curve (good)
+  \draw[mblue,very thick] plot[smooth,domain=0.3:6.2,samples=60]
+    (\x, {3.3/(1+exp(3*(\x-3.2)))});
+  \node[right,font=\tiny,mblue, align=center] at (4.5,2.3) {Logistic:\\always in $[0,1]$};
+\end{tikzpicture}
+\end{center>
+\vspace{-0.4em}
+\small Linear regression on $Y \in \{0,1\}$ can predict probabilities $<0$ or $>1$. \textbf{Logistic regression} directly models the probability of the event keeping it in $[0,1]$.
+```
+-->
+
+## The Logistic Model
+
+\small
+
+$$\log\left(\frac{p_i}{1-p_i}\right) = \beta_0 + \beta_1 X_{1i} + \ldots + \beta_p X_{pi}$$
+
+The term on the left is the **logit** (log-odds): the logarithm of the ratio of the probability of the event to the probability of the non-event.
+
+\vspace{0.3em}
+
+Inverting:
+$$p_i = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_{1i} + \ldots)}}$$
+
+\vspace{0.3em}
+
+**Estimation**: maximum likelihood (ML), not least squares.
+
+\vspace{0.3em}
+
+**Fit measures**:
+\begin{itemize}\footnotesize
+\item Log-likelihood, AIC, BIC (lower = better)
+\item Nagelkerke's $R^2$, McFadden's $R^2$ (pseudo-$R^2$, not identical to linear $R^2$)
+\item Hosmer-Lemeshow test (calibration)
+\item AUC-ROC (discrimination)
+\end{itemize}
+
+## The Odds Ratio: Intuition
+
+\small
+
+The coefficient $\hat{\beta}_j$ of logistic regression is not interpreted directly like in linear regression. We use the \textbf{Odds Ratio} (OR):
+
+$$OR_j = e^{\hat{\beta}_j}$$
+
+\vspace{0.3em}
+
+**What is odds?**
+
+$$\text{odds} = \frac{p}{1-p}$$
+
+If the probability of conversion to AD is 0.25, the odds are $0.25/0.75 = 0.33$ (1 conversion for every 3 non-conversions).
+
+\vspace{0.4em}
+
+**What is Odds Ratio?**
+
+It is the \emph{ratio} of odds in two conditions: treated vs untreated, or for a one-unit increase in $X$.
+
+$$OR = \frac{\text{odds}(\text{exposed})}{\text{odds}(\text{not exposed})}$$
+
+
+## The Odds Ratio: Practical Interpretation
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[scale=0.85,
+  arr/.style={-{Stealth},mblue,thick}
+]
+  \draw[thick,->] (0,0) -- (7,0);
+  \draw[thick] (3.5,0.15)--(3.5,-0.15);
+  \node[below,font=\small] at (3.5,-0.2) {OR = 1};
+  \node[below,font=\footnotesize,mred] at (1.2,-0.2) {OR $<$ 1};
+  \node[below,font=\footnotesize,mgreen] at (5.8,-0.2) {OR $>$ 1};
+  \node[above,font=\footnotesize,mred] at (1.2,0.3) {protective factor};
+  \node[above,font=\footnotesize,gray] at (3.5,0.3) {no effect};
+  \node[above,font=\footnotesize,mgreen] at (5.8,0.3) {risk factor};
+
+  % Example OR markers
+  \fill[mred]   (1.5,0) circle (4pt) node[above,font=\tiny,yshift=4pt]{OR=0.4};
+  \fill[gray]   (3.5,0) circle (3pt);
+  \fill[mgreen] (5.2,0) circle (4pt) node[above,font=\tiny,yshift=4pt]{OR=2.5};
+\end{tikzpicture}
+\end{center}
+\vspace{0.2em}
+```
+
+| OR | Interpretation |
+|--|--|
+| \footnotesize $OR = 1$ | \footnotesize No association |
+| \footnotesize $OR = 2.5$ | \footnotesize Exposed subjects have odds of the event 2.5 times those of unexposed |
+| \footnotesize $OR = 0.4$ | \footnotesize Exposed subjects have odds of the event 60\% \emph{lower} than unexposed |
+
+\vspace{0.2em}
+\footnotesize \textbf{Caution}: OR $\neq$ Relative Risk (RR). The OR overestimates RR when the prevalence of the outcome is high ($>10\%$). For low prevalences, OR $\approx$ RR.
+
+## Odds Ratio: Numerical Example
+
+\small
+
+Study of 200 MCI patients: 50 convert to AD within 2 years.
+
+\vspace{0.4em}
+
+```{=latex}
+\begin{center}
+\begin{tabular}{lcc>{\bfseries}c}
+\toprule
+ & \textbf{Convert} & \textbf{Do not convert} & \textbf{Total} \\
+\midrule
+APOE $\varepsilon4$ carriers     & 35 & 65 & 100 \\
+APOE $\varepsilon4$ non-carriers & 15 & 85 & 100 \\
+\midrule
+\textbf{Total}                   & 50 & 150 & 200 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.4em}
+```
+
+**Odds in carriers**: $35/65 = 0.538$
+
+**Odds in non-carriers**: $15/85 = 0.176$
+
+$$OR = \frac{0.538}{0.176} = \mathbf{3.06}$$
+
+\small Carriers of APOE $\varepsilon4$ have odds of conversion \textbf{3 times higher} than non-carriers.
+
+**Relative Risk**: $(35/100) / (15/100) = 2.33$ --- the OR overestimates because the prevalence (25\%) is not low.
+
+## Output of a Logistic Regression (as it appears in an article)
+
+```{=latex}
+\vspace{-0.2em}
+\begin{center}
+\small
+\textbf{Table 2.} Predictors of MCI $\to$ AD conversion at 2 years ($N = 200$; events = 50)
+\vspace{0.4em}
+
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Predictor} & $\boldsymbol{\hat{\beta}}$ & \textbf{OR} & \textbf{95\% CI (OR)} & $\boldsymbol{p}$ \\
+\midrule
+Intercept            & $-3.41$ & ---  & ---              & $<.001$ \\
+\rowcolor{mblue!8}
+Age (years)            & $+0.09$ & 1.09 & [1.03, 1.16]     & $.004$  \\
+MMSE baseline         & $-0.21$ & 0.81 & [0.72, 0.91]     & $<.001$ \\
+\rowcolor{mblue!8}
+APOE $\varepsilon4$   & $+1.12$ & 3.06 & [1.54, 6.08]     & $.001$  \\
+Hippocampal volume    & $-0.44$ & 0.64 & [0.45, 0.91]     & $.013$  \\
+Education (years)      & $-0.08$ & 0.92 & [0.81, 1.05]     & $.224$  \\
+\midrule
+\multicolumn{5}{l}{\footnotesize $R^2_{\text{Nagelkerke}} = .41$;\; AUC = .83;\; HL $\chi^2(8) = 6.2$, $p = .62$} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.2em}
+\footnotesize
+\textbf{Reading}: Each point lower on the baseline MMSE is associated with odds of conversion $1/0.81 = 1.23$ times higher (OR = 0.81 means that \emph{one point higher} is protective). APOE $\varepsilon4$ triples the odds of conversion (OR = 3.06). Education is not significant ($p = .224$).
+```
+
+
+## How to Read an OR from the Table
+
+\small
+
+**OR > 1** (e.g., APOE $\varepsilon4$, OR = 3.06):
+Each unit increase in the predictor increases the odds of the outcome by a factor of 3.06.
+\emph{"Carriers of APOE $\varepsilon4$ have odds of conversion approximately three times higher than non-carriers (OR = 3.06; 95\% CI [1.54, 6.08])"}
+
+\vspace{0.4em}
+
+**OR < 1** (e.g., MMSE, OR = 0.81):
+Each unit increase in the predictor reduces the odds of the outcome.
+\emph{"One point higher on baseline MMSE is associated with 19\% lower odds of conversion (OR = 0.81; 95\% CI [0.72, 0.91])"}
+
+\vspace{0.4em}
+
+**95\% CI that does not include 1**: significant at $\alpha = 0.05$.
+
+\vspace{0.4em}
+
+\textbf{Practical note}: in logistic regression, the \textbf{intercept is not interpreted} as in the linear model. It represents the log-odds of the outcome when all predictors are zero (often has no clinical sense).
+
+## OR vs RR vs Risk Difference: When to Use Them
+
+\small
+
+| Measure | Formula | When to use |
+|--|--|--|
+| \footnotesize OR | \footnotesize $\frac{p_1/(1-p_1)}{p_0/(1-p_0)}$ | \footnotesize Case-control studies; logistic models; rare outcomes |
+| \footnotesize RR | \footnotesize $p_1 / p_0$ | \footnotesize RCTs and cohort studies; outcomes with prevalence $>10\%$ |
+| \footnotesize RD | \footnotesize $p_1 - p_0$ | \footnotesize Communicating absolute risk to patients |
+| \footnotesize NNT | \footnotesize $1/(p_1 - p_0)$ | \footnotesize Clinical impact of a treatment |
+
+\vspace{0.3em}
+\small \textbf{Example}: OR = 3.06, but if prevalence is 10\%, RR $\approx$ 2.5 and RD $= 0.15$ (15 more cases per 100 exposed). Communicating the OR to a patient could make the effect seem larger than it is.
+
+\vspace{0.2em}
+\tiny Cummings (2009). The fallacy of the OR in clinical research. \emph{Am J Epidemiol} 171(6). Open Access: \url{https://doi.org/10.1093/aje/kwp440}
+
+# Model Selection
+
+
+## The Problem of Predictor Selection
+
+\small
+
+With many potential predictors, how do we choose which ones to include in the final model?
+
+\vspace{0.3em}
+
+**Fundamental trade-off**:
+\begin{itemize}\footnotesize
+\item Too few predictors $\Rightarrow$ \emph{underfitting}: imprecise model
+\item Too many predictors $\Rightarrow$ \emph{overfitting}: good on training data, does not generalize
+\end{itemize}
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[scale=0.82]
+  \draw[thick,->] (0,0) -- (6,0) node[right,font=\small]{Model complexity};
+  \draw[thick,->] (0,0) -- (0,3.5) node[above,font=\small]{Error};
+  % Training error
+  \draw[thick,mblue!50] plot[smooth]
+    coordinates {(0.5,2.8)(1.5,1.8)(2.5,1.2)(3.5,0.8)(4.5,0.5)(5.5,0.3)};
+  \node[right,font=\tiny,mblue!70] at (5.0,0.2) {Training};
+  % Validation error
+  \draw[thick,mblue] plot[smooth]
+    coordinates {(0.5,2.8)(1.5,1.6)(2.5,1.1)(3.0,1.0)(3.5,1.1)(4.5,1.6)(5.5,2.5)};
+  \node[right,font=\tiny,mblue] at (4.8,2.2) {Validation};
+  % Optimal
+  \draw[dashed,mred] (3.0,0) -- (3.0,3.2)
+    node[above,font=\tiny,mred]{Optimal};
+  \node[below,font=\tiny,mred] at (3.0,-0.15) {$p^*$};
+\end{tikzpicture}
+\end{center}
+```
+
+
+## Methods of Predictor Selection
+
+\small
+
+**Stepwise (forward, backward, both)**
+
+\begin{itemize}\footnotesize
+\item \emph{Forward}: start with no predictors, add one at a time the most significant
+\item \emph{Backward}: start with all, remove the least significant
+\item \emph{Stepwise}: combination forward + backward
+\end{itemize}
+
+\vspace{0.3em}
+
+**Selection based on information criteria**
+
+\begin{itemize}\footnotesize
+\item \textbf{AIC} (Akaike): penalizes for number of parameters; favors predictive models
+\item \textbf{BIC} (Bayesian): penalizes more severely; tends toward more parsimonious models
+\end{itemize}
+
+\vspace{0.3em}
+
+**Hierarchical selection (hierarchical / theoretical)**
+
+Predictors are added in theoretically motivated blocks, not based on statistical significance.
+
+## Problems with Stepwise Methods
+
+\small
+
+Automatic stepwise is \textbf{widely used and widely criticized}:
+
+\vspace{0.3em}
+
+\begin{itemize}\small
+\item \textbf{Type I error inflation}: with many predictors tested, the probability of finding at least one false positive explodes
+\item \textbf{Instability}: small variations in data produce very different final models
+\item \textbf{Overestimation of effect size}: the $\hat{\beta}$ of selected predictors is systematically overestimated (\emph{winner's curse})
+\item \textbf{Ignores theoretical structure}: a predictor may be excluded because it is correlated with others, not because it is irrelevant
+\item \textbf{Invalid $p$-values}: post-selection $p$-values do not have their nominal interpretation
+\end{itemize}
+
+\vspace{0.3em}
+\footnotesize \textbf{Practical recommendation}: prefer \textbf{theoretical/hierarchical} selection guided by hypotheses and DAGs. If stepwise is used, validate the model on an independent sample.
+
+\vspace{0.2em}
+\tiny Harrell (2015). \emph{Regression Modeling Strategies}. Springer. Introductory chapters Open Access: \url{https://hbiostat.org/rmsc/}
+
+## Hierarchical Regression
+
+\small
+
+Predictors are entered in **blocks** ordered theoretically, and the incremental contribution of each block is assessed through the change in $R^2$ (or log-likelihood in logistic regression).
+
+\vspace{0.3em}
+
+**Neuropsychological example**:
+
+```{=latex}
+\begin{center}
+\begin{tabular}{clcc}
+\toprule
+\textbf{Block} & \textbf{Predictors} & $\boldsymbol{R^2}$ & $\boldsymbol{\Delta R^2}$ \\
+\midrule
+1 & Demographic (age, education, sex) & .18 & .18*** \\
+2 & + Imaging biomarkers (hippocampal volume) & .29 & .11*** \\
+3 & + Neuropsychological scores (MMSE, memory) & .41 & .12*** \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.3em}
+```
+
+\small In this logic, each block is entered \textbf{for theoretical reasons}, not because it is significant. The $\Delta R^2$ answers the question: "Do biomarkers add explanatory power beyond demographic data alone?"
+
+# Model Diagnostics
+
+
+## Diagnostics of Linear Regression
+
+```{=latex}
+% [SUGGESTED IMAGE: the 4 classic diagnostic plots from R: Residuals vs Fitted,
+%  Normal Q-Q, Scale-Location, Residuals vs Leverage]
+```
+
+\small
+
+**Residuals** ($\hat{\varepsilon}_i = Y_i - \hat{Y}_i$) must satisfy the model's assumptions. The main diagnostic plots:
+
+\vspace{0.3em}
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}\footnotesize
+\item \textbf{Residuals vs Fitted}: must be random cloud (no pattern $\Rightarrow$ linearity OK, homoscedasticity OK)
+\item \textbf{Normal Q-Q}: residuals must follow the diagonal (normality of residuals)
+\end{itemize}
+\column{0.5\textwidth}
+\begin{itemize}\footnotesize
+\item \textbf{Scale-Location}: to verify homoscedasticity (constant variance)
+\item \textbf{Cook's distance / Leverage}: identifies influential points (\emph{outliers} that distort the line)
+\end{itemize}
+\end{columns}
+
+\vspace{0.4em}
+\small \textbf{In R}: \texttt{plot(model)} automatically produces these 4 plots. \texttt{car::vif(model)} computes VIF for multicollinearity.
+
+## Diagnostics: Common Problems
+
+\small
+
+**Multicollinearity**: two or more predictors are highly correlated with each other.
+
+\begin{itemize}\footnotesize
+\item Symptom: large SEs, unstable coefficients, sign changes when adding predictors
+\item Diagnosis: VIF (Variance Inflation Factor) --- VIF $> 5$--$10$ indicates a problem
+\item Solution: remove one of the correlated predictors, use PCA, or center variables
+\end{itemize}
+
+\vspace{0.3em}
+
+**Outliers and influential observations**:
+\begin{itemize}\footnotesize
+\item \emph{Outlier}: very large residual (subject poorly predicted)
+\item \emph{Leverage}: observation with extreme value in predictors
+\item \emph{Influential observation}: removing it substantially changes the model (Cook's $D > 1$)
+\end{itemize}
+
+\vspace{0.3em}
+
+**Heteroscedasticity**: residual variance is not constant (e.g., increases with $\hat{Y}$). Solution: transformation of $Y$ (e.g., log), or robust errors (HC).
+
+\vspace{0.3em}
+
+**Model specification**: non-linear relationship between $X$ and $Y$ --- add squared term or use GAM.
+
+## Diagnostics of Logistic Regression
+
+\small
+
+**Calibration**: does the model predict accurate probabilities?
+\begin{itemize}\footnotesize
+\item \textbf{Hosmer-Lemeshow test}: divides subjects into deciles of predicted probability and compares observed vs expected frequencies. $p > .05$ indicates good calibration.
+\item \textbf{Calibration plot}: predicted probability (x-axis) vs observed proportion (y-axis) --- the curve should lie close to the diagonal.
+\end{itemize}
+
+\vspace{0.3em}
+
+**Discrimination**: does the model distinguish cases from non-cases well?
+\begin{itemize}\footnotesize
+\item \textbf{AUC-ROC}: 0.5 = random, 1.0 = perfect. Values $> 0.75$--$0.80$ are considered acceptable in clinical practice.
+\item \textbf{Sensitivity and Specificity} at optimal cut-off (e.g., Youden Index).
+\end{itemize}
+
+\vspace{0.3em}
+
+**Complete separation** (\emph{perfect separation}): if a predictor perfectly separates the two groups, the model does not converge. Solution: penalized logistic regression (Firth).
+
+# The Problem of Predictor Inclusion
+
+## Not All Predictors Should Be Controlled
+
+\small
+
+A frequent error in practice: insert into the model \textbf{all available variables} or all those correlated with the outcome, without reasoning about causal structure.
+
+\vspace{0.4em}
+
+As discussed in \textbf{Section 3 (DAG)}, the type of variable included in the model changes the meaning of the estimated coefficient:
+\vspace{0.3em}
+
+```{=latex}
+\begin{center}
+\begin{tabular}{>{\footnotesize}l >{\footnotesize}l >{\footnotesize}p{4.8cm}}
+\toprule
+\textbf{Structure} & \textbf{Control?} & \textbf{Consequence if controlled} \\
+\midrule
+Confounder & \textbf{Yes} & Removes spurious association between $X$ and $Y$ \\
+Mediator  & \textbf{Depends} & Blocks part of the causal effect of $X$ on $Y$ \\
+Collider   & \textbf{No} & Introduces spurious association (selection bias) \\
+Irrelevant variable & \textbf{No} & Reduces statistical power and increases SE \\
+\bottomrule
+\end{tabular}
+\end{center}
+```
+
+\vspace{0.2em}
+\small $\Rightarrow$ \textbf{Model construction must start from a DAG, not from $p$-values.}\\
+\small $\Rightarrow$ For further information: \textbf{Section 3}, slides on DAGs, confounders and colliders.
+
+
+## The Collider in Regression: An Example
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  node/.style={circle,draw,fill=mblue!20,font=\footnotesize,
+               minimum size=1.1cm,inner sep=1pt,align=center},
+  coll/.style={circle,draw,fill=mred!20,font=\footnotesize,
+               minimum size=1.1cm,inner sep=1pt,align=center},
+  arr/.style={-{Stealth},mblue,thick},
+  spurious/.style={-{Stealth},mred,dashed,very thick}
+]
+\node[node, align=center] (dep)  at (-2.8,2)  {Depression\\(X)};
+\node[node, align=center] (cog)  at ( 2.8,2)  {Cognition\\(Y)};
+\node[coll, align=center] (osp)  at (0,0.5)   {\textbf{Hospital}\\admission\\(Collider K)};
+
+\draw[arr] (dep)--(osp);
+\draw[arr] (cog)--(osp);
+\draw[spurious] (dep) to[bend left=30]
+  node[above,font=\tiny,mred, align=center]{Spurious association\\if I control K} (cog);
+\end{tikzpicture}
+\end{center}
+\vspace{-0.3em}
+```
+
+\small Depression and cognition are independent in the general population. But both predict hospital admission. If we analyze \textbf{only hospitalized patients} (or control for hospital admission), we find an artificial \emph{negative} correlation between depression and cognition.
+
+\vspace{0.2em}
+\footnotesize This is \textbf{Berkson's bias} --- frequent in studies conducted on clinical samples.\\
+$\Rightarrow$ \textbf{Section 3} for further information.
+
+
+## The Rule of 10 (and 20) Events Per Predictor
+
+\small
+
+In logistic regression, the number of predictors that can be reliably estimated depends on the number of \textbf{events} (less frequent category), not the total number of subjects.
+
+\vspace{0.3em}
+
+**Classic empirical rule**: at least **10 events per predictor** (EPV = Events Per Variable).
+
+\vspace{0.3em}
+
+**Recent research**: the rule of 10 EPV may not be sufficient; 20 EPV or the use of shrinkage methods (Ridge, LASSO) is often recommended.
+
+\vspace{0.4em}
+
+**Practical example**:
+
+\begin{itemize}\footnotesize
+\item $N = 200$ MCI subjects, 40 convert to AD (EPV = 40)
+\item With EPV = 40 we can reliably estimate up to $\sim$4 predictors (rule of 10)
+\item Including 8 would cause overfitting even with $N = 200$
+\end{itemize}
+
+\vspace{0.2em}
+\tiny Riley et al.\ (2019). Minimum sample size for developing a multivariable prediction model. \emph{Stat Med}. Open Access: \url{https://doi.org/10.1002/sim.7993}
+
+---
+
+# Summary
+
+## Summary: Linear vs Logistic
+
+```{=latex}
+\begin{center}
+\begin{tabular}{>{\small}l >{\small}l >{\small}l}
+\toprule
+ & \textbf{Linear Regression} & \textbf{Logistic Regression} \\
+\midrule
+Outcome    & Continuous ($Y \in \mathbb{R}$) & Binary ($Y \in \{0,1\}$) \\
+Estimation      & Least squares (OLS) & Maximum likelihood \\
+Coefficient & $\hat{\beta}$: change in $Y$ & $\hat{\beta}$: change in log-odds \\
+Effect    & $\hat{\beta}$ direct & OR = $e^{\hat{\beta}}$ \\
+Fit        & $R^2$, RMSE & AUC, pseudo-$R^2$, HL \\
+Diagnostics & Residuals, Q-Q, Cook's $D$ & Calibration, separation \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.5em}
+\small \textbf{Golden rule common to both}: build the model based on theoretical hypotheses and DAGs, not on automatic stepwise or statistical significance.
+```
+
+## Open Access Resources
+
+\small
+
+\begin{itemize}\footnotesize
+
+\item \textbf{Harrell (2015). Regression Modeling Strategies}. Online materials:\\
+  \url{https://hbiostat.org/rmsc/}
+
+\item \textbf{Riley et al.\ (2019). Sample size for prediction models}. \emph{Stat Med}.\\
+  \url{https://doi.org/10.1002/sim.7993}
+
+\item \textbf{OR vs RR}: Cummings (2009). \emph{Am J Epidemiol} 171(6).\\
+  \url{https://doi.org/10.1093/aje/kwp440}
+
+\item \textbf{LASSO and Ridge}: Tibshirani (1996). \emph{J R Stat Soc B}. (Fundamental for shrinkage)\\
+  \url{https://doi.org/10.1111/j.2517-6161.1996.tb02080.x}
+
+\item \textbf{R package \texttt{rms}} (Harrell): advanced regression, calibration, validation.\\
+  \url{https://cran.r-project.org/package=rms}
+
+\item \textbf{DAGitty}: for building DAGs before choosing predictors.\\
+  \url{https://www.dagitty.net}
+
+\item \textbf{Sievert (2020). Interactive Web-Based Data Visualization with R} (plotly, ggplot2).\\
+  Open Access book: \url{https://plotly-r.com}
+
+\item \textbf{The Effect Book (Huntington-Klein)}: chapters on OLS and logistic regression.\\
+  \url{https://theeffectbook.net}
+
+\end{itemize}
+

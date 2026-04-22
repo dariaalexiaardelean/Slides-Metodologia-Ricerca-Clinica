@@ -1,0 +1,148 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: true
+header-includes:
+  - \setbeamerfont{title}{size=\large}
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{3. Test Selection}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+\date{\today}
+\maketitle
+```
+:::
+
+# Test Selection for Your Toolbox
+
+## Test Selection
+
+Two moments of test selection:
+
+1) **Selection of tests to include in your own "toolbox"**
+
+2) Selection of tests to use with a specific individual for a specific purpose.
+
+## \small Selection of Tests to Include in Your "Toolbox"
+
+*General rules to follow*
+
+Tests that have satisfactory psychometric characteristics (validity, reliability, adequate normative data, \underline{see following slides})
+
+It depends very much on practical factors: the type of clinical setting in which you use tests influences which tests you should potentially use.
+
+## \small Selection of Tests to Include in Your "Toolbox"
+
+*How to select tests?*
+
+\underline{Possible sources:}
+
+**Neuropsychologist's Kit**: a book produced by the Italian Society of Neuropsychology (for members) that contains references to almost all tests available in Italian (however, it is not very up-to-date and is hard to find).
+
+**Book "The Neuropsychological Examination of Adults"** (edited by Bianchi A.): contains a chapter that includes a rather extensive list of neuropsychological tests adapted to Italian.
+
+
+## \small Selection of Tests to Include in Your "Toolbox"
+
+*How to select tests?*
+
+\underline{Possible sources:}
+
+**Test publishing houses (Specialized Organizations, Eriksson)**: these are paid tests that guarantee a certain quality standard.
+
+
+## \small Selection of Tests to Include in Your "Toolbox"
+
+\begin{center}
+  \textbf{METHODS I SUGGEST}
+\end{center}
+
+**University instructors, future colleagues and experts in a certain field/pathology**: it is the best way (if you find someone willing to share the information).
+
+**Scientific articles/consensus specific to pathology**: Search (e.g., on scholar or pubmed) if there are guidelines or criteria and check if tests are validated/standardized in Italian.
+
+**Expectations from the clinical world**: it is possible that the clinical world expects certain tests. While the message to use the best possible tests remains, you must also consider that certain tests might be expected.
+
+## \small Selection of Tests to Include in Your "Toolbox"
+
+**Scientific articles/consensus**
+
+Remember that having the scientific article is often not enough. You also need the instruction manual and administration (and scoring) procedures and the test materials, any normative data tables.
+
+Use caution with tests that you do not have official references for (they may have "custom" modifications that alter the test).
+
+*Contact the authors of the test (the email is in the article) and ask if it is available.*
+
+## Test Selection to Include in Your "Toolbox"
+
+*What to avoid in test selection?*
+
+\begin{itemize}[<*>]
+  \item Avoid tests that are too old (if the normative data are too old they may not be usable) – \emph{we will explore this further}.
+  \item Avoid "homemade" tests: a test passed from a colleague without normative data (perhaps translated from an English test) can be appealing (and sometimes useful) but is limited in the information it can provide. - \emph{we will explore this further}.
+  \item Avoid tests that are simple translations from foreign tests, not "adapted" to Italian through proper validity, reliability, and normative data studies.
+\end{itemize}
+
+## Criteria for Selecting Tests for Clinical Evaluations
+
+```{=latex}
+\begin{columns}
+\column{0.7\textwidth}
+
+\textbf{1) Tests appropriate for the potential questions of the evaluations you will perform}
+
+\column{0.3\textwidth}
+
+\begin{figure}
+    \includegraphics[scale=0.04]{../Figures/triangle.png}
+\end{figure}
+
+\end{columns}
+\pause
+\vfill
+
+\begin{columns}
+\column{1\textwidth}
+
+\textbf{2) Tests with good psychometric capabilities}
+\begin{itemize}[<*>]
+  \item Tests with good validity
+  \item Tests with good reliability
+  \item Tests with good properties of other types (e.g., change values)
+  \item Tests with adequate normative data.
+\end{itemize}
+
+\column{0\textwidth}
+\end{columns}
+
+\vfill
+
+In general, do not forget the rationale: tests provide us with information, and part of that information comes from the characteristics of the tests.
+```
+
+## Test Selection
+
+![](../Figures/Active_collection.png)

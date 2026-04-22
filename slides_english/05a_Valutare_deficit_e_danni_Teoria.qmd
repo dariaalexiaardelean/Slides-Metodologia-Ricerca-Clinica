@@ -1,0 +1,849 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{05 - Assessing Deficits and Impairments - Theory}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+%\date{\today}
+\maketitle
+```
+
+# 5. Assessing Cognitive Deficits and Impairments
+
+## Measurements 1/2
+\center
+![](../Figures/thermometer_1.png){width="80%"}
+
+## Measurements 2/2
+
+\center
+![](../Figures/thermometer_2.png){width="80%"}
+
+
+<!--
+## Example
+
+:::{.smaller}
+\scriptsize
+_GH is a 68-year-old man, widowed and involved in a dispute with an insurance company. At the critical moment of our evaluation, he has just sustained a head injury following a minor traffic accident in which he hit his head and lost consciousness. His only son claims that as a consequence his father has experienced significant deterioration in cognitive functioning, manifesting as difficulty understanding what is said to him._
+
+_In GH's medical history, however, there is a relevant event. When he was younger (at age 30), while fixing the roof of a garage, GH fell from a ladder and hit his head. After going to the hospital, a head injury was not diagnosed, but shortly thereafter a series of events occurred: he lost the job he had held for a long time at a small company and divorced his wife._
+
+_Forensic neuropsychology comes into play for two reasons. The insurance company's consultants argue that GH's problem is related to the head injury sustained many years ago and therefore not related to the traffic accident. According to the consultants hired by GH, the impairment is not attributable to the previous (and undocumented) trauma, but only to the more recent one._
+:::
+
+## A case of forensic neuropsychological evaluation
+
+*What would be the primary purpose of a forensic neuropsychological evaluation of GH?*
+\pause
+\vfill
+Most often the purpose of a neuropsychological evaluation is to assess the presence of a cognitive deficit/impairment.
+-->
+
+## Assessing Cognitive Deficits
+
+In the following slides I will often use the terms deficit and impairment. **They are not synonymous**:
+
+**Cognitive Deficit**: a functional lack/defect on the cognitive level when compared with a reference group (often peers) or an expected developmental trajectory. Example: a person who is unable to read (with intact vision) has a cognitive deficit.
+
+\pause
+**Cognitive Impairment**: a deterioration in a cognitive ability from a previously attained condition, following an event (it may be circumscribed in time, such as a stroke, or not localizable, e.g., degeneration as in Alzheimer's disease).
+\vspace{2em}
+
+\footnotesize
+NOTE: this is not necessarily a universally shared terminology. The important aspect is to conceptually distinguish these two types of possibilities.
+
+## Impairment in a Forensic Context
+
+In the forensic context (Italian), psychological impairment is traditionally considered a subcategory of biological impairment, that is, injury to psychophysical integrity that is medically verifiable.
+
+In forensic impairment, it is essential to identify not only that deterioration has occurred, **but also that the impairment was caused by the event examined.**
+
+<!--
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{Assessing deficits}
+\end{center}
+
+GH's history is rather complex: some elements seem to suggest that the disturbances began after the first head injury, but the son claims that his father deteriorated after the recent accident.
+
+In case the interest is in the deficit, which we are interested in **not**, is which of the two events might have caused a possible cognitive deficit or impairment, but **whether there are elements that can explain his behavior**.
+
+In other words, in this case the interest is to understand whether the person has a cognitive disorder (regardless of cause).
+-->
+
+## Meaning of Test Scores
+
+Suppose we administer the Figurative Language 1 test from APACS (because we are satisfied with its Validity and Reliability) and suppose we obtain the score 10/15 (thus 75% of correct answers). What does this score tell us?
+\pause
+\begin{center}
+  \textbf{Test scores by themselves are minimally informative}
+\end{center}
+\pause
+
+
+## Meaning of Test Scores 1/2
+```{=latex}
+\begin{center}
+\begin{figure}
+\includegraphics[scale=0.06]{../Figures/triangle.png}
+\end{figure}
+\end{center}
+```
+
+Raw scores are minimally informative not only because the values depend on the range of scores (which is often arbitrary), but also because a high or low score depends greatly on how difficult (or easy) the test is.
+
+\textbf{To extract useful information, in neuropsychology test scores are often compared with reference data that help us classify the performance}.
+
+## Score Transformation and Cut-offs 2/2
+```{=latex}
+\begin{center}
+\begin{figure}
+\includegraphics[scale=0.06]{../Figures/triangle.png}
+\end{figure}
+\end{center}
+```
+
+To transform test scores into something interpretable and useful, a transformation is often made from the raw score \underline{to the percentile} \underline{of the population} \underline{that obtains that score}.
+
+Among transformed scores, specific thresholds are often particularly important, called **cut-offs**, which in the most widely used version delimit the 5% of worst performances.
+
+
+## Cut-offs and Statistics
+
+Although often unclear, comparing a score with a cut-off is configured as the application of a **statistical test** to reach a decision (statistical inference).
+
+The statistical tests used in clinical settings are often non-conventional because they are _applied to the single case_ (whereas much of inferential statistics estimates average effects referring to groups).
+
+
+## Normative Data and Cut-offs
+
+
+Cut-offs are score thresholds below which performance is considered deficient and (depending on the context) may reflect a cognitive impairment.
+
+Cut-offs are calculated from normative data and often correspond to the **5% of worst scores**.
+
+Cut-off thresholds are usually reported in tables, regardless of the method used to calculate them. Recently, software that transforms scores and automatically compares them with cut-offs is becoming increasingly widespread.
+
+## Example of Cut-offs Reported in Tables
+
+![](../Figures/cutoff_humor.png){width="90%" fig-align="center"}
+\begin{flushright}
+  From APACS (Arcara & Bambini, 2016)
+\end{flushright}
+
+## Assessing Cognitive Deficits/Impairments
+
+\begin{center}
+  \textbf{Cut-offs and Normative Data}
+\end{center}
+
+Normative data are data collected on subjects we assume to be normal. They serve to establish which performances we can consider normal and which cannot.
+\vspace{2em}
+
+We call the cut-offs calculated on normative data **cut-offs of normality**.
+
+## Assessing Cognitive Deficits/Impairments
+
+\begin{center}
+  \textbf{Cut-offs and Normative Data}
+\end{center}
+
+Although cut-offs and normative data are used daily in clinical neuropsychology, there is often shallow and confused knowledge of their meaning.
+\vspace{2em}
+
+This superficiality is reflected in the conclusions drawn from test results.
+
+<!--
+## Assessing Cognitive Deficits/Impairments
+
+\begin{center}
+  \textbf{The Rationale Behind Using Normative Data}
+\end{center}
+
+Example:
+
+We are asked (in a clinical or forensic context) to conduct a neuropsychological evaluation of a patient with severe autism involved in a crime.
+
+*What could be the purpose of the neuropsychological evaluation in this case?*
+\pause
+
+To assess whether there is a cognitive deficit that may have influenced committing the crime or, in general, to classify his performance and evaluate his abilities.
+-->
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{The Rationale Behind Using Normative Data in Case of Interest in Deficit}
+\end{center}
+
+When the interest is in assessing functional level, the purpose is to assess the person's level: if too low we infer that there is a deficit.
+
+When using neuropsychological tests for developmental ages or in the search for possible developmental disorders, the interpretation we estimate is whether the person is performing at a level consistent with their development.
+
+If it is too low we infer that there has been a developmental deficit.
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{The Rationale Behind Using Normative Data}
+\end{center}
+
+Example:
+
+We are asked in a clinical context to conduct a neuropsychological evaluation of a patient with head injury.
+
+*What could be the purpose of the neuropsychological evaluation?*
+\pause
+
+To assess whether a **change** (a cognitive impairment) has occurred, not to assess the subject's abilities per se.
+
+## Using Normative Data to Infer Cognitive Impairments
+
+![](../Figures/triangle.png){width="15%" fig-align="center"}
+
+*In case of a hypothetical impairment, if we had the test scores before the lesive event, we could compare them with those of our patient and see if there has been deterioration (thus a cognitive impairment following the trauma).*
+
+Since this information is practically never available, we estimate the expected score in the patient from people who are similar to him/her (thus from normative data).
+
+## Assessing Cognitive Deficits/Impairments
+
+\begin{center}
+  \textbf{The Rationale Behind Using Normative Data}
+\end{center}
+
+Specifically: if the patient's score is much lower than what people similar to him generally obtain, we infer that there is a deficit or that there has been a change over time—that is, that the patient has suffered a cognitive impairment.
+
+By convention (and for simplicity) we define people similar to him on the basis of age and education (but it is possible to include other variables). Generally these data are already provided by the test developer in the form of **normative data**.
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{Different Concepts of Normality}
+\end{center}
+
+We assume that the subjects in the normative data are normal, in the sense of being autonomous in daily life and without manifest cognitive deficits.
+
+When we compare a score with normative data and conclude that it is within the norm, we make a statistical inference based on the scores.
+
+In neuropsychology, reference is often made to the normal (or Gaussian) curve, which is a distribution with certain known statistical properties that are very useful.
+
+\begin{center}
+  \textbf{These are three different concepts of «normality»}
+\end{center}
+
+## The Concept of Normality in Normative Data
+
+\small
+From previous slide: "*We assume that the subjects in the normative data are **normal**, in the sense of being autonomous in daily life and without manifest cognitive deficits.*" But what exactly does this mean and in what sense are they "normal"?
+
+Theoretically it is reported with extreme detail what was meant by normal. Often it means: autonomous in daily life, free from manifest pathologies that may influence cognition (e.g., neurodegenerative diseases or schizophrenia, or neurodevelopmental disorders).
+
+In certain cases they can be more stringent (e.g., for those over 65 years old, medical examinations are required to exclude signs of dementia, e.g., imaging, etc.).
+Sometimes cognitive testing is also reported (e.g., MoCA > 20). The latter, however, is somewhat insidious, because the tests used could themselves be wrong and thus create bias in the normative data or circularity. On the other hand, without testing, the risk is including people with ongoing degenerative pathologies in the dataset.
+
+## Three Fundamental Aspects of Normative Data 1/3
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+\textbf{Normative data serve to estimate and classify the performance we would expect from a particular individual through data from people similar to the individual being evaluated.}
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Three Fundamental Aspects of Normative Data 2/3
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+\textbf{The fact that performance is below the cut-off of normality may have meaning or importance depending on the context and the question.}
+\vspace{1em}
+
+\small
+a) In the case of investigation of a developmental disorder, a performance below the cut-off is interesting in itself, indicating to us a \textbf{deficit}.
+
+b) in the case of suspected illness or acute disorder in adults, it is generally used to make an inference about a deterioration, thus an \textbf{impairment}, in the patient's cognitive state with respect to an event that may have a precise temporal location (e.g., stroke) or not (e.g., deterioration with a course related to Alzheimer's disease).
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Three Fundamental Aspects of Normative Data 3/3
+
+\begin{center}
+  \textbf{Three Fundamental Aspects of Cut-offs and Normative Data (3)}
+\end{center}
+\vspace{1em}
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+
+\textbf{In Forensic Neuropsychology, Interest in Deficit or Impairment Depends on Context and Question:}
+\vspace{1em}
+
+\small
+a) in the case of an examination to assess impairment following an event (e.g., examination to assess cognitive disturbances following head trauma), comparison with normative data is useful to infer an impairment (understood as deterioration from a pre-existing condition)
+
+b) in case of evaluations to assess the patient's level independently of the cause (e.g., assess capacity to understand and intend) then it is interesting to use normative data for classification of performance itself.
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Collection of Normative Data
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+
+% --- Your figure -------------------------------------------------------
+\node (img) at (0,0) {\includegraphics[width=0.7\textwidth]{../Figures/dati_normativi.png}};
+
+% Top-left
+\only<1>{\fill[white] (-3.5,3) rectangle (0,0);}
+
+% Top-right
+\only<1-2>{\fill[white] (-0.2,3) rectangle (3,0);}
+
+% Bottom-left
+\only<1-3>{\fill[white] (-3.5,0) rectangle (0,-3);}
+
+% Bottom-right
+\only<1-4>{\fill[white] (-0.2,0) rectangle (3,-3);}
+
+
+\end{tikzpicture}
+\end{center}
+\onslide<5> % <-- forces slide 5 to exist
+The vertical line indicates the \textbf{cut-off of normality}.
+
+\pause
+```
+
+
+## The Meaning of Cut-off of Normality
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+The cut-off is a particularly low score that we observe in few normal subjects and that we therefore infer is a sign of a cognitive deficit/impairment.
+\vspace{1em}
+
+Generally the cut-off is defined (arbitrarily) as the value that delimits the 5\% of lowest scores.
+\vspace{1em}
+
+NOTE: The cut-off does NOT tell us the probability that the subject is normal or has a cognitive impairment (see slides Assessing Cognitive Deficits and see Bayes, it's a somewhat subtle difference)
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## A Fundamental Aspect of Using Normative Data
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+\small
+In my definition of normative data an important element is that the comparison should be made with people similar to the person I need to test.
+\vspace{1em}
+
+But how do we define whether they are similar?
+\vspace{1em}
+
+How could we define the appropriate population for a normative comparison of a person who is 68 years old, attended only elementary school, and works as a farmer?
+Italians aged between 65 and 70 years?
+Italians who are exactly 68 years old and who attended only elementary school? Who work as farmers?
+\vspace{1em}
+
+\textbf{There is no univocal criterion for defining what it means to be similar, but the more elements of similarity there are, the better our comparison will be}
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+<!--
+## Deficit or Impairment?
+
+\small
+In this case the adequacy of the comparison may depend on the type of question: **classify the performance (i.e., estimate a deficit) or estimate an impairment**.
+
+If I want to **classify GH compared to his peers** (e.g., his deficit does not depend on the accident) I could simply use 68-year-old people. This is because it would tell me that, in general, compared to people aged 68 he has worse performances.
+
+If I want to **understand if GH has developed an impairment** following the accident, then I should use normative data as similar as possible to his state at the moment he sustained the hypothetical injury, to understand if a change has occurred.
+
+*Often, despite the different theoretical possibilities in comparison, the most similar normative data is chosen for the individual being evaluated.*
+-->
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{Another Fundamental Aspect of Cut-offs and Normative Data}
+\end{center}
+\vspace{2em}
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+At the level of operations to be performed, estimating a deficit vs. estimating an impairment are similar at the statistical level: both involve comparing performance with normative data (see previous slides for appropriate choice of comparison).
+
+What changes is the \textbf{interpretation} (see slides on Interpretation) which in one case can be that of a deficit, in another case that of an impairment.
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## A Reflection on Comparison with Normative Data
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+This is very important at a forensic level, because the test performance compared with cut-offs in itself does not tell us whether the patient has deteriorated before the relevant event (e.g., the patient has deficit from TBI) or whether it is a pre-existing deficit (it is a neurodevelopmental disorder).
+
+\textbf{Comparison with the cut-off tells us that observing that performance is highly unlikely if the patient were healthy (like the people in the normative data).}
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## One or More Cut-offs? 1/2
+
+\small
+Once a distribution of reference data is available, it is generally possible to classify the performance with respect to the entire distribution (this may depend on the method with which the data are analyzed).
+
+For example, it is possible to say whether the person has a performance lower than 20% or 30% compared to the reference sample/population (further details in the section: Assessing Cognitive Deficit Formulas).
+
+The absence of thresholds leads us, however (from a conceptual point of view) to a risk of the [[sorites paradox]{.underline}](https://it.wikipedia.org/wiki/Paradosso_del_sorite).
+
+It is not possible to clearly define when we move from normality to the presence of a "deficit/impairment". The sorites paradox teaches us that **categories derived from a continuous variable are and will always be arbitrary**.
+
+## One or More Cut-offs? 2/2
+
+However, having a decision threshold, however arbitrary, has heuristic utility.
+At some point we need to decide whether there is a problem or not and this tends to lead us to use categorical thresholds.
+
+See for example [\underline{this article}](https://journals.sagepub.com/doi/full/10.1177/09593543231160112) for a deeper look at the epistemic value of dichotomous choices, which applies well to this case.
+
+
+## Why This "Convoluted" Way of Defining Cognitive Deficit and Impairment?
+
+
+The way we define impairment and deficit (based on normal subjects) might seem convoluted. Why do we need to rely on this method?
+
+If we had an objective criterion (e.g., brain damage) to base ourselves on, it would be conceptually simpler. We could use that and use neuropsychological tests as tools to identify this type of damage (we would enter the realm of criterion validity, sensitivity, specificity, etc.; see slides on Validity and slides on Sensitivity and Specificity).
+
+## Why This "Convoluted" Way of Defining Cognitive Deficit and Impairment?
+
+The problem is methodological/epistemological. How can we define a deficit?
+
+How can we be sure there is a cognitive deficit?
+
+The problem is that it is not possible to define cognitive deficit in a non-circular manner, and for this reason we use this method *in reverse*. We define what is the **absence of cognitive deficit** (on a normative basis), and we infer the presence of deficit from this.
+
+## Why This "Convoluted" Way of Defining Cognitive Deficit and Impairment?
+
+The problem in this case is the absence of prior data that could help us understand whether there has been a deterioration or actual cognitive impairment.
+
+Using an observable datum (e.g., brain damage) would be risky and limiting. In many cases there can be cognitive impairment without apparent brain damage or vice versa (e.g., in head trauma).
+
+## Why This "Convoluted" Way of Defining Cognitive Deficit and Impairment?
+
+In such cases we estimate the presence of an impairment if the person has an abnormal score compared to the normative sample. In this case the passage is twofold:
+
+a) I am assuming that the person is well represented by the normative sample
+
+b) I am inferring that if their performance is low, there probably has been an impairment/deterioration.
+
+## Why This "Convoluted" Way of Defining Cognitive Deficit and Impairment?
+
+The fact of defining an **impairment** (thus a deterioration) based on comparison with normative data is a strategy to compensate for the fact that we do not have data before the suspected event that could have caused the deterioration.
+
+But remember that the use is only a strategy with its limits, based on an estimate of expected performance of the patient.
+
+## A Note on Defining Impairment: Example 1
+
+Suppose we have a test where the cut-off is 10 (5%) with high reliability and no ceiling effect. Suppose we test a patient with head injury to assess impairment.
+
+The patient obtained 14 (above the cut-off).
+
+It could be that before the event he had a score of 20 and the score of 14 might reflect a change not captured by comparison with the cut-off of 10 (see also slides on assessing change over time).
+
+## A Note on Defining Impairment: Example 2
+
+Suppose we have a test where the cut-off is 10 (5%) with high reliability and no ceiling effect. Suppose we test a patient with head injury to assess impairment.
+
+The patient obtained 8 (below the cut-off).
+
+The patient had 8 even before the head injury, in reality he has not deteriorated (see also slides on assessing change over time).
+
+## A Note on Defining Impairment
+
+\small
+The cut-off was inadequate because our tested patient was a patient with performance presumed to be already extreme (very high or low) compared to normative data.
+
+For the **assessment of impairment**, normative data work well (as designed) if the person is well represented by them and if they did not have (before the hypothetical event related to impairment) a performance at the extremes (low or high).
+
+*In the absence of any other information*, this is a reasonable assumption.
+
+We assume that our person had (before the impairment) a performance similar to most people similar to him.
+Other information (e.g., from case history, from qualitative aspects, from personal history) could suggest that instead the person is not well represented.
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{A Note on Defining Impairment}
+\end{center}
+
+The fact of having a score below (or above) the cut-off is only information related to some *probabilities* (few people similar to the tested patient obtain this performance), but the conclusions we draw from it are *interpretations*.
+
+Other information available to us could lead us to prefer one interpretation over another if they are strong enough to make us believe that comparison with normative data is not adequate or should be revised.
+
+Obviously this reasoning does not delegitimize the comparison with cut-offs (which remains a solid tool), but highlights some of its potential limits.
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{One or More Cut-offs?}
+\end{center}
+
+For this reason and for practical reasons, the conclusion that there is an impairment is often related to the cut-off of normality mentioned previously.
+
+For a clinical neuropsychologist, where it is possible from the statistical methods available, it is still useful to know the exact classification (e.g., 20%, 14% of the reference population and not simply above/below cut-off) because it could still be useful and informative.
+
+Example: a performance that delimits is at the 5.1% of the reference sample/population, would still be above the cut-off (exactly like one at 95%).
+
+## How Are Cut-offs Calculated?
+
+- Parametric methods (Mean, standard deviation, and Z score)
+- Non-parametric methods
+- Other methods (regressions)
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{Parametric Methods (Basic) for Calculating Cut-offs}
+\end{center}
+
+1) **Mean and standard deviation**. If the distribution is normal we can calculate the cut-off of the 5% of lowest scores as 1.64 standard deviations below the mean.
+
+2) **Z-score**. Similar to the previous method. If we transform the data into $Z$ scores, a score of -1.64 indicates the cut-off of the 5% of lowest scores.
+
+$$
+Z = \frac{X - M}{SD}
+$$
+$$
+\small
+\begin{aligned}
+X & = \text{score obtained by the subject} \\
+M & = \text{mean of the reference group} \\
+SD & = \text{standard deviation of the reference group} \\
+\end{aligned}
+$$
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{Parametric Methods (Basic) for Calculating Cut-offs}
+\end{center}
+\vspace{1em}
+
+![](../Figures/gaussiana.png){width="80%" fig-align="center"}
+\small
+*NOTE*: referring to the normal curve and transformation into $Z$ scores helps us identify percentiles, that is, values that delimit percentages of data.
+
+*Parametric methods can be used safely only if the distribution is normal (Gaussian)*
+
+
+## Assessing Cognitive Deficits
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+\begin{center}
+\textbf{normal distribution}
+\end{center}
+\vspace{1em}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/distr_norm.png}
+\end{figure}
+\textbf{ }
+
+\column{0.5\textwidth}
+
+\begin{center}
+\textbf{non-normal distribution}
+\end{center}
+\vspace{1em}
+\begin{figure}
+\includegraphics[scale=0.25]{../Figures/distr_nonnorm.png}
+\end{figure}
+
+\begin{center}
+test with \textbf{ceiling effect}
+\end{center}
+
+\end{columns}
+```
+
+## Assessing Cognitive Deficits
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+If z-scores are used with non-normal distributions, the correspondence between specific z-scores and percentages may not be respected.
+\vspace{2em}
+
+For example, -1.64 may not correspond to the value that delimits 5\% of lowest scores, leading to incorrect cut-off calculations.
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{ASIDE}
+
+  \textbf{Standardizing (transforming into z-score) is sometimes also called "normalizing", but it does not make the distribution \textit{normal}!}
+\end{center}
+
+![](../Figures/distribuzioni_normalizzate.png){width="100%" fig-align="center"}
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{Non-parametric Methods (Basic) for Calculating Cut-offs}
+\end{center}
+\vspace{2em}
+
+**Non-parametric percentiles** are the most common method of calculating cut-offs in case of non-normal distributions.
+
+The disadvantage of using percentiles is that it is not possible to use quick formulas to derive cut-offs at different percentiles (for example the 20% of worst scores) but it is necessary to have all the data available.
+
+## Assessing Cognitive Deficits
+
+\begin{center}
+  \textbf{Other (Advanced) Methods for Calculating Cut-offs}
+\end{center}
+\vspace{1em}
+
+There are other methods for calculating cut-offs. Most involve the use of regressions.
+
+The advantage, compared to methods involving stratification into bands, is that with these methods **there is no arbitrary stratification**.
+
+Examples:
+
+- Equivalent Scores method (Capitani & Laiacona, 2007)
+
+- Some Crawford methods (Crawford & Howell, 1998; Crawford & Garthwaite, 2006)
+
+## Sample and Population in Normative Data
+
+Normative data are data collected from a **sample** drawn from a **population**.
+
+However, the interest is always to compare the observed performance with population data. Some methods account for this difference, providing cut-offs that are an estimate of those that would be observed in the population.
+
+**These cut-offs are often lower** (less restrictive).
+
+The **Equivalent Scores method** (Capitani & Laiacona, 2007) and the **Crawford method** (Crawford & Howell, 1998; Crawford & Garthwaite, 2006) account for this difference. These methods should be considered more correct.
+
+## Demographic Variables in Normative Data
+
+Normative data are often calculated separately for age and education or other demographic variables, to appropriately compare the performance of a particular individual.
+
+Methods using regressions seek to model the effect of age and education and account for it.
+
+## Demographic Variables in Normative Data
+
+
+The "basic" methods described usually divide the sample into various subsamples and calculate different cut-offs for each subsample.
+
+- Generally separate values are provided for different combinations of age and education, divided into bands.
+
+- Correction tables may be provided (but rarely), or sometimes individual corrections (for example +2 for education <= 8).
+
+## Demographic Variables in Normative Data
+
+Methods using regressions do not subdivide the total sample. Generally they provide cut-offs in different modalities.
+
+- A single cut-off and correction tables.
+
+- A single cut-off and incomprehensible formulas to calculate the correction.
+
+- Tables with different cut-offs, for different combinations of age, education, or sex.
+
+## Demographic Variables in Normative Data
+
+![](../Figures/cutoff_humor.png){width="80%" fig-align="center"}
+
+$$
+\scalebox{0.85}{$
+sd_{Y_i-\hat{Y_i}} = \frac{SE_{Y-\hat{Y}}}{\sqrt{n}}\sqrt{n+1+\frac{z_{i,age}^2}{1-R_{age}^2}+\frac{z_{i,education}^2}{1-R_{i,education}^2}-2\frac{\beta_{education,age}z_{i,age}z_{i,education}}{1-R_{education}^2}}
+$}
+$$
+
+## Which is the Best Method for Calculating Cut-offs?
+
+\pause
+It depends.
+
+\pause
+Methods that distinguish between sample and population are preferable.
+
+Be cautious about indiscriminate use of z-scores (if the distribution of scores is not known)
+
+Be cautious with tests using regression-based methods. Sometimes they can lead to biased estimates, especially for extreme values of variables (age and education) (e.g., low education or high age).
+
+## Summary on Normative Data and Cut-offs
+
+\small
+- Normative data serve to estimate the performance we would expect from a certain individual through data from people similar to the individual being evaluated.
+
+- Comparison with normative data is made to perform an inference about a possible cognitive deficit (functional disorder, whether related to impairment or development or pre-existing) or impairment (deterioration) of the patient's cognitive state. Often the methods used are the same, what changes is the interpretation.
+
+- The cut-off (in general sense) is defined as the value that delimits the 5% of lowest scores.
+
+- There are various ways to calculate cut-offs.
+
+## Aspects to Consider When Using Normative Data
+
+As a general principle, in order to correctly estimate the performance of my subject (and make the comparison with normative data meaningful), the normative data must be representative. Below are some common questions examined.
+
+## Aspects to Consider When Using Normative Data (1)
+
+
+**1) Use Updated Normative Data**
+\vspace{2em}
+
+Normative data collected many years ago may not be adequate. This is related to the so-called Flynn effect (Flynn, 1987; Williams, 2013)
+
+## Aspects to Consider When Using Normative Data (2)
+
+**2) Especially for Assessing Impairment, it is Important that Individuals in Normative Samples are Similar to the Individual Being Evaluated. (large sample, but not similar is not useful).**
+\vspace{2em}
+
+A very large sample that is not representative is not useful.
+
+## Aspects to Consider When Using Normative Data
+
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+\textbf{3) Use Country-Specific Normative Data.}
+\vspace{1em}
+
+One cannot estimate performance based on data from subjects from other countries. \textbf{Simply translating a test does not make it usable.}
+
+It is not only a matter of language and adaptation (which already undermine test validity) but also related to sociocultural aspects that can render normative data inadequate. Having the same age and education does not make a subject comparable with normative data.
+The initial diffusion of the \textbf{MoCA} (Nasreddine et al., 2005) in Italy is a glaring example of this deeply incorrect practice.
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Aspects to Consider When Using Normative Data
+
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+\textbf{3) Use Country-Specific Normative Data.}
+\vspace{1em}
+
+The rationale for using normative data is to compare performance with the performance of people "similar to the person we intend to evaluate".
+
+Using norms from other countries is already itself a major difference. Comparing existing norms between countries, this can be verified empirically. Often they have very different threshold values (and cut-offs).
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{../Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Summary
+
+In clinical neuropsychology we are often called to assess two aspects:
+
+Is there a **cognitive deficit** or must we estimate the patient's general cognitive ability level? *This is done by comparing with normative data and classifying (often with percentages or above/below normal)*
+
+Was there a **cognitive impairment**?, that is, a deterioration? This is also done with normative data, but with a series of additional assumptions in the \underline{interpretation}.
+
+There are various mathematical methods (with pros and cons and more or less robust) for defining cut-offs and any other thresholds.

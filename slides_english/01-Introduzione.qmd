@@ -1,0 +1,151 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{1. Introduction}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+\date{\today}
+\maketitle
+```
+
+## Today's Lecture
+
+-   Presentation of the instructor and the course.
+-   Organizational aspects of the course.
+-   Learning objectives and "spirit" of the course.
+
+
+## Giorgio Arcara's CV
+
+\footnotesize
+
+-   Degree in Psychology at Unipd (2005)
+
+-   Master's in Neuropsychology of Acquired Cognitive Disorders (2006)
+
+-   Various post-docs at departments (psychology, engineering, neuroscience) <br>
+
+-   Since 2016 Researcher at IRCCS San Camillo, Venice.
+
+-   Since 2025 Associate Professor in Psychometrics - University of Padua.
+
+\pause
+![](../Figures/GEMS.png){width="60%" fig-align="right"}
+
+## Contacts and References
+\centering
+
+[[https://giorgioarcara.github.io]{.underline}](https://giorgioarcara.github.io)
+
+[[unipd personal page]{.underline}](https://www.dpg.unipd.it/category/ruoli/personale-docente?key=4D0707A2DD6FCCD50B90E4C9F316A625)
+
+[giorgio.arcara\@unipd.it](mailto:giorgio.arcara@unipd.it){.underline}
+
+
+## Organizational Aspects - Materials
+
+**I will share all the materials used and shown**
+
+```{=latex}
+The main materials are the slides and additional materials that will be provided to you during the course. You will also find the materials on the moodle page.
+```
+
+
+## Organizational Aspects - Materials
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+\small
+\emph{Mondini, S., Cappelletti, M., \& Arcara, G. (2022). Methodology in Neuropsychological Assessment: An Interpretative Approach to Guide Clinical Practice. Taylor \& Francis.}\\
+\vspace{1em}
+In-depth text, \textbf{not essential}.
+
+\column{0.5\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.5]{../Figures/Methodology_book.png}
+\end{figure}
+
+\end{columns}
+```
+## Organizational Aspects - Additional Materials
+
+-   Free book on basic statistics and R \href{https://learningstatisticswithr.com/}{\underline{https://learningstatisticswithr.com/}}
+
+-   Free book on psychometrics (more advanced)
+\href{https://personality-project.org/r/book/}{\underline{https://personality-project.org/r/book/}}
+
+-   Book in progress
+\href{https://giorgioarcara.github.io/oip-book/}{\underline{https://giorgioarcara.github.io/oip-book/}}
+
+## A Few Questions
+
+_Who among you thinks you will mainly work in clinical practice?_ \pause
+
+_Who among you thinks you will mainly work in research?_ \pause
+
+_Who among you thinks you will use tests in clinical practice?_
+
+## The Approach
+\centering
+
+**Learning-by-doing**
+
+**Active-learning**
+
+## Clinical Practice and Research
+\begin{center}
+\includegraphics[height=7cm]{../Figures/Separazione.png}
+\end{center}
+
+
+## Course Objectives
+
+- Explain how to use tests in clinical practice \pause
+- Explain the limitations of test use \pause
+- Explain foundations of clinical research (for those who work clinically)
+
+## A Step Back to Reflect
+
+\begin{center}
+\includegraphics[height=8cm]{../Figures/Stepping_back.png}
+\end{center}
+
+## Critical Use of LLMs (e.g., ChatGPT) for the Course 1/2
+
+Large Language Models (LLMs) like ChatGPT, commonly called artificial intelligence systems, are a great opportunity for technological innovation that deserves discussion. Below are some recommendations for appropriate use in this course.
+
+
+## Critical Use of LLMs (e.g., ChatGPT) for the Course 2/2
+
+- Do not seek answers, but seek a _guide_ to find information. LLMs function as advanced search engines, especially if the question is vague.
+
+- Use them to better understand certain concepts. If something is unclear, you can explicitly ask them to explain it in other terms or with other examples.
+
+- **Do not blindly trust what they say** but seek confirmation from reliable sources. LLMs often show behaviors called _hallucinations_ where they give plausible or credible answers that turn out to be wrong or completely made up.
+

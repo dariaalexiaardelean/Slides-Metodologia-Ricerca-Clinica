@@ -1,0 +1,302 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+```{=latex}
+% TITLE SLIDES
+\title{Clinical Research Methodology\\ \vspace{1em} \emph{10 - Test Interpretation}}
+\author{Giorgio Arcara,\\ University of Padua \\ IRCCS San Camillo, Venice}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{../Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\begin{center}
+\vspace{-2.2em}
+\includegraphics[scale=0.15]{../Figures/CC_license_3_0.png}
+\end{center}
+}
+%\date{\today}
+\maketitle
+```
+
+# Test Interpretation
+
+## Premise
+\small
+
+When studying the statistical aspects of tests in forensic neuropsychology, a criticality emerges.
+
+Often statistical aspects (e.g., Validity, Reliability, but also Type 1 Error, Type 2 Error), tell us information about tests in general or what error percentages we would expect if we made infinite repetitions with specific assumptions.
+
+In the practice of clinical and forensic neuropsychology, however, the interest is in providing a specific answer, often punctual regarding a specific individual, with maximum accuracy or precision possible: does he have a cognitive deficit? Is he simulating a deficit?
+
+The key aspect we will address is that answering these questions cannot be done without interpretation of the data, which takes into account not only test evidence but also other available evidence.
+
+## Interpretation
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+    % Include your image
+    \node[anchor=south west, inner sep=0] (image) at (0,0)
+        {\includegraphics[width=0.8\textwidth]{../Figures/Test_Methodology_transp.png}};
+
+    % Set coordinate system to match the image
+    \begin{scope}[x={(image.south east)}, y={(image.north west)}]
+
+        % Draw a red rectangle (thin border)
+        %\draw[red, thick, rounded corners] (0.25,0.3) rectangle (0.45,0.5);
+        % Optional label
+        %\node[red, font=\bfseries, above] at (0.35,0.5) {Region 1};
+
+        %\pause
+        % a red rectangle (thicker border)
+        \draw[red, ultra thick] (0.2, 0.01) rectangle (0.75,0.32);
+
+
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+```
+
+
+## Interpretation Does Not Mean Anything Goes
+
+One might think that an emphasis on "interpretation" means an emphasis on the subjectivity of the evaluator.
+
+```{=latex}
+\begin{center}
+\Large
+\pause
+\textbf{WRONG}
+\end{center}
+\pause
+\normalsize
+By interpretation is meant \underline{integration of all available evidence} to reach a conclusion about the patient's cognitive state.
+What is meant is that you cannot use a series of syllogisms to infer deficit (if score below cut-off → deficit), but that concluding a deficit is an interpretation of the evidence. Test scores represent part of the evidence.
+
+```
+
+## Interpretations
+
+Some interpretations are better than others.
+
+The most appropriate interpretations are those that integrate all available information.
+
+
+## Why "Interpretation" and not "Reading" of Results?
+\small
+
+If a test possesses evidence supporting that it measures a certain construct, we can reasonably believe that through the test we will measure that construct and we should always start with this presupposition. At the same time we must be aware that there are various occasions when the number does not reflect what it should reflect. Furthermore, it is known that every behavior is the result of the interaction of multiple cognitive functions (Lezak, 2000)
+
+However, there are numerous cases in which the test could lose validity and measure something else.
+
+- The context of neuropsychological measurement is particular precisely because it investigates a system that is potentially damaged in a complex manner.
+- in forensic evaluation cases, the complexity of possible cognitive deficit simulation is added.
+
+## An Example of Interpretation (1/2)
+\small
+
+_Suppose we have a patient, GH, who takes tests including the Figurative Language test, which investigates the ability to understand the use of language in metaphors, idioms, and proverbs (from APACS, Arcara and Bambini, 2016). GH actually performs below the normality cut-off (10 out of 15)._
+
+_Scenario 1: studying GH's personal history, it emerges that GH is known among friends for his keen sense of humor, so much so that he often stops at the bar to tell jokes to friends. Several people who know him confirm this story, saying that although he was not very educated, GH very much liked to make fun of others using plays on words._
+
+## An Example of Interpretation (2/2)
+\small
+_GH (see example) performs a series of tests on understanding figurative language in which he actually performs below the norm (10 out of 15)._
+
+_Scenario 2: studying GH's personal history it emerges that his language comprehension problems were very common and well known. At the bar, friends often teased him precisely because he seemed often not to understand what they were saying and often for this reason he would lose patience._
+
+## Examples of Interpretation
+\small
+The emphasis on interpretation indicates that you must consider the evidence available beyond the test score.
+
+In scenario 2, it would be difficult for a sensible interpretation to suggest that there is evidence of simulation. Scenario 1 instead seems to suggest it somewhat. It is the neuropsychologist's task to actively collect relevant evidence and reach a conclusion.
+
+Often (if not always) the conclusion will involve adding something, not deducing, which is precisely the _interpretation_ made by the neuropsychologist.
+
+## Not All Evidence Is Equal
+![](../Figures/triangle.png){fig-align="center" width="15%"}
+
+Saying that it is important to collect evidence does not mean that all evidence has equal weight and value.
+
+**The evidence based on objective data will always be stronger (and more convincing)**, on tests, on measurements, compared to qualitative aspects and personal opinions (e.g., "in my opinion he is still faking")
+
+
+## Not All Evidence Is Equal
+![](../Figures/triangle.png){fig-align="center" width="15%"}
+
+For any set of evidence multiple interpretations are possible.
+
+There is no mathematical formula for how to combine them, but there are worse and better interpretations that depend on how the available evidence is correctly considered.
+
+In many cases (especially forensic ones) it will not be easy to say that you have a "correct" interpretation in hand, but only an interpretation supported by the evidence.
+
+## Some Interpretations
+
+In the following slides, some examples of interpretations of aspects that are very common will be provided.
+
+- Interpretation of a below cut-off result as cognitive deficit
+- Interpreting pattern of results of different tests below the norm
+- Integrating information to interpret tests
+
+## \normalsize Interpretation of a Below Cut-off Result as Cognitive Deficit
+\small
+If my subject performs below cut-off in a short-term memory test and I conclude that there is cognitive damage, this is not simply "reading" the results, but is already **descriptive diagnosis**.
+
+The neuropsychologist is assuming:
+
+- That the test measured what it intended to measure \pause
+- That anxiety played a negligible role \pause
+- That the subject was sufficiently motivated and did not fake a deficit. \pause
+- That any damage to other cognitive functions did not play a crucial role. \pause
+- That the normative data were adequate to estimate the subject's performance. \pause
+
+Many of these assumptions are "implicit" and a good neuropsychologist (see principle 5 Interpretative Approach, in 1.Introduction), is aware of them
+
+## \normalsize Interpretation of a Below Cut-off Result as Cognitive Deficit
+\small
+
+It is important to emphasize that paying attention to implicit assumptions does not mean doubting everything.
+
+It means not underestimating those assumptions that are particularly critical because they might not be valid.
+
+Examples: \pause
+
+- in forensic context we cannot assume that the patient is not simulating.\pause
+- in various cases we cannot assume that normative data are adequate.\pause
+- we cannot assume that other cognitive functions not of interest have not influenced performance in a patient with suspected brain damage.
+
+## \normalsize Interpretation of a Below Cut-off Result as Cognitive Deficit
+
+Test interpretation should be done at the end of the evaluation, when all other information (also from other tests) is available
+
+One of the most common errors is interpreting evidence of a deficit as _definitive_ already at the first result obtained. This is true not only for deficits, but for any other type of information collected.
+
+## \normalsize Interpreting Patterns of Results from Different Tests Below the Norm
+
+What to conclude if more tests are below the normality cut-off?
+
+Multiple deficient tests may be related to a single cognitive deficit (e.g., attention) or to multiple deficits. \pause
+
+It is difficult to find logical principles to answer how to interpret these situations. \pause
+
+The neuropsychologist must integrate the information at their disposal in a sensible manner.
+
+## \normalsize Integrating Interpretation of Results on Constructs at Different Levels
+
+Be careful in integrating constructs at different levels.
+They must be done in a sensible manner, taking into account the different hierarchy of the constructs measured.
+
+It may not make sense to conclude that the subject has a deficit in a more generic construct when you have more detailed information.
+
+\pause
+
+\emph{Example: in APACS, the patient has a deficit in the Pragmatic Comprehension score, but made errors only in the Humor test, it does not make sense to generally conclude that there is a Comprehension deficit. We already have elements for a more specific interpretation.}
+
+## Integrating Information to Interpret Tests
+![](../Figures/triangle.png){fig-align="center" width="15%"}
+
+Test scores, the result of comparison with normative data and cut-offs are **information** that must be interpreted with other available information.
+
+## Integrating Information to Interpret Tests
+
+- Test results
+- Information from preliminary interview
+- Qualitative data that emerged during the evaluation
+- Information from family members
+
+Are all elements to be integrated to reach a **descriptive diagnosis** (what deficits) about the patient's cognitive state and the **diagnosis of compatibility with an etiology** (what etiology) of any neuropsychological disorder.
+
+In the forensic setting, it is also necessary to make hypotheses about presumed **causality** regarding the relevant event.
+
+## Information in Neuropsychological Evaluation
+
+Considering all the evidence collected in evaluations, information that can help in diagnosis are both tests and _clinical observation_ have great relevance and must be integrated to reach sensible conclusions.
+Psychometric aspects of tests (their reliability, validity, etc.)
+
+## Interpreting Ambiguous Cases
+
+Case 1: Performance at the borderline of normal.
+\pause
+_How to interpret these results?_
+\pause
+
+It depends. There is no rule for interpreting results at the borderline of normal.
+Interpretation depends on integration with all other available information. Remember that cut-offs help us estimate the subject's performance
+
+## Interpreting Ambiguous Cases
+
+Case 2: Subject who has age or education at the borderline between two bands.
+
+_How to interpret these results, with which band to compare?_
+
+Comparison with normative data helps us estimate the subject's performance. If the subject has age or education (or other variables) straddling two bands, probably the best thing is to compare performance with both cut-offs. The neuropsychologist will need to integrate this information with the others available to reach a conclusion.
+
+## An Example from Forensic Context (1/2)
+\scriptsize
+You are expert consultants for the case of an individual who claims a cognitive deficit following a workplace accident that prevents him from continuing to work. He claims significant disability and wants to be compensated by insurance. You are consultants for the insurance company to assess malingering risk.
+
+The protagonist is a 26-year-old man who worked as a warehouse manager. While working on a forklift, a large box fell and struck him on the head. In the impact he fell, lost his protective helmet and hit his head on the ground, losing consciousness. Taken to the emergency room, a head trauma and a series of fractures were confirmed. The patient was under observation for several days for the fractures and then discharged.
+
+In the following days he began to complain of memory problems and contacted his insurance company (which he had taken out 3 months before) for compensation for potential disability.
+
+## Forensic Evaluation Results
+\tiny
+
+
+| Neuropsychological Test                     | Domain Assessed                  | Score | Cut-off | Interpretation                    |
+|-----------------------------------------------------|-----------------------------------|------------------------|-----------------------|------------------------------------|
+| Trail Making Test – Part B        | Cognitive flexibility            | 240 sec                |  180 sec             |  deficient                  |
+| WCST – Perseverative Errors              | Problem solving / abstraction      | 32                     |  20                  |  deficient                    |
+| Tower of London – Total       | Planning                    | 5                     |  18                  | Deficient              |
+| RAVLT – Immed. Recall               | Verbal memory                   | 47                     |  38                  | Within normal                        |
+| Boston Naming Test (BNT)                 | Language                        | 49/60                  |  48/60               | deficient              |
+| SIMS – Total                  | Profile validity              | 15                     |  16                  | No malingering risk |
+
+
+
+##
+
+_What other information would you collect?_
+
+
+## Various Clarifications in the Example
+
+The patient has been spending most of his time playing video games and gambling (online) in his room since he stopped working. Especially he seems to spend most of the time playing poker, winning and losing depending on the day.
+
+The patient has very low scores even when corrected for age and education.
+
+
+# Conclusions
+
+## The Role of the Neuropsychologist in Evaluation
+
+Given the relevance of interpretations in test use, the neuropsychologist plays a key role.
+
+- Must know the properties of the tests they use to interpret them in a sensible manner
+
+- Must have a solid background in clinical neuropsychology, neuroanatomy, to be able to collect information during evaluation (in philosophy, "theoretical nature of observation")
+
+## Evaluation and Active Role
+
+![](../Figures/Active_collection_2.png)
+
